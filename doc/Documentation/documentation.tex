@@ -44,7 +44,7 @@
 		
 		\subsection{Backend-Architektur} \label{architecture.backend}
 			\paragraph*{}
-			Die Backend-Architektur besteht aus drei Ebenen. Die unterste Ebene bildet die Klasse \texttt{OkHttpConnection}, welche über das Interface \texttt{HttpConnection} implementiert ist. Die Klasse ist verantwortlich für den primitiven Netzwerkverkehr per HTTP mit beliebigen Inhalten. Es werden die HTTP-Methoden \texttt{GET}, \texttt{POST}, \texttt{PUT} und \texttt{DELETE} implementiert. Bei fehlerhaften Anfragen (HTTP-Code $\neq$ 2xx), sowie bei fehlerhaften URLs wird eine Exception geworfen.
+			Die Backend-Architektur besteht aus drei Ebenen (siehe Abbildung ~\ref{backendArchitecture}). Die unterste Ebene bildet die Klasse \texttt{OkHttpConnection}, welche über das Interface \texttt{HttpConnection} implementiert ist. Die Klasse ist verantwortlich für den primitiven Netzwerkverkehr per HTTP mit beliebigen Inhalten. Es werden die HTTP-Methoden \texttt{GET}, \texttt{POST}, \texttt{PUT} und \texttt{DELETE} implementiert. Bei fehlerhaften Anfragen (HTTP-Code $\neq$ 2xx), sowie bei fehlerhaften URLs wird eine Exception geworfen.
 			
 			\paragraph*{}
 			Auf der zweiten Ebene befinden sich die Klassen \texttt{KitchenConnection}, \texttt{LocalDataStore} und \texttt{JsonTranslator}.
@@ -58,7 +58,7 @@
 			\end{itemize}
 		
 			\paragraph*{}
-			Die Dritte Ebene beinhaltet nur die Klasse \texttt{KitchenManager}. Sie ist der Einstiegspunkte des Backend und stellt so alle Operationen zur Verfügung, welche die Oberfläche benötigt.
+			Die Dritte Ebene beinhaltet nur die Klasse \texttt{KitchenManager}. Sie ist der Einstiegspunkt des Backend und stellt so alle Operationen zur Verfügung, welche die Oberfläche benötigt.
 		
 			\begin{figure}[!h]
 				\centering
@@ -72,6 +72,12 @@
 	\section{Anhang: Bibliotheken} \label{bib}
 
 	\section{Anhang: Tests} \label{tests}
+		\subsection{Benutzeroberfläche}
 		
-	
+		\subsection{Backend}	
+			\begin{itemize}
+				\item OkHttpConnection: 
+				\item KitchenConnection:
+				\item KitchenManager:
+			\end{itemize}
 \end{document}
