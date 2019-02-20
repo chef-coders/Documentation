@@ -25,6 +25,3 @@
 -   Sven
     -   KitchenConnection
     
-## Class-Structure
-
-![](classStructure.png)
