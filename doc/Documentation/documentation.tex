@@ -28,7 +28,7 @@
 		
 	\section{Andwendung} \label{features}
 		\paragraph*{Start}
-		Beim Öffnen der Anwendung erscheint eine Login-Maske, sofern sich nicht in den Shared-Preferences des Android-Geräts bereits ein gültiges User-Token und eine passende User-Id befindet. In letzterem Fall wird der Nutzer anhand der Daten aus den Shared-Preferences eingeloggt. Falls keine Anmeldedaten vorhanden sind, wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung ~\ref{loginscreen}) erstellt. Das User-Token wird für die weitere Verwendung zwischengespeichert.
+		Beim Öffnen der Anwendung erscheint eine Login-Maske, sofern sich in den Shared-Preferences des Android-Geräts nicht bereits ein gültiges User-Token und eine passende User-Id befinden. Sind die Daten vorhanden, wird der Nutzer anhand dieser eingeloggt. Falls keine Anmeldedaten vorhanden sind, wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung ~\ref{loginscreen}) erstellt. Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
 	
 		\begin{figure}[!h]
 			\label{loginscreen}
@@ -38,23 +38,8 @@
 		\end{figure}
 	
 		\paragraph*{Haupt-Screen}
-		Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Main-Screen. Dieser zeigt eine Liste der kaufbaren Gegenstände. Ein Eintrag in Dieser Liste enthält folgende Komponenten:
-		
-		\begin{itemize}
-			\item Name: Name des ausgewählten Gegenstands
-			
-			\item Preis: Der Preis für einen Gegenstande des ausgewählten Typs
-			
-			\item Ausgewählte Anzahl: Zeigt an, wie viele Gegenstände des ausgewählten Typs man kaufen möchte. Sie erhöht sich mit jedem Klick auf den Eintrag.
-			
-			\item verfügbare Anzahl: Zeigt an, wie viele Gegenstände des ausgewählten Typs gekauft werden können. 
-		\end{itemize}
-	
-		Die Liste ist nach der Art der Gegenstände sortiert (Beispiel: Wasser, Saft, \ldots).
-		
-		\paragraph*{}
-		Ist der aktuelle Nutzer als Administrator ausgezeichnet, kann er mit dem +-Knopf in der unteren, rechten Ecke des Bildschirms neue Gegenstände hinzufügen.
-		
+		Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Main-Screen. Dieser zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
+
 		\begin{figure}[!h]
 			\label{mainscreen}
 			\centering
@@ -62,28 +47,106 @@
 			\caption{Haupt-Screen}
 		\end{figure}
 		
+		Ein Eintrag in dieser Liste enthält folgende Komponenten:
+		
+		\begin{itemize}
+			\item Den Namen des ausgewählten Gegenstands
+			
+			\item Den Preis für einen Gegenstande des ausgewählten Typs
+			
+			\item Die ausgewählte Anzahl der Gegenstände des ausgewählten Typs, welche man kaufen möchte. Sie erhöht sich mit jedem Klick auf den Eintrag. Wischt man hingegen von rechts nach links über den Eintrag, so wird die ausgewählte Anzahl auf 0 gesetzt. Die Anzahl wird nur angezeigt, wenn sie größer als 0 ist.
+			
+			\item Der Gesamtpreis für den Gegenstandstyp. Hierbei handelt es sich um den Kumulierten Preis (ausgewählte Anzahl $\cdot$ Preis) des Gegenstands. Dieser wird nur angezeigt, wenn mehr als ein Gegenstand des ausgewählten Typs verlangt wird.
+			
+			\item verfügbare Anzahl: Zeigt an, wie viele Gegenstände des ausgewählten Typs gekauft werden können. Sie kann aufgrund des Design der REST-API negativ werden.
+		\end{itemize}
+	
+		Die Liste ist nach der Art der Gegenstände sortiert (Beispiel: Wasser, Saft, \ldots).
+		
+		\paragraph*{Gegenstände hinzufügen}
+		Ist der aktuelle Nutzer als Administrator ausgezeichnet, kann er mit dem +-Knopf im oberen Banner des Main-Screen neue Gegenstände hinzufügen. Dazu müssen folgende Daten eingegeben werden:
+		
+		\begin{itemize}
+			\item Der Name des zu erstellenden Gegenstands.
+			
+			\item Der Preis des zu erstellenden Gegenstands.
+			
+			\item Die Menge, in der der Gegenstand verfügbar ist.
+			
+			\item Die Art des Gegenstands. Hier wird aus einem Drop-Down-Menu eine Art ausgewählt.
+		\end{itemize}
+	
+		Das Hinzufügen eines Gegenstandes benötigt eine eindeutige ID. Diese wird automatisch generiert und am oberen Bildschirmrand angezeigt (siehe Abbildung ~\ref{createItem}).
+	
+		\begin{figure}[!h]
+			\label{createItem}
+			\centering
+			\includegraphics[scale=0.5]{./figures/placeholder.png}
+			\caption{Erzeugung eines Gegenstandes}
+		\end{figure}
+	
+		\paragraph*{Gegenstände kaufen}
+		Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button der Warenkorb-Screen geöffnet. Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragsstruktur. Auch hier können durch einen Klick auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden. Durch einen Klick Löschen-Button kann der komplette Einkauf gelöscht werden. Durch einen Klick auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung ~\ref{shoppingCartCheck}) mit einer Abfrage, ob der Kauf durchgeführt werden soll. Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt. Beim Klick auf \glqq yes\grqq{} wird der Kauf getätigt und man wird auf den Main-Screen weitergeleitet. Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgreich war (siehe Abbildung ~\ref{purchaseSuccess}).
+		
+		\begin{figure}[!h]
+			\label{shoppingCartCheck}
+			\centering
+			\includegraphics[scale=0.5]{./figures/placeholder.png}
+			\caption{Letzte Bestätigung vor Kauf}
+		\end{figure}
+		
+		\begin{figure}[!h]
+			\label{purchaseSuccess}
+			\centering
+			\includegraphics[scale=0.5]{./figures/placeholder.png}
+			\caption{Pop-Up nach erfolgreichem Einkauf}
+		\end{figure}
+		
+		\paragraph*{Verwaltung}
+		Mittels des Kontext-Menu-Button in der oberen, rechten Bildschirmecke kann ein Kontext-Menu aufgerufen werden, welches folgende Funktionalität bietet:
+		
+		\begin{itemize}
+			\item Anzeigen des Nutzernamen im oberen Banner, falls der Nutzer ein Administrator ist, wird dies hinter dem Namen angezeigt.
+			
+			\item Link zum Main-Screen: Bei einem Klick erfolgt eine Weiterleitung auf den Main-Screen.
+			
+			\item Liste getätigter Einkäufe: Bei einem Klick auf diesen Eintrag erfolgt eine Weiterleitung auf einen Screen, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
+			
+			\item Clear UserData: Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht. Es erfolgt eine Weiterleitung auf den Login-Screen. Eine erneute Anmeldung ist aufgrund des Design der REST-API nicht möglich, ein neuer Nutzer kann jedoch angelegt werden.
+		\end{itemize}
+	
+		\begin{figure}[!h]
+			\label{purchases}
+			\centering
+			\includegraphics[scale=0.5]{./figures/placeholder.png}
+			\caption{Liste getätigter Einkäufe}
+		\end{figure}	
+	
+		\paragraph*{Barcode-Scanner}
+		Durch einen Klick auf das Kamera-Icon in der oberen, rechten Ecke des Main-Screen (siehe Abbildung ~\ref{mainscreen}) öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner. Hiermit kann der Nutzer Barcodes einscannen und Gegenstände anlegen, falls die ID des Barcode nicht in der Datenbank vorhanden ist und der Nutzer ein Administrator ist. Alternativ kann der Nutzer den Gegenstand kaufen, falls dieser bereits in der Datenbank registriert ist.
 	
 	\section{Architektur} \label{architecture}
 		\subsection{Datenmodell} \label{architecture.datamodel}
 			\paragraph*{}
 			Das Datenmodell umfasst drei Klassen: \texttt{Item}, \texttt{User}, \texttt{Purchase}. Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben die in Abbildung ~\ref{datamodel} gezeigte Struktur.
 		
-		\begin{figure}[!h]
-			\label{datamodel}
-			\centering
-			\includegraphics[scale=0.5]{./figures/placeholder.png}
-			\caption{Datenmodell}
-		\end{figure}
-		
+			\begin{figure}[!h]
+				\label{datamodel}
+				\centering
+				\includegraphics[scale=0.5]{./figures/placeholder.png}
+				\caption{Datenmodell}
+			\end{figure}
 		
 		\subsection{Frontend-Architektur} \label{architecture.frontend}
 		
-		
 		\subsection{Backend-Architektur} \label{architecture.backend}
 			\paragraph*{}
-			Die Backend-Architektur besteht aus drei Ebenen (siehe Abbildung ~\ref{backendArchitecture}). Die unterste Ebene bildet die Klasse \texttt{OkHttpConnection}, welche über das Interface \texttt{HttpConnection} implementiert ist. Die Klasse ist verantwortlich für den primitiven Netzwerkverkehr per HTTP mit beliebigen Inhalten. Es werden die HTTP-Methoden \texttt{GET}, \texttt{POST}, \texttt{PUT} und \texttt{DELETE} implementiert. Bei fehlerhaften Anfragen (HTTP-Code $\neq$ 2xx), sowie bei fehlerhaften URLs wird eine Exception geworfen.
+			Die Backend-Architektur besteht aus drei Ebenen (siehe Abbildung ~\ref{backendArchitecture}).
 			
-			\paragraph*{}
+			\paragraph*{Base-Layer}
+			Die unterste Ebene bildet die Klasse \texttt{OkHttpConnection}, welche über das Interface \texttt{HttpConnection} implementiert ist. Die Klasse ist verantwortlich für den primitiven Netzwerkverkehr per HTTP mit beliebigen Inhalten. Es werden die HTTP-Methoden \texttt{GET}, \texttt{POST}, \texttt{PUT} und \texttt{DELETE} implementiert. Bei fehlerhaften Anfragen (HTTP-Code $\neq$ 2xx), sowie bei fehlerhaften URLs wird eine Exception geworfen.
+			
+			\paragraph*{Abstraction-Layer}
 			Auf der zweiten Ebene befinden sich die Klassen \texttt{KitchenConnection}, \texttt{LocalDataStore} und \texttt{JsonTranslator}.
 			
 			\begin{itemize}
@@ -94,7 +157,7 @@
 				\item \texttt{JsonTranslator} ist verantwortlich für die bidirektionale Umwandlung zwischen Objekten des Datenmodells und JSON-Strings. Die verwendete Bibliothek für die Umwandlung ist Google's \texttt{GSON}.
 			\end{itemize}
 		
-			\paragraph*{}
+			\paragraph*{Access-Layer}
 			Die Dritte Ebene beinhaltet nur die Klasse \texttt{KitchenManager}. Sie ist der Einstiegspunkt des Backend und stellt so alle Operationen zur Verfügung, welche die Oberfläche benötigt.
 		
 			\begin{figure}[!h]
