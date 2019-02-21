@@ -24,27 +24,27 @@
 		Auf Basis einer Datenbank können Gegenstände angelegt, gekauft und gelöscht werden. Ein dazu benötigter Nutzer wird ebenfalls in der Datenbank gespeichert. Der Zugriff auf die Datenbank erfolgt über eine REST-API, welche alle notwendigen Operationen bereitstellt.
 		
 		\paragraph*{Inhalt}
-		In Abschnitt ~\ref{features} werden die von der App bereitgestellten Features vorgestellt. Abschnitt ~\ref{architecture} erklärt die Anwendungsstruktur aus technischer Sicht, jeweils für Datenmodell (Abschnitt ~\ref{architecture.datamodel}), die Oberflächen-Architektur (Abschnitt ~\ref{architecture.frontend}) und die zugrunde liegende Grundstruktur inklusive Netzwerkverkehr (Abschnitt ~\ref{architecture.backend}).
+		In Abschnitt ~\ref{features} werden die von der App bereitgestellten Features vorgestellt. Abschnitt ~\ref{architecture} erklärt die Anwendungsstruktur aus technischer Sicht, jeweils für Datenmodell (Abschnitt ~\ref{architecture::datamodel}), die Oberflächen-Architektur (Abschnitt ~\ref{architecture::frontend}) und die zugrunde liegende Grundstruktur inklusive Netzwerkverkehr (Abschnitt ~\ref{architecture::backend}).
 		
 	\section{Andwendung} \label{features}
 		\paragraph*{Start}
 		Beim Öffnen der Anwendung erscheint eine Login-Maske, sofern sich in den Shared-Preferences des Android-Geräts nicht bereits ein gültiges User-Token und eine passende User-Id befinden. Sind die Daten vorhanden, wird der Nutzer anhand dieser eingeloggt. Falls keine Anmeldedaten vorhanden sind, wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung ~\ref{loginscreen}) erstellt. Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
 	
 		\begin{figure}[!h]
-			\label{loginscreen}
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
 			\caption{Login-Screen}
+			\label{loginscreen}
 		\end{figure}
 	
 		\paragraph*{Haupt-Screen}
 		Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Main-Screen. Dieser zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
 
 		\begin{figure}[!h]
-			\label{mainscreen}
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
 			\caption{Haupt-Screen}
+			\label{mainscreen}
 		\end{figure}
 		
 		Ein Eintrag in dieser Liste enthält folgende Komponenten:
@@ -79,27 +79,27 @@
 		Das Hinzufügen eines Gegenstandes benötigt eine eindeutige ID. Diese wird automatisch generiert und am oberen Bildschirmrand angezeigt (siehe Abbildung ~\ref{createItem}).
 	
 		\begin{figure}[!h]
-			\label{createItem}
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
 			\caption{Erzeugung eines Gegenstandes}
+			\label{createItem}
 		\end{figure}
 	
 		\paragraph*{Gegenstände kaufen}
 		Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button der Warenkorb-Screen geöffnet. Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragsstruktur. Auch hier können durch einen Klick auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden. Durch einen Klick Löschen-Button kann der komplette Einkauf gelöscht werden. Durch einen Klick auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung ~\ref{shoppingCartCheck}) mit einer Abfrage, ob der Kauf durchgeführt werden soll. Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt. Beim Klick auf \glqq yes\grqq{} wird der Kauf getätigt und man wird auf den Main-Screen weitergeleitet. Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgreich war (siehe Abbildung ~\ref{purchaseSuccess}).
 		
 		\begin{figure}[!h]
-			\label{shoppingCartCheck}
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
 			\caption{Letzte Bestätigung vor Kauf}
+			\label{shoppingCartCheck}
 		\end{figure}
 		
 		\begin{figure}[!h]
-			\label{purchaseSuccess}
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
 			\caption{Pop-Up nach erfolgreichem Einkauf}
+			\label{purchaseSuccess}
 		\end{figure}
 		
 		\paragraph*{Verwaltung}
@@ -116,30 +116,30 @@
 		\end{itemize}
 	
 		\begin{figure}[!h]
-			\label{purchases}
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
 			\caption{Liste getätigter Einkäufe}
+			\label{purchases}
 		\end{figure}	
 	
 		\paragraph*{Barcode-Scanner}
 		Durch einen Klick auf das Kamera-Icon in der oberen, rechten Ecke des Main-Screen (siehe Abbildung ~\ref{mainscreen}) öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner. Hiermit kann der Nutzer Barcodes einscannen und Gegenstände anlegen, falls die ID des Barcode nicht in der Datenbank vorhanden ist und der Nutzer ein Administrator ist. Alternativ kann der Nutzer den Gegenstand kaufen, falls dieser bereits in der Datenbank registriert ist.
 	
 	\section{Architektur} \label{architecture}
-		\subsection{Datenmodell} \label{architecture.datamodel}
+		\subsection{Datenmodell} \label{architecture::datamodel}
 			\paragraph*{}
 			Das Datenmodell umfasst drei Klassen: \texttt{Item}, \texttt{User}, \texttt{Purchase}. Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben die in Abbildung ~\ref{datamodel} gezeigte Struktur.
 		
 			\begin{figure}[!h]
-				\label{datamodel}
 				\centering
 				\includegraphics[scale=0.5]{./figures/datamodel.png}
 				\caption{Datenmodell}
+				\label{datamodel}
 			\end{figure}
 		
-		\subsection{Frontend-Architektur} \label{architecture.frontend}
+		\subsection{Frontend-Architektur} \label{architecture::frontend}
 		
-		\subsection{Backend-Architektur} \label{architecture.backend}
+		\subsection{Backend-Architektur} \label{architecture::backend}
 			\paragraph*{}
 			Die Backend-Architektur besteht aus drei Ebenen (siehe Abbildung ~\ref{backendArchitecture}).
 			
@@ -162,10 +162,10 @@
 		
 			\begin{figure}[!h]
 				\centering
-				\label{backendArchitecture}
 				\includegraphics[scale=0.5]{./figures/classStructure.png}
 				\caption{Backend Architektur}
-			\end{figure}
+				\label{backendArchitecture}	
+		\end{figure}
 
 			\paragraph*{Tests}
 			Alle Backend-Klassen sind durch Unit-, Integrations- und Akzeptanz-Tests ausreichend getestet.
