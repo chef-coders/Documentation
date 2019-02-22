@@ -25,15 +25,19 @@
 	\newpage
 
 	\section{Einleitung}\label{sec:einleitung}
-	\paragraph*{Ziele}
+
+	\subsection{Ziele}\label{subsec:ziele}
+
 	Ziel des Projektes war es, im Rahmen der Veranstaltung \glqq Code Camp 1: Context Awareness\grqq{} eine Android-basierte Anwendung zur Verwaltung und Aufzeichnung der Einkäufe, welche in der ComTec-Küche getätigt werden, zu erstellen.
 
-	\paragraph*{Funktionsweise}
+	\subsection{Funktionsweise}\label{subsec:funktionsweise}
+
 	Auf Basis einer Datenbank können Gegenstände angelegt, gekauft und gelöscht werden.
 	Dazu benötigte Nutzer werden ebenfalls in der Datenbank gespeichert.
 	Der Zugriff auf diese erfolgt über eine REST-API, welche alle notwendigen Operationen bereitstellt.
 
-	\paragraph*{Überblick}
+	\subsection{Überblick}\label{subsec:überblick}
+
 	Nutzer erhalten bei der Registrierung ein Token, welches für den Zugriff über die REST-API benötigt wird.
 	Dieses wird in der Anwendung zwischengespeichert, sodass ein Nutzer mit gültigem Token automatisch angemeldet wird, wenn die Anwendung startet. \\
 	Der Fokus der Anwendung liegt auf dem Kauf von Gegenständen.
@@ -49,14 +53,17 @@
 	Zwecks Verwaltung ist es als Administrator ausgezeichneten Nutzern möglich neue Gegenstände wahlweise mit automatisch generierter ID oder dem Barcode-Scanner anzulegen.
 
 	% REVIEW: Update, wenn neue Sections hinzugefügt werden
-	\paragraph*{Inhalt}
+	\subsection{Inhalt}\label{subsec:inhalt}
+
 	In Abschnitt ~\ref{sec:features} werden die von der App bereitgestellten Features vorgestellt.
 	Abschnitt ~\ref{sec:architecture} erklärt die Anwendungsstruktur aus technischer Sicht, jeweils für Datenmodell (Abschnitt ~\ref{subsec:datamodel}), die Oberflächen-Architektur (Abschnitt ~\ref{subsec:frontend}) und die zugrunde liegende Grundstruktur inklusive Netzwerkverkehr (Abschnitt ~\ref{subsec:backend}).
 
 
 	% REVIEW: neue Features einfügen und ausreichend erklären. Bilder und Referenzen.
 	\section{Anwendung}\label{sec:features}
-	\paragraph*{Start}
+
+	\subsection{Start}\label{subsec:start}
+
 	Beim Öffnen der Anwendung erscheint eine Login-Maske, sofern sich in den Shared-Preferences des Android-Geräts nicht bereits ein gültiges User-Token und eine passende User-Id befinden.
 	Sind die Daten vorhanden, wird der Nutzer anhand dieser eingeloggt.
 	Falls keine Anmeldedaten vorhanden sind, wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung ~\ref{loginscreen}) erstellt.
@@ -70,7 +77,8 @@
 		\label{loginscreen}
 	\end{figure}
 
-	\paragraph*{Haupt-Screen}
+	\subsection{Haupt-Screen}\label{subsec:haupt-screen}
+
 	Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Main-Screen.
 	Dieser zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
 
@@ -104,7 +112,8 @@
 
 	Die Liste ist nach der Art der Gegenstände sortiert (Beispiel: Wasser, Saft, \ldots).
 
-	\paragraph*{Gegenstände hinzufügen}
+	\subsection{Gegenstände hinzufügen}\label{subsec:gegenstände-hinzufügen}
+
 	Ist der aktuelle Nutzer als Administrator ausgezeichnet, kann er mit dem +-Knopf im oberen Banner des Main-Screen neue Gegenstände hinzufügen.
 	Dazu müssen folgende Daten eingegeben werden:
 
@@ -129,7 +138,8 @@
 		\label{createItem}
 	\end{figure}
 
-	\paragraph*{Gegenstände kaufen}
+	\subsection{Gegenstände kaufen}\label{subsec:gegenstände-kaufen}
+
 	Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button der Warenkorb-Screen geöffnet.
 	Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragsstruktur.
 	Auch hier können durch einen Klick auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden.
@@ -155,7 +165,8 @@
 		\label{purchaseSuccess}
 	\end{figure}
 
-	\paragraph*{Verwaltung}
+	\subsection{Verwaltung}\label{subsec:verwaltung}
+
 	Mittels des Kontext-Menu-Button in der oberen, rechten Bildschirmecke kann ein Kontext-Menu aufgerufen werden, welches folgende Funktionalität bietet:
 
 	\begin{itemize}
@@ -178,14 +189,16 @@
 		\label{purchases}
 	\end{figure}
 
-	\paragraph*{Barcode-Scanner}
+	\subsection{Barcode-Scanner}\label{subsec:barcode-scanner}
+
 	Durch einen Klick auf das Kamera-Icon in der oberen, rechten Ecke des Main-Screen (siehe Abbildung ~\ref{mainscreen}) öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner.
 	Hiermit kann der Nutzer Barcodes einscannen und Gegenstände anlegen, falls die ID des Barcode nicht in der Datenbank vorhanden ist und der Nutzer ein Administrator ist.
 	Alternativ kann der Nutzer den Gegenstand kaufen, falls dieser bereits in der Datenbank registriert ist.
 
 	\section{Architektur}\label{sec:architecture}
+
 	\subsection{Datenmodell}\label{subsec:datamodel}
-	\paragraph*{}
+
 	Das Datenmodell umfasst drei Klassen: \texttt{Item}, \texttt{User}, \texttt{Purchase}.
 	Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben die in Abbildung ~\ref{datamodel} gezeigte Struktur.
 
@@ -200,16 +213,18 @@
 	% generelle Architektur (Klassen, verwendete Patterns, Fragments, Activities) und deren grobe Erklärung
 
 	\subsection{Backend-Architektur}\label{subsec:backend}
-	\paragraph*{}
+
 	Die Backend-Architektur besteht aus drei Ebenen (siehe Abbildung ~\ref{backendArchitecture}).
 
-	\paragraph*{Base-Layer}
+	\subsubsection{Base-Layer}
+
 	Die unterste Ebene bildet die Klasse \texttt{OkHttpConnection}, welche über das Interface \texttt{HttpConnection} implementiert ist.
 	Die Klasse ist verantwortlich für den primitiven Netzwerkverkehr per HTTP mit beliebigen Inhalten.
 	Es werden die HTTP-Methoden \texttt{GET}, \texttt{POST}, \texttt{PUT} und \texttt{DELETE} implementiert.
 	Bei fehlerhaften Anfragen (HTTP-Code $\neq$ 2xx), sowie bei fehlerhaften URLs wird eine Exception geworfen.
 
-	\paragraph*{Abstraction-Layer}
+	\subsubsection{Abstraction-Layer}
+
 	Auf der zweiten Ebene befinden sich die Klassen \texttt{KitchenConnection}, \texttt{LocalDataStore} und \texttt{JsonTranslator}.
 
 	\begin{itemize}
@@ -224,7 +239,8 @@
 		Die verwendete Bibliothek für die Umwandlung ist Google's \texttt{GSON}.
 	\end{itemize}
 
-	\paragraph*{Access-Layer}
+	\subsubsection{Access-Layer}
+
 	Die Dritte Ebene beinhaltet nur die Klasse \texttt{KitchenManager}.
 	Sie ist der Einstiegspunkt des Backend und stellt so alle Operationen zur Verfügung, welche die Oberfläche benötigt. \texttt{KitchenManager} bildet eine vollständige Abstraktion der REST-API, über die Klasse \texttt{KitchenConnection}, welche bereits die Adressen und benötigten Header der API-Aufrufe abstrahierte.
 
@@ -235,10 +251,12 @@
 		\label{backendArchitecture}
 	\end{figure}
 
-	\paragraph*{Tests}
+	\subsubsection{Tests}
+
 	Alle Backend-Klassen sind durch Unit-, Integrations- und Akzeptanz-Tests ausreichend getestet.
 
 	\section{Anhang: Bibliotheken}\label{sec:bib}
+
 	% alle Benutzten Bibliotheken aufführen
 
 \end{document}
