@@ -21,15 +21,32 @@
 		Ziel des Projektes war es, im Rahmen der Veranstaltung \glqq Code Camp 1: Context Awareness\grqq{} eine Android-basierte Anwendung zur Verwaltung und Aufzeichnung der Einkäufe, welche in der ComTec-Küche getätigt werden, zu erstellen.
 		
 		\paragraph*{Funktionsweise}
-		Auf Basis einer Datenbank können Gegenstände angelegt, gekauft und gelöscht werden. Ein dazu benötigter Nutzer wird ebenfalls in der Datenbank gespeichert. Der Zugriff auf die Datenbank erfolgt über eine REST-API, welche alle notwendigen Operationen bereitstellt.
+		Auf Basis einer Datenbank können Gegenstände angelegt, gekauft und gelöscht werden. Dazu benötigte Nutzer werden ebenfalls in der Datenbank gespeichert. Der Zugriff auf diese erfolgt über eine REST-API, welche alle notwendigen Operationen bereitstellt.
 		
+		\paragraph*{Überblick}
+		Nutzer erhalten bei der Registrierung ein Token, welches für den Zugriff über die REST-API benötigt wird. Dieses wird in der Anwendung zwischengespeichert, sodass ein Nutzer mit gültigem Token automatisch angemeldet wird, wenn die Anwendung startet. \\
+		Der Fokus der Anwendung liegt auf dem Kauf von Gegenständen. Dies ist auf zwei Arten möglich: 
+		
+		\begin{enumerate}
+			\item regulär in der App: Über eine Liste der verfügbaren Gegenstände können solche per Klick zum Warenkorb hinzugefügt werden.
+			
+			\item über einen eingebetteten Barcode-Scanner können Gegenstände, deren Barcode bereits in der Datenbank registriert ist dem Warenkorb hinzugefügt werden.
+		\end{enumerate}
+	
+		Es ist dem Nutzer zudem möglich eine Statistik zur Kaufhäufigkeit der registrierten Gegenstände einzusehen. \\
+		Zwecks Verwaltung ist es als Administrator ausgezeichneten Nutzern möglich neue Gegenstände wahlweise mit automatisch generierter ID oder dem Barcode-Scanner anzulegen.
+		
+		% REVIEW: Update, wenn neue Sections hinzugefügt werden
 		\paragraph*{Inhalt}
 		In Abschnitt ~\ref{features} werden die von der App bereitgestellten Features vorgestellt. Abschnitt ~\ref{architecture} erklärt die Anwendungsstruktur aus technischer Sicht, jeweils für Datenmodell (Abschnitt ~\ref{architecture::datamodel}), die Oberflächen-Architektur (Abschnitt ~\ref{architecture::frontend}) und die zugrunde liegende Grundstruktur inklusive Netzwerkverkehr (Abschnitt ~\ref{architecture::backend}).
 		
+		
+	% REVIEW: neue Features einfügen und ausreichend erklären. Bilder und Referenzen.	
 	\section{Andwendung} \label{features}
 		\paragraph*{Start}
 		Beim Öffnen der Anwendung erscheint eine Login-Maske, sofern sich in den Shared-Preferences des Android-Geräts nicht bereits ein gültiges User-Token und eine passende User-Id befinden. Sind die Daten vorhanden, wird der Nutzer anhand dieser eingeloggt. Falls keine Anmeldedaten vorhanden sind, wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung ~\ref{loginscreen}) erstellt. Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
 	
+		% Bild vom Login-Screen mit Erklärung
 		\begin{figure}[!h]
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
@@ -40,6 +57,7 @@
 		\paragraph*{Haupt-Screen}
 		Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Main-Screen. Dieser zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
 
+		% Bild vom Main-Screen mit Item-Liste, evtl. Erklärungen anpassen
 		\begin{figure}[!h]
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
@@ -78,6 +96,7 @@
 	
 		Das Hinzufügen eines Gegenstandes benötigt eine eindeutige ID. Diese wird automatisch generiert und am oberen Bildschirmrand angezeigt (siehe Abbildung ~\ref{createItem}).
 	
+		% Bild vom create-Item-Screen, evtl. Erklärungen anpassen
 		\begin{figure}[!h]
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
@@ -88,6 +107,7 @@
 		\paragraph*{Gegenstände kaufen}
 		Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button der Warenkorb-Screen geöffnet. Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragsstruktur. Auch hier können durch einen Klick auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden. Durch einen Klick Löschen-Button kann der komplette Einkauf gelöscht werden. Durch einen Klick auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung ~\ref{shoppingCartCheck}) mit einer Abfrage, ob der Kauf durchgeführt werden soll. Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt. Beim Klick auf \glqq yes\grqq{} wird der Kauf getätigt und man wird auf den Main-Screen weitergeleitet. Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgreich war (siehe Abbildung ~\ref{purchaseSuccess}).
 		
+		% Bild des Bestätigungs-Modal, nachdem Haken im Shopping-Cart gecklickt
 		\begin{figure}[!h]
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
@@ -95,6 +115,7 @@
 			\label{shoppingCartCheck}
 		\end{figure}
 		
+		% optional: Bild von Benachrichtigung nachdem Kauf erolgreich
 		\begin{figure}[!h]
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
@@ -115,6 +136,7 @@
 			\item Clear UserData: Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht. Es erfolgt eine Weiterleitung auf den Login-Screen. Eine erneute Anmeldung ist aufgrund des Design der REST-API nicht möglich, ein neuer Nutzer kann jedoch angelegt werden.
 		\end{itemize}
 	
+		% Bild des Purchases-Screen, evtl. Erklärung anpassen
 		\begin{figure}[!h]
 			\centering
 			\includegraphics[scale=0.5]{./figures/placeholder.png}
@@ -138,6 +160,7 @@
 			\end{figure}
 		
 		\subsection{Frontend-Architektur} \label{architecture::frontend}
+			% generelle Architektur (Klassen, verwendete Patterns, Fragments, Activities) und deren grobe Erklärung
 		
 		\subsection{Backend-Architektur} \label{architecture::backend}
 			\paragraph*{}
@@ -158,18 +181,19 @@
 			\end{itemize}
 		
 			\paragraph*{Access-Layer}
-			Die Dritte Ebene beinhaltet nur die Klasse \texttt{KitchenManager}. Sie ist der Einstiegspunkt des Backend und stellt so alle Operationen zur Verfügung, welche die Oberfläche benötigt.
+			Die Dritte Ebene beinhaltet nur die Klasse \texttt{KitchenManager}. Sie ist der Einstiegspunkt des Backend und stellt so alle Operationen zur Verfügung, welche die Oberfläche benötigt. \texttt{KitchenManager} bildet eine vollständige Abstraktion der REST-API, über die Klasse \texttt{KitchenConnection}, welche bereits die Adressen und benötigten Header der API-Aufrufe abstrahierte.
 		
 			\begin{figure}[!h]
 				\centering
 				\includegraphics[scale=0.5]{./figures/classStructure.png}
 				\caption{Backend Architektur}
 				\label{backendArchitecture}	
-		\end{figure}
+			\end{figure}
 
 			\paragraph*{Tests}
 			Alle Backend-Klassen sind durch Unit-, Integrations- und Akzeptanz-Tests ausreichend getestet.
 	
 	\section{Anhang: Bibliotheken} \label{bib}
+		% alle Benutzten Bibliotheken aufführen
 		
 \end{document}
