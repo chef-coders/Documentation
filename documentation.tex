@@ -10,13 +10,21 @@
 \author{Adrian Kunz, Jan Bingemann, Johann Feser, Michael Prasil, Sven Starcke}
 \date{Kassel, den \today}
 
+\newcommand{\cfigure}[3]{%
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.5]{#1}
+	\caption{#2}{#3} % #3 is the label, include "\label{" and "}"!
+\end{figure}
+}
+
 \begin{document}
 
 	\maketitle
 	\vspace*{10ex}
 	\begin{figure}[!h]
 		\centering
-		\includegraphics{./figures/title.png}
+		\includegraphics{figures/title.png}
 	\end{figure}
 
 	\newpage
@@ -70,12 +78,7 @@
 	Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
 
 	% Bild vom Login-Screen mit Erklärung
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[scale=0.5]{./figures/placeholder.png}
-		\caption{Login-Screen}
-		\label{loginscreen}
-	\end{figure}
+	\cfigure{figures/placeholder.png}{Login-Screen}{\label{loginscreen}}
 
 	\subsection{Haupt-Screen}\label{subsec:haupt-screen}
 
@@ -83,12 +86,7 @@
 	Dieser zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
 
 	% Bild vom Main-Screen mit Item-Liste, evtl. Erklärungen anpassen
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[scale=0.5]{./figures/placeholder.png}
-		\caption{Haupt-Screen}
-		\label{mainscreen}
-	\end{figure}
+	\cfigure{figures/placeholder.png}{Haupt-Screen}{\label{mainscreen}}
 
 	Ein Eintrag in dieser Liste enthält folgende Komponenten:
 
@@ -131,12 +129,7 @@
 	Das Hinzufügen eines Gegenstandes benötigt eine eindeutige ID. Diese wird automatisch generiert und am oberen Bildschirmrand angezeigt (siehe Abbildung ~\ref{createItem}).
 
 	% Bild vom create-Item-Screen, evtl. Erklärungen anpassen
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[scale=0.5]{./figures/placeholder.png}
-		\caption{Erzeugung eines Gegenstandes}
-		\label{createItem}
-	\end{figure}
+	\cfigure{figures/placeholder.png}{Erzeugung eines Gegenstandes}{\label{createItem}}
 
 	\subsection{Gegenstände kaufen}\label{subsec:gegenstände-kaufen}
 
@@ -150,20 +143,10 @@
 	Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgreich war (siehe Abbildung ~\ref{purchaseSuccess}).
 
 	% Bild des Bestätigungs-Modal, nachdem Haken im Shopping-Cart gecklickt
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[scale=0.5]{./figures/placeholder.png}
-		\caption{Letzte Bestätigung vor Kauf}
-		\label{shoppingCartCheck}
-	\end{figure}
+	\cfigure{figures/placeholder.png}{Letzte Bestätigung vor Kauf}{\label{shoppingCartCheck}}
 
 	% optional: Bild von Benachrichtigung nachdem Kauf erolgreich
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[scale=0.5]{./figures/placeholder.png}
-		\caption{Pop-Up nach erfolgreichem Einkauf}
-		\label{purchaseSuccess}
-	\end{figure}
+	\cfigure{figures/placeholder.png}{Pop-Up nach erfolgreichem Einkauf}{\label{purchaseSuccess}}
 
 	\subsection{Verwaltung}\label{subsec:verwaltung}
 
@@ -182,12 +165,7 @@
 	\end{itemize}
 
 	% Bild des Purchases-Screen, evtl. Erklärung anpassen
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[scale=0.5]{./figures/placeholder.png}
-		\caption{Liste getätigter Einkäufe}
-		\label{purchases}
-	\end{figure}
+	\cfigure{figures/placeholder.png}{Liste getätigter Einkäufe}{\label{purchases}}
 
 	\subsection{Barcode-Scanner}\label{subsec:barcode-scanner}
 
@@ -202,12 +180,7 @@
 	Das Datenmodell umfasst drei Klassen: \texttt{Item}, \texttt{User}, \texttt{Purchase}.
 	Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben die in Abbildung ~\ref{datamodel} gezeigte Struktur.
 
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[scale=0.5]{./figures/datamodel.png}
-		\caption{Datenmodell}
-		\label{datamodel}
-	\end{figure}
+	\cfigure{figures/datamodel.png}{Datenmodell}{\label{datamodel}}
 
 	\subsection{Frontend-Architektur}\label{subsec:frontend}
 	% generelle Architektur (Klassen, verwendete Patterns, Fragments, Activities) und deren grobe Erklärung
@@ -244,12 +217,7 @@
 	Die Dritte Ebene beinhaltet nur die Klasse \texttt{KitchenManager}.
 	Sie ist der Einstiegspunkt des Backend und stellt so alle Operationen zur Verfügung, welche die Oberfläche benötigt. \texttt{KitchenManager} bildet eine vollständige Abstraktion der REST-API, über die Klasse \texttt{KitchenConnection}, welche bereits die Adressen und benötigten Header der API-Aufrufe abstrahierte.
 
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[scale=0.5]{./figures/classStructure.png}
-		\caption{Backend Architektur}
-		\label{backendArchitecture}
-	\end{figure}
+	\cfigure{figures/classStructure.png}{Backend Architektur}{\label{backendArchitecture}}
 
 	\subsubsection{Tests}
 
