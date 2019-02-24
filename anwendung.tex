@@ -3,10 +3,17 @@
 
 \subsection{Start}\label{subsec:start}
 
-Beim Öffnen der Anwendung erscheint eine Login-Maske, sofern sich in den Shared-Preferences des Android-Geräts nicht bereits ein gültiges User-Token und eine passende User-Id befinden.
-Sind die Daten vorhanden, wird der Nutzer anhand dieser eingeloggt.
-Falls keine Anmeldedaten vorhanden sind, wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung ~\ref{loginscreen}) erstellt.
+Beim Öffnen der Anwendung wird die Main-Activity gestartet.
+
+Es wird geprüft, ob sich in den Shared-Preferences des Android-Geräts bereits ein gültiges User-Token und eine passende User-Id befindet.
+Ist dies der Fall wird der Benutzer anhand dieser eingeloggt.
+Andernfalls öffnet sich zunächst eine Login-Activity.
+
+Es wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung ~\ref{loginscreen}) erstellt.
 Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
+Die Login-Activity schließt sich wieder.
+
+Sowohl im Fall des automatischen Logins, als auch nach der Anmeldung in der Login-Activity, öffnet sich dann das Shop-Fragment in der Main-Activity.
 
 % Bild vom Login-Screen mit Erklärung
 \cfigure{figures/screen_placeholder.png}{login-screen}{\label{loginscreen}}
