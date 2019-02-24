@@ -3,60 +3,54 @@
 
 \subsection{Start}\label{subsec:start}
 
-Beim Öffnen der Anwendung wird die Main-Activity gestartet.
-
-Es wird geprüft, ob sich in den Shared-Preferences des Android-Geräts bereits ein gültiges User-Token und eine passende User-Id befindet.
+Beim Öffnen der Anwendung wird geprüft, ob sich in den Shared-Preferences des Android-Geräts bereits ein gültiges User-Token und eine passende User-Id befindet.
 Ist dies der Fall wird der Benutzer anhand dieser eingeloggt.
-Andernfalls öffnet sich zunächst eine Login-Activity.
+Andernfalls öffnet sich zunächst der Login-Screen.
 
 Es wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung ~\ref{loginscreen}) erstellt.
 Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
-Die Login-Activity schließt sich wieder.
+Der Login-Screen schließt sich wieder.
 
-Sowohl im Fall des automatischen Logins, als auch nach der Anmeldung in der Login-Activity, öffnet sich dann das Shop-Fragment in der Main-Activity.
+Sowohl im Fall des automatischen Logins, als auch nach der Anmeldung im Login-Screen, öffnet sich dann der Shop-Screen.
 
 % Bild vom Login-Screen mit Erklärung
 \cfigure{figures/screen_placeholder.png}{login-screen}{\label{loginscreen}}
 
-\subsection{Aufbau der Main-Activity} \label{subsec:main-activity}
-
-% Fragmente werden ausgetauscht, Toolbar fest (mit Bild, welches Schema zeigt)
-
-\subsection{Navigation in der Main-Activity} \label{subsec:navigation}
+\subsection{Navigation} \label{subsec:navigation}
 
 Mittels des Kontext-Menu-Button in der oberen, linken Bildschirmecke oder durch Wischen nach Rechts erscheint ein Navigation Drawer.
 
 Im oberen Bereich des Navigation Drawers befinden sich Informationen zum Benutzer (Der Nutzernamen, die Email-Adresse und das Guthaben).
 Falls der Nutzer ein Administrator ist, wird dies hinter dem Namen angezeigt.
-Über den Stift-Button auf der rechten Seite, wird das Nutzer bearbeiten-Fragment geöffnet.
+Über den Stift-Button auf der rechten Seite, wird der Nutzer bearbeiten-Screen geöffnet.
 Dieses ermöglichst das Bearbeiten des eigene Benutzer-Profils.
 
-Darunter zeigen sich viele Buttons, mit denen zu den verschiedenen Fragmenten der Main-Activity navigiert werden kann:
+Darunter zeigen sich viele Buttons, mit denen zu den verschiedenen Screens des Haupt-Screens navigiert werden kann:
 
 \begin{itemize}
-	\item Shop-Button: Das Shop-Fragment wird geöffnet.
-	Dies ist das zentrale Fragment der Main-Activity, da hier Artikel gekauft werden können.
+	\item Shop-Button: Der Shop-Screen wird geöffnet.
+	Dies ist der zentrale Screen der App, da hier Artikel gekauft werden können.
 
-	\item Einkaufs Historie-Button: Das Einkaufs Historie-Fragment öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
+	\item Einkaufs Historie-Button: Der Einkaufs Historie-Screen öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
 
 	\item Nutzer-Button (Administrator): Dieser Button ist nur verfügbar, wenn der Benutzer ein Administrator ist.
 	Klickt er auf diesen Button, öffnet sich das Nutzer-Framgent, das die Liste aller Nutzer zeigt.
 
-	\item Statistiken-Button: Wird dieser Button geklickt, öffnet sich das Statistiken-Fragment, welches Statistiken zum Verhalten des Benutzers liefert.
+	\item Statistiken-Button: Wird dieser Button geklickt, öffnet sich der Statistiken-Screen, welches Statistiken zum Verhalten des Benutzers liefert.
 
-	\item Einstellungen-Button: Über diesen Button kann das Einstellungen-Fragment geöffnet werden.
+	\item Einstellungen-Button: Über diesen Button kann der Einstellungen-Screen geöffnet werden.
 	In diesem kann ein Dunkel-Modus aktiviert werden.
 
 \end{itemize}
 
-Der unterste Button, der mit dem Label ''Logout-Button´´ versehen ist, hat nichts mit der Navigation zwischen Fragments zu tun.
+Der unterste Button, der mit dem Label ''Logout-Button´´ versehen ist, hat nichts mit der Navigation zwischen Screens zu tun.
 Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
-Er wird zur Login-Activity weitergeleitet, um sich einen neuen Account zu erstellen.
+Er wird zum Login-Screen weitergeleitet, um sich einen neuen Account zu erstellen.
 Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich.
 
-\subsection{Nutzer bearbeiten-Fragment} \label{subsec:edit-user-fragment}
+\subsection{Nutzer bearbeiten-Screen} \label{subsec:edit-user-screen}
 
-\subsection{Shop-Fragment}\label{subsec:shop-fragment}
+\subsection{Shop-Screen}\label{subsec:shop-screen}
 
 Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf das Shop-Framgent der Main-Activity.
 Dieses zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
@@ -92,13 +86,13 @@ Die Liste ist nach der Art der Gegenstände sortiert (Beispiel: Wasser, Saft, \l
 
 \subsubsection{Artikel kaufen} \label{subsubsec:shop-buy}
 
-Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button das Warenkorb-Fragment geöffnet.
+Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button der Warenkorb-Screen geöffnet.
 Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragsstruktur.
 Auch hier können durch einen Klick auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden.
 Durch einen Klick Löschen-Button kann der komplette Einkauf gelöscht werden.
 Durch einen Klick auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung ~\ref{shoppingCartCheck}) mit einer Abfrage, ob der Kauf durchgeführt werden soll.
 Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt.
-Beim Klick auf \glqq yes\grqq{} wird der Kauf getätigt und man wird auf das Shop-Fragment weitergeleitet.
+Beim Klick auf \glqq yes\grqq{} wird der Kauf getätigt und man wird auf den Shop-Screen weitergeleitet.
 Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgreich war (siehe Abbildung ~\ref{purchaseSuccess}).
 
 % Bild des Bestätigungs-Modal, nachdem Haken im Shopping-Cart gecklickt
@@ -110,17 +104,17 @@ Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgrei
 \subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-scan-item}
 
 % Was passiert, wenn ein normaler Nutzer den Barcode eines Artikels einscannt
-Durch einen Klick auf das Kamera-Icon in der oberen, rechten Ecke des Shop-Fragments (siehe Abbildung ~\ref{mainscreen}) öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner.
+Durch einen Klick auf das Kamera-Icon in der oberen, rechten Ecke des Shop-Screens (siehe Abbildung ~\ref{mainscreen}) öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner.
 Hiermit kann der Nutzer Barcodes einscannen und Gegenstände anlegen, falls die ID des Barcode nicht in der Datenbank vorhanden ist und der Nutzer ein Administrator ist.
 Alternativ kann der Nutzer den Gegenstand kaufen, falls dieser bereits in der Datenbank registriert ist.
 
-\subsection{Shop-Fragment (Zusätzliche Admin Funktionalitäten)} \label{subsec:shop-fragment-admin}
+\subsection{Shop-Screen (Zusätzliche Admin Funktionalitäten)} \label{subsec:shop-screen-admin}
 
 \subsubsection{Artikel bearbeiten} \label{subsubsec:shop-edit-items}
 
 \subsubsection{Artikel hinzufügen} \label{subsubsec:shop-add-items}
 
-Ist der aktuelle Nutzer als Administrator ausgezeichnet, kann er mit dem +-Knopf im oberen Banner des Shop-Fragments neue Gegenstände hinzufügen.
+Ist der aktuelle Nutzer als Administrator ausgezeichnet, kann er mit dem +-Knopf im oberen Banner des Shop-Screens neue Gegenstände hinzufügen.
 Dazu müssen folgende Daten eingegeben werden:
 
 \begin{itemize}
@@ -143,15 +137,15 @@ Das Hinzufügen eines Gegenstandes benötigt eine eindeutige ID. Diese wird auto
 
 % Was passiert, wenn ein Artikel gescannt wird und der Nutzer ein Administrator ist
 
-\subsection{Einkaufs Historie-Fragment} \label{subsec:purchases-fragment}
+\subsection{Einkaufs Historie-Screen} \label{subsec:purchases-screen}
 
 % Bild des Purchases-Screen, evtl. Erklärung anpassen
 \cfigure{figures/screen_placeholder.png}{Liste getätigter Einkäufe}{\label{purchases-screen}}
 
-\subsection{Nutzer-Fragment (Admin Funktionalität)} \label{subsec:user-fragment}
+\subsection{Nutzer-Screen (Admin Funktionalität)} \label{subsec:user-screen}
 
-\subsection{Statistiken-Fragment} \label{subsec:statistics-fragment}
+\subsection{Statistiken-Screen} \label{subsec:statistics-screen}
 
-\subsection{Einstellungen-Fragment} \label{subsec:settings-fragment}
+\subsection{Einstellungen-Screen} \label{subsec:settings-screen}
 
 \subsection{Unterstützte Sprachen} \label{subsec:languages}
