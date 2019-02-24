@@ -26,7 +26,7 @@ Sowohl im Fall des automatischen Logins, als auch nach der Anmeldung in der Logi
 
 Mittels des Kontext-Menu-Button in der oberen, linken Bildschirmecke oder durch Wischen nach Rechts erscheint ein Navigation Drawer.
 
-Im oberen Bereich des Navigation Drawers befinden sich Informationen zum Benutzer, nämlich der Nutzernamen, dessen Email-Adresse und Guthaben.
+Im oberen Bereich des Navigation Drawers befinden sich Informationen zum Benutzer (Der Nutzernamen, die Email-Adresse und das Guthaben).
 Falls der Nutzer ein Administrator ist, wird dies hinter dem Namen angezeigt.
 Über den Stift-Button auf der rechten Seite, wird das Nutzer bearbeiten-Fragment geöffnet.
 Dieses ermöglichst das Bearbeiten des eigene Benutzer-Profils.
@@ -35,30 +35,31 @@ Darunter zeigen sich viele Buttons, mit denen zu den verschiedenen Fragmenten de
 
 \begin{itemize}
 	\item Shop-Button: Das Shop-Fragment wird geöffnet.
+	Dies ist das zentrale Fragment der Main-Activity, da hier Artikel gekauft werden können.
 
 	\item Einkaufs Historie-Button: Das Einkaufs Historie-Fragment öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
 
 	\item Nutzer-Button (Administrator): Dieser Button ist nur verfügbar, wenn der Benutzer ein Administrator ist.
-	Klickt der Benutzer auf diesen Button, öffnet sich der Nutzer-Screen, der eine Liste aller Nutzer zeigt.
+	Klickt er auf diesen Button, öffnet sich das Nutzer-Framgent, das die Liste aller Nutzer zeigt.
 
-	\item Statistiken-Button: Wird dieser Button geklickt, öffnet sich der Statistiken-Screen, der Statistiken zum Verhalten des Benutzers liefert.
+	\item Statistiken-Button: Wird dieser Button geklickt, öffnet sich das Statistiken-Fragment, welches Statistiken zum Verhalten des Benutzers liefert.
 
-	\item Einstellungen-Button: Über diesen Button kann der Einstellungen-Screen geöffnet werden.
+	\item Einstellungen-Button: Über diesen Button kann das Einstellungen-Fragment geöffnet werden.
 	In diesem kann ein Dunkel-Modus aktiviert werden.
 
 \end{itemize}
 
 Der unterste Button, der mit dem Label ''Logout-Button´´ versehen ist, hat nichts mit der Navigation zwischen Fragments zu tun.
 Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
-Er wird zum Login-Screen weitergeleitet, um sich einen neuen Account zu erstellen.
+Er wird zur Login-Activity weitergeleitet, um sich einen neuen Account zu erstellen.
 Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich.
 
 \subsection{Nutzer bearbeiten-Fragment} \label{subsec:edit-user-fragment}
 
 \subsection{Shop-Fragment}\label{subsec:shop-fragment}
 
-Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Main-Screen.
-Dieser zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
+Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf das Shop-Framgent der Main-Activity.
+Dieses zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
 
 % Bild vom Main-Screen mit Item-Liste, evtl. Erklärungen anpassen
 \cfigure{figures/screen_placeholder.png}{Haupt-Screen}{\label{mainscreen}}
@@ -91,13 +92,13 @@ Die Liste ist nach der Art der Gegenstände sortiert (Beispiel: Wasser, Saft, \l
 
 \subsubsection{Artikel kaufen} \label{subsubsec:shop-buy}
 
-Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button der Warenkorb-Screen geöffnet.
+Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button das Warenkorb-Fragment geöffnet.
 Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragsstruktur.
 Auch hier können durch einen Klick auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden.
 Durch einen Klick Löschen-Button kann der komplette Einkauf gelöscht werden.
 Durch einen Klick auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung ~\ref{shoppingCartCheck}) mit einer Abfrage, ob der Kauf durchgeführt werden soll.
 Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt.
-Beim Klick auf \glqq yes\grqq{} wird der Kauf getätigt und man wird auf den Main-Screen weitergeleitet.
+Beim Klick auf \glqq yes\grqq{} wird der Kauf getätigt und man wird auf das Shop-Fragment weitergeleitet.
 Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgreich war (siehe Abbildung ~\ref{purchaseSuccess}).
 
 % Bild des Bestätigungs-Modal, nachdem Haken im Shopping-Cart gecklickt
@@ -109,7 +110,7 @@ Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgrei
 \subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-scan-item}
 
 % Was passiert, wenn ein normaler Nutzer den Barcode eines Artikels einscannt
-Durch einen Klick auf das Kamera-Icon in der oberen, rechten Ecke des Main-Screen (siehe Abbildung ~\ref{mainscreen}) öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner.
+Durch einen Klick auf das Kamera-Icon in der oberen, rechten Ecke des Shop-Fragments (siehe Abbildung ~\ref{mainscreen}) öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner.
 Hiermit kann der Nutzer Barcodes einscannen und Gegenstände anlegen, falls die ID des Barcode nicht in der Datenbank vorhanden ist und der Nutzer ein Administrator ist.
 Alternativ kann der Nutzer den Gegenstand kaufen, falls dieser bereits in der Datenbank registriert ist.
 
@@ -119,7 +120,7 @@ Alternativ kann der Nutzer den Gegenstand kaufen, falls dieser bereits in der Da
 
 \subsubsection{Artikel hinzufügen} \label{subsubsec:shop-add-items}
 
-Ist der aktuelle Nutzer als Administrator ausgezeichnet, kann er mit dem +-Knopf im oberen Banner des Main-Screen neue Gegenstände hinzufügen.
+Ist der aktuelle Nutzer als Administrator ausgezeichnet, kann er mit dem +-Knopf im oberen Banner des Shop-Fragments neue Gegenstände hinzufügen.
 Dazu müssen folgende Daten eingegeben werden:
 
 \begin{itemize}
