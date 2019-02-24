@@ -9,9 +9,27 @@ Falls keine Anmeldedaten vorhanden sind, wird ein neuer Nutzer auf Basis der in 
 Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
 
 % Bild vom Login-Screen mit Erklärung
-\cfigure{figures/screen_placeholder.png}{Login-Screen}{\label{loginscreen}}
+\cfigure{figures/screen_placeholder.png}{login-screen}{\label{loginscreen}}
 
-\subsection{Haupt-Screen}\label{subsec:haupt-screen}
+\subsection{Navigation} \label{subsec:navigation}
+
+Mittels des Kontext-Menu-Button in der oberen, rechten Bildschirmecke kann ein Kontext-Menu aufgerufen werden, welches folgende Funktionalität bietet:
+
+\begin{itemize}
+	\item Anzeigen des Nutzernamen im oberen Banner, falls der Nutzer ein Administrator ist, wird dies hinter dem Namen angezeigt.
+
+	\item Link zum Main-Screen: Bei einem Klick erfolgt eine Weiterleitung auf den Main-Screen.
+
+	\item Liste getätigter Einkäufe: Bei einem Klick auf diesen Eintrag erfolgt eine Weiterleitung auf einen Screen, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
+
+	\item Clear UserData: Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
+	Es erfolgt eine Weiterleitung auf den Login-Screen.
+	Eine erneute Anmeldung ist aufgrund des Design der REST-API nicht möglich, ein neuer Nutzer kann jedoch angelegt werden.
+\end{itemize}
+
+\subsection{Bearbeiten des eigenen Nutzers} \label{subsec:edit-user}
+
+\subsection{Shop-Screen}\label{subsec:shop-screen}
 
 Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Main-Screen.
 Dieser zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
@@ -41,7 +59,38 @@ Ein Eintrag in dieser Liste enthält folgende Komponenten:
 
 Die Liste ist nach der Art der Gegenstände sortiert (Beispiel: Wasser, Saft, \ldots).
 
-\subsection{Gegenstände hinzufügen}\label{subsec:gegenstände-hinzufügen}
+\subsubsection{Artikel zum Einkaufswagen hinzufügen} \label{subsubsec:shoppingcart-add-item}
+
+\subsubsection{Artikel aus dem Einkaufswagen entfernen} \label{subsubsec:shoppingcart-del-item}
+
+\subsubsection{Artikel kaufen} \label{subsubsec:shop-buy}
+
+Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button der Warenkorb-Screen geöffnet.
+Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragsstruktur.
+Auch hier können durch einen Klick auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden.
+Durch einen Klick Löschen-Button kann der komplette Einkauf gelöscht werden.
+Durch einen Klick auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung ~\ref{shoppingCartCheck}) mit einer Abfrage, ob der Kauf durchgeführt werden soll.
+Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt.
+Beim Klick auf \glqq yes\grqq{} wird der Kauf getätigt und man wird auf den Main-Screen weitergeleitet.
+Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgreich war (siehe Abbildung ~\ref{purchaseSuccess}).
+
+% Bild des Bestätigungs-Modal, nachdem Haken im Shopping-Cart gecklickt
+\cfigure{figures/screen_placeholder.png}{Letzte Bestätigung vor Kauf}{\label{shoppingCartCheck}}
+
+% optional: Bild von Benachrichtigung nachdem Kauf erolgreich
+\cfigure{figures/screen_placeholder.png}{Pop-Up nach erfolgreichem Einkauf}{\label{purchaseSuccess}}
+
+\subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-scan-item}
+
+Durch einen Klick auf das Kamera-Icon in der oberen, rechten Ecke des Main-Screen (siehe Abbildung ~\ref{mainscreen}) öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner.
+Hiermit kann der Nutzer Barcodes einscannen und Gegenstände anlegen, falls die ID des Barcode nicht in der Datenbank vorhanden ist und der Nutzer ein Administrator ist.
+Alternativ kann der Nutzer den Gegenstand kaufen, falls dieser bereits in der Datenbank registriert ist.
+
+\subsection{Shop-Screen (Zusätzliche Admin Funktionalitäten)} \label{subsec:shop-admin}
+
+\subsubsection{Artikel bearbeiten} \label{subsubsec:shop-edit-items}
+
+\subsubsection{Artikel hinzufügen} \label{subsubsec:shop-add-items}
 
 Ist der aktuelle Nutzer als Administrator ausgezeichnet, kann er mit dem +-Knopf im oberen Banner des Main-Screen neue Gegenstände hinzufügen.
 Dazu müssen folgende Daten eingegeben werden:
@@ -62,44 +111,17 @@ Das Hinzufügen eines Gegenstandes benötigt eine eindeutige ID. Diese wird auto
 % Bild vom create-Item-Screen, evtl. Erklärungen anpassen
 \cfigure{figures/screen_placeholder.png}{Erzeugung eines Gegenstandes}{\label{createItem}}
 
-\subsection{Gegenstände kaufen}\label{subsec:gegenstände-kaufen}
+\subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-admin-scan-item}
 
-Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button der Warenkorb-Screen geöffnet.
-Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragsstruktur.
-Auch hier können durch einen Klick auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden.
-Durch einen Klick Löschen-Button kann der komplette Einkauf gelöscht werden.
-Durch einen Klick auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung ~\ref{shoppingCartCheck}) mit einer Abfrage, ob der Kauf durchgeführt werden soll.
-Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt.
-Beim Klick auf \glqq yes\grqq{} wird der Kauf getätigt und man wird auf den Main-Screen weitergeleitet.
-Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgreich war (siehe Abbildung ~\ref{purchaseSuccess}).
-
-% Bild des Bestätigungs-Modal, nachdem Haken im Shopping-Cart gecklickt
-\cfigure{figures/screen_placeholder.png}{Letzte Bestätigung vor Kauf}{\label{shoppingCartCheck}}
-
-% optional: Bild von Benachrichtigung nachdem Kauf erolgreich
-\cfigure{figures/screen_placeholder.png}{Pop-Up nach erfolgreichem Einkauf}{\label{purchaseSuccess}}
-
-\subsection{Verwaltung}\label{subsec:verwaltung}
-
-Mittels des Kontext-Menu-Button in der oberen, rechten Bildschirmecke kann ein Kontext-Menu aufgerufen werden, welches folgende Funktionalität bietet:
-
-\begin{itemize}
-	\item Anzeigen des Nutzernamen im oberen Banner, falls der Nutzer ein Administrator ist, wird dies hinter dem Namen angezeigt.
-
-	\item Link zum Main-Screen: Bei einem Klick erfolgt eine Weiterleitung auf den Main-Screen.
-
-	\item Liste getätigter Einkäufe: Bei einem Klick auf diesen Eintrag erfolgt eine Weiterleitung auf einen Screen, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
-
-	\item Clear UserData: Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
-	Es erfolgt eine Weiterleitung auf den Login-Screen.
-	Eine erneute Anmeldung ist aufgrund des Design der REST-API nicht möglich, ein neuer Nutzer kann jedoch angelegt werden.
-\end{itemize}
+\subsection{Einkaufs Historie-Screen} \label{subsec:purchases-screen}
 
 % Bild des Purchases-Screen, evtl. Erklärung anpassen
-\cfigure{figures/screen_placeholder.png}{Liste getätigter Einkäufe}{\label{purchases}}
+\cfigure{figures/screen_placeholder.png}{Liste getätigter Einkäufe}{\label{purchases-screen}}
 
-\subsection{Barcode-Scanner}\label{subsec:barcode-scanner}
+\subsection{Nutzer-Screen (Admin Funktionalität)} \label{subsec:user-screen}
 
-Durch einen Klick auf das Kamera-Icon in der oberen, rechten Ecke des Main-Screen (siehe Abbildung ~\ref{mainscreen}) öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner.
-Hiermit kann der Nutzer Barcodes einscannen und Gegenstände anlegen, falls die ID des Barcode nicht in der Datenbank vorhanden ist und der Nutzer ein Administrator ist.
-Alternativ kann der Nutzer den Gegenstand kaufen, falls dieser bereits in der Datenbank registriert ist.
+\subsection{Statistiken-Screen} \label{subsec:statistics-screen}
+
+\subsection{Einstellungen-Screen} \label{subsec:settings-screen}
+
+\subsection{Unterstützte Sprachen} \label{subsec:languages}
