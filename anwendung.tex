@@ -28,15 +28,15 @@ Mittels des Kontext-Menu-Button in der oberen, linken Bildschirmecke oder durch 
 
 Im oberen Bereich des Navigation Drawers befinden sich Informationen zum Benutzer, nämlich der Nutzernamen, dessen Email-Adresse und Guthaben.
 Falls der Nutzer ein Administrator ist, wird dies hinter dem Namen angezeigt.
-Über den Stift-Button auf der rechten Seite, wird der Benutzer Bearbeiten-Screen geöffnet.
-Dieser ermöglichst das Bearbeiten des eigene Benutzer-Profils.
+Über den Stift-Button auf der rechten Seite, wird das Nutzer bearbeiten-Fragment geöffnet.
+Dieses ermöglichst das Bearbeiten des eigene Benutzer-Profils.
 
-Darunter zeigen sich viele Buttons, mit denen zu den Screens der App navigiert werden kann:
+Darunter zeigen sich viele Buttons, mit denen zu den verschiedenen Fragmenten der Main-Activity navigiert werden kann:
 
 \begin{itemize}
-	\item Shop-Button: Bei einem Klick erfolgt eine Weiterleitung auf den Shop-Screen.
+	\item Shop-Button: Das Shop-Fragment wird geöffnet.
 
-	\item Einkaufs Historie-Button: Bei einem Klick auf diesen Eintrag erfolgt eine Weiterleitung auf einen Screen, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
+	\item Einkaufs Historie-Button: Das Einkaufs Historie-Fragment öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
 
 	\item Nutzer-Button (Administrator): Dieser Button ist nur verfügbar, wenn der Benutzer ein Administrator ist.
 	Klickt der Benutzer auf diesen Button, öffnet sich der Nutzer-Screen, der eine Liste aller Nutzer zeigt.
@@ -46,14 +46,16 @@ Darunter zeigen sich viele Buttons, mit denen zu den Screens der App navigiert w
 	\item Einstellungen-Button: Über diesen Button kann der Einstellungen-Screen geöffnet werden.
 	In diesem kann ein Dunkel-Modus aktiviert werden.
 
-	\item Logout-Button: Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
-	Er wird zum Login-Screen weitergeleitet, um sich einen neuen Account zu erstellen.
-	Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich.
 \end{itemize}
 
-\subsection{Bearbeiten des eigenen Nutzers} \label{subsec:edit-user}
+Der unterste Button, der mit dem Label ''Logout-Button´´ versehen ist, hat nichts mit der Navigation zwischen Fragments zu tun.
+Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
+Er wird zum Login-Screen weitergeleitet, um sich einen neuen Account zu erstellen.
+Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich.
 
-\subsection{Shop-Screen}\label{subsec:shop-screen}
+\subsection{Nutzer bearbeiten-Fragment} \label{subsec:edit-user-fragment}
+
+\subsection{Shop-Fragment}\label{subsec:shop-fragment}
 
 Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Main-Screen.
 Dieser zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
@@ -111,7 +113,7 @@ Durch einen Klick auf das Kamera-Icon in der oberen, rechten Ecke des Main-Scree
 Hiermit kann der Nutzer Barcodes einscannen und Gegenstände anlegen, falls die ID des Barcode nicht in der Datenbank vorhanden ist und der Nutzer ein Administrator ist.
 Alternativ kann der Nutzer den Gegenstand kaufen, falls dieser bereits in der Datenbank registriert ist.
 
-\subsection{Shop-Screen (Zusätzliche Admin Funktionalitäten)} \label{subsec:shop-admin}
+\subsection{Shop-Fragment (Zusätzliche Admin Funktionalitäten)} \label{subsec:shop-fragment-admin}
 
 \subsubsection{Artikel bearbeiten} \label{subsubsec:shop-edit-items}
 
@@ -140,15 +142,15 @@ Das Hinzufügen eines Gegenstandes benötigt eine eindeutige ID. Diese wird auto
 
 % Was passiert, wenn ein Artikel gescannt wird und der Nutzer ein Administrator ist
 
-\subsection{Einkaufs Historie-Screen} \label{subsec:purchases-screen}
+\subsection{Einkaufs Historie-Fragment} \label{subsec:purchases-fragment}
 
 % Bild des Purchases-Screen, evtl. Erklärung anpassen
 \cfigure{figures/screen_placeholder.png}{Liste getätigter Einkäufe}{\label{purchases-screen}}
 
-\subsection{Nutzer-Screen (Admin Funktionalität)} \label{subsec:user-screen}
+\subsection{Nutzer-Fragment (Admin Funktionalität)} \label{subsec:user-fragment}
 
-\subsection{Statistiken-Screen} \label{subsec:statistics-screen}
+\subsection{Statistiken-Fragment} \label{subsec:statistics-fragment}
 
-\subsection{Einstellungen-Screen} \label{subsec:settings-screen}
+\subsection{Einstellungen-Fragment} \label{subsec:settings-fragment}
 
 \subsection{Unterstützte Sprachen} \label{subsec:languages}
