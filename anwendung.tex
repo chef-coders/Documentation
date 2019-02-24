@@ -13,18 +13,30 @@ Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwisch
 
 \subsection{Navigation} \label{subsec:navigation}
 
-Mittels des Kontext-Menu-Button in der oberen, rechten Bildschirmecke kann ein Kontext-Menu aufgerufen werden, welches folgende Funktionalität bietet:
+Mittels des Kontext-Menu-Button in der oberen, linken Bildschirmecke oder durch Wischen nach Rechts erscheint ein Navigation Drawer.
+
+Im oberen Bereich des Navigation Drawers befinden sich Informationen zum Benutzer, nämlich der Nutzernamen, dessen Email-Adresse und Guthaben.
+Falls der Nutzer ein Administrator ist, wird dies hinter dem Namen angezeigt.
+Über den Stift-Button auf der rechten Seite, wird der Benutzer Bearbeiten-Screen geöffnet.
+Dieser ermöglichst das Bearbeiten des eigene Benutzer-Profils.
+
+Darunter zeigen sich viele Buttons, mit denen zu den Screens der App navigiert werden kann:
 
 \begin{itemize}
-	\item Anzeigen des Nutzernamen im oberen Banner, falls der Nutzer ein Administrator ist, wird dies hinter dem Namen angezeigt.
+	\item Shop-Button: Bei einem Klick erfolgt eine Weiterleitung auf den Shop-Screen.
 
-	\item Link zum Main-Screen: Bei einem Klick erfolgt eine Weiterleitung auf den Main-Screen.
+	\item Einkaufs Historie-Button: Bei einem Klick auf diesen Eintrag erfolgt eine Weiterleitung auf einen Screen, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
 
-	\item Liste getätigter Einkäufe: Bei einem Klick auf diesen Eintrag erfolgt eine Weiterleitung auf einen Screen, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
+	\item Nutzer-Button (Administrator): Dieser Button ist nur verfügbar, wenn der Benutzer ein Administrator ist.
+	Klickt der Benutzer auf diesen Button, öffnet sich der Nutzer-Screen, der eine Liste aller Nutzer zeigt.
 
-	\item Clear UserData: Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
-	Es erfolgt eine Weiterleitung auf den Login-Screen.
-	Eine erneute Anmeldung ist aufgrund des Design der REST-API nicht möglich, ein neuer Nutzer kann jedoch angelegt werden.
+	\item Statistiken-Button: Wird dieser Button geklickt, öffnet sich der Statistiken-Screen, der Statistiken zum Verhalten des Benutzers liefert.
+
+	\item Einstellungen-Button: Über diesen Button kann der Einstellungen-Screen geöffnet werden.
+	In diesem kann ein Dunkel-Modus aktiviert werden.
+
+	\item Logout-Button: Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
+	Damit ist der Benutzer nicht mehr angemeldet und wird zum Login-Screen weitergeleitet, um sich erneut anzumelden.
 \end{itemize}
 
 \subsection{Bearbeiten des eigenen Nutzers} \label{subsec:edit-user}
