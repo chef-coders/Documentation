@@ -82,7 +82,27 @@ Die Liste ist nach der Art der Gegenstände sortiert (Beispiel: Wasser, Saft, \l
 
 \subsubsection{Artikel zum Einkaufswagen hinzufügen} \label{subsubsec:shoppingcart-add-item}
 
+Tippt der Benutzer auf einen Listeintrag, z.B. Zitronenlimonade, wird ein Exemplar in den Warenkorb gelegt.
+Der Benutzer kann einen Listeintrag so oft hinzufügen, wie Exemplare verfügbar sind.
+Die Anzahl, der von einem Typ zum Einkaufswagen hinzugefügten Exemplare wird auf dem Listeintrag abgebildet.
+Sind zwei oder mehr Exemplare eines Artikels im Warenkorb wird der Gesamtpreis der ausgewählten Exemplare des Artikels auf dem Listeintrag abgebildet.
+
 \subsubsection{Artikel aus dem Einkaufswagen entfernen} \label{subsubsec:shoppingcart-del-item}
+
+Artikel können aus dem Einkaufswagen entfernt werden, indem der entsprechende Listeintrag nach links gewischt wird.
+Dabei zeigt sich unter dem Listeintrag ein Mülleimer-Symbol auf dunklem Grund, welches den Vorgang verdeutlicht.
+Es werden dann alle Exemplare des Artikels aus dem Warenkorb entfernt.
+
+\subsubsection{Verhalten des Einkaufswagen-Buttons} \label{subsubsec:shoppingcart-button}
+
+Der Einkaufswagen-Button schwebt über der Artikel-Liste.
+Durch das Klicken auf diesen kann man den Einkaufswagen in einem separaten Screen betrachten und den Kauf tätigen.
+
+Der Button zeigt sich erst, sobald sich mindestens ein Element im Warenkorb befindet.
+Werden alle Elemente aus dem Warenkorb entfernt, verschwindet der Button wieder.
+
+Befindet sich mehr als ein Element im Warenkorb, verschwindet der Einkaufswagen-Button temporär, sobald der Benutzer nach unter scrollt, damit untere Listelemente nicht vom Button verdeckt werden.
+Scrollt der Benutzer nach oben, erscheint der Einkaufswagen-Button wieder.
 
 \subsubsection{Artikel kaufen} \label{subsubsec:shop-buy}
 
