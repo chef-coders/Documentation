@@ -45,10 +45,19 @@ Darunter zeigen sich viele Buttons, mit denen zu allen Screens der App navigiert
 
 Der unterste Button, der mit dem Label "Logout-Button" versehen ist, hat nichts mit der Navigation zwischen Screens zu tun.
 Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
-Er wird zum Login-Screen weitergeleitet, um sich einen neuen Account zu erstellen.
+Der Benutzer wird zum Login-Screen weitergeleitet, um sich einen neuen Account zu erstellen.
 Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich.
 
 \subsection{Nutzer-bearbeiten-Screen} \label{subsec:edit-user-screen}
+
+Im Nutzer-bearbeiten-Screen kann der Benutzer sein eigenes Profil bearbeiten.
+Er kann die folgenden Daten verändern:
+
+\begin{itemize}
+	\item Den Nutzernamen
+	\item Die Email-Adresse
+	\item Das eigene Guthaben, falls er ein Administrator ist
+\end{itemize}
 
 \subsection{Shop-Screen}\label{subsec:shop-screen}
 
@@ -143,11 +152,11 @@ Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeintrag
 Der Benutzer hat die Möglichkeit die folgenden Eigenschaften des Artikels zu ändern:
 
 \begin{itemize}
-	\item Der Name des zu erstellenden Gegenstands.
+	\item Der Name des zu erstellenden Gegenstands
 
-	\item Der Preis des zu erstellenden Gegenstands.
+	\item Der Preis des zu erstellenden Gegenstands
 
-	\item Die Menge, in der der Gegenstand verfügbar ist.
+	\item Die Menge, in der der Gegenstand verfügbar ist
 
 	\item Die Art des Gegenstands.
 	Hier wird aus einem Drop-Down-Menu eine Art ausgewählt.
@@ -163,13 +172,13 @@ Ist der aktuelle Nutzer als Administrator ausgezeichnet, kann er mit dem +-Knopf
 Dazu müssen folgende Daten eingegeben werden:
 
 \begin{itemize}
-	\item Der Barcode des Artikels (Anstatt selbst einen Barcode zu wählen, kann durch Tippen des Barcode/ID-Generieren-Buttons ein zufälliger Barcode generiert werden).
+	\item Der Barcode des Artikels (Anstatt selbst einen Barcode zu wählen, kann durch Tippen des Barcode/ID-Generieren-Buttons ein zufälliger Barcode generiert werden)
 
-	\item Der Name des zu erstellenden Gegenstands.
+	\item Der Name des zu erstellenden Gegenstands
 
-	\item Der Preis des zu erstellenden Gegenstands.
+	\item Der Preis des zu erstellenden Gegenstands
 
-	\item Die Menge, in der der Gegenstand verfügbar ist.
+	\item Die Menge, in der der Gegenstand verfügbar ist
 
 	\item Die Art des Gegenstands.
 	Hier wird aus einem Drop-Down-Menu eine Art ausgewählt.
