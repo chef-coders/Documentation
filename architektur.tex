@@ -9,6 +9,31 @@ Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben 
 
 \subsection{Frontend-Architektur}\label{subsec:frontend}
 % generelle Architektur (Klassen, verwendete Patterns, Fragments, Activities) und deren grobe Erklärung
+Um die interaktion mit dem Backend-Layer zu erleichtern, nutzt die 
+App eine Single Activity Architecture.
+Dies hat auch den Vorteil das
+Screen Übergänge bzw. Transitions einfach und 
+einheitlich gestalltet werden können.
+
+\subsubsection{MainActivity}
+Die \texttt{MainActivity} ist der Einstiegspunkt der App.
+Sie enthält eine Instanz des \texttt{KitchenManagers}, 
+über das alle UI Elemente mit dem Backend kommunizieren können. Sie besteht im Grunde aus drei Elementen. Dem Navigation drawer, der Toolbar und einem Framelayout, in welches Fragments eingebettet werden.
+
+\subsubsection{Fragments}
+Die eigentliche Nutzerinteraktion findet in den Fragments statt. 
+Hier sind alle UI Elemente wie Textfelder oder Buttons eingebettet. 
+Für jeden oben genannten Screens, gibt es ein eigenes Fragment.
+Die Fragments selbst können auf die \texttt{MainActivity} zugreifen, wodurch 
+die Navigation durch die App realisiert wurde. 
+Imitiert der Nutzer einen Screen Wechsel, wird auf den \texttt{FragmentManager} in der  \texttt{MainActivity} zugegriffen. Dieser ersetzt das aktuelle Fragment durch ein anderes.
+Alle Fragments erben von \texttt{KitchenFragment} welches Methoden zu Manipulation der Toolbar zur Verfügung stellt.
+  
+
+\subsubsection{Ausnahmen}
+Weil es sich angeboten hat und man sich idealerweise nur einmal anmeldet ist der Login Screen eine eigene Activity. 
+Auch der BarcodeScanner ist eine eigene Activity, da die BarcodeScanner Library dies verlangt.
+
 
 \subsection{Backend-Architektur}\label{subsec:backend}
 
