@@ -93,7 +93,7 @@ Die Liste ist nach der Art der Gegenstände sortiert (Beispiel: Wasser, Saft, \l
 
 \subsubsection{Artikel zum Einkaufswagen hinzufügen} \label{subsubsec:shoppingcart-add-item}
 
-Tippt der Benutzer auf einen Listeintrag, z.B. Zitronenlimonade, wird ein Exemplar in den Warenkorb gelegt.
+Tippt der Benutzer auf einen Listeintrag, z.B.\ Zitronenlimonade, wird ein Exemplar in den Warenkorb gelegt.
 Der Benutzer kann einen Listeintrag so oft hinzufügen, wie Exemplare verfügbar sind.
 Die Anzahl, der von einem Typ zum Einkaufswagen hinzugefügten Exemplare wird auf dem Listeintrag abgebildet.
 Sind zwei oder mehr Exemplare eines Artikels im Warenkorb, wird der Gesamtpreis der ausgewählten Exemplare des Artikels auf dem Listeintrag abgebildet.
@@ -133,7 +133,8 @@ Durch ein Pop-Up am unteren Bildschrimrand wird gezeigt, dass der Kauf erfolgrei
 \subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-scan-item}
 
 % Was passiert, wenn ein normaler Nutzer den Barcode eines Artikels einscannt
-Durch einen Klick auf das Kamera-Icon in der oberen rechten Ecke des Shop-Screens, das in Abbildung ~\ref{mainscreen} zu sehen ist, öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner, wie in Abbildung \ref{barcodeScanner}. Hiermit kann der Benutzer Barcodes einscannen und die Artikel bequemer erwerben.
+Durch einen Klick auf das Kamera-Icon in der oberen rechten Ecke des Shop-Screens, das in Abbildung ~\ref{mainscreen} zu sehen ist, öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner, wie in Abbildung~\ref{barcodeScanner}.
+Hiermit kann der Benutzer Barcodes einscannen und die Artikel bequemer erwerben.
 
 \dfigure{figures/barcodeScanner.png}{figures/barcodeScanner-purchaseItem}{Barcode Scanner}{\label{barcodeScanner}}
 
@@ -148,7 +149,8 @@ Die Toolbar wird wieder blau gefärbt und das Plus-Symbol wird wieder durch das 
 
 \subsubsection{Artikel bearbeiten} \label{subsubsec:shop-edit-items}
 
-Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeneintrag so öffnet sich, wie es in Abbildung \ref{editItem} zu sehen ist, der Artikel-Bearbeiten-Screen. Der Benutzer hat nun die Möglichkeit die folgenden Eigenschaften des Artikels zu ändern:
+Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeneintrag so öffnet sich, wie es in Abbildung~\ref{editItem} zu sehen ist, der Artikel-Bearbeiten-Screen.
+Der Benutzer hat nun die Möglichkeit die folgenden Eigenschaften des Artikels zu ändern:
 
 \begin{itemize}
 	\item Der Name des zu erstellenden Gegenstands
@@ -157,16 +159,19 @@ Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeneintr
 
 	\item Die Menge, in der der Gegenstand verfügbar ist
 
-	\item Die Art des Gegenstands. Hier wird aus einem Drop-Down-Menu eine Art ausgewählt.
+	\item Die Art des Gegenstands.
+	Hier wird aus einem Drop-Down-Menu eine Art ausgewählt.
 \end{itemize}
 
-Der Barcode selbst kann nicht bearbeitet werden. Tippt der Benutzer auf den Bearbeiten-Button, wird er zum Shop-Screen im Bearbeitungs-Modus weitergeleitet, der den bearbeiteten Artikel enthält.
+Der Barcode selbst kann nicht bearbeitet werden.
+Tippt der Benutzer auf den Bearbeiten-Button, wird er zum Shop-Screen im Bearbeitungs-Modus weitergeleitet, der den bearbeiteten Artikel enthält.
 
 \cfigure{figures/button-editItem.png}{Bestehenden Artikel bearbeiten}{\label{editItem}}
 
 \subsubsection{Artikel hinzufügen} \label{subsubsec:shop-add-items}
 
-Ist der aktuelle Benutzer als Administrator eingeloggt, kann dieser mit dem + Knopf im oberen Banner des Shop-Screens, wie in Abbildung \ref{createItem} demonstriert, neue Artikel hinzufügen. Dazu müssen für jeden neuen Artikel die folgenden Daten eingegeben werden:
+Ist der aktuelle Benutzer als Administrator eingeloggt, kann dieser mit dem + Knopf im oberen Banner des Shop-Screens, wie in Abbildung~\ref{createItem} demonstriert, neue Artikel hinzufügen.
+Dazu müssen für jeden neuen Artikel die folgenden Daten eingegeben werden:
 
 \begin{itemize}
 	\item Der Barcode des Artikels. (Anstatt selbst einen Barcode zu wählen, kann durch Tippen des Barcode/ID-Generieren-Buttons ein zufälliger Barcode generiert werden.)
@@ -177,10 +182,12 @@ Ist der aktuelle Benutzer als Administrator eingeloggt, kann dieser mit dem + Kn
 
 	\item Die Menge, in der dieser Artikel auf Vorrat ist.
 
-	\item Die Warengruppe des Artikels. Hier wird aus einem Drop-Down-Menu eine Art ausgewählt.
+	\item Die Warengruppe des Artikels.
+	Hier wird aus einem Drop-Down-Menu eine Art ausgewählt.
 \end{itemize}
 
-Wird auf den Anlegen-Button getippt so wird der Artikel erstellt. Es öffnet sich wieder der Shop-Screen im Bearbeitungs-Modus, dessen Artikel-Liste den neu erstellten Artikel enthält.
+Wird auf den Anlegen-Button getippt so wird der Artikel erstellt.
+Es öffnet sich wieder der Shop-Screen im Bearbeitungs-Modus, dessen Artikel-Liste den neu erstellten Artikel enthält.
 
 % Bild vom create-Item-Screen, evtl. Erklärungen anpassen
 \cfigure{figures/button-createItem.png}{Anlegen eines neuen Artikels}{\label{createItem}}
@@ -188,7 +195,9 @@ Wird auf den Anlegen-Button getippt so wird der Artikel erstellt. Es öffnet sic
 \subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-admin-scan-item}
 
 % Was passiert, wenn ein Artikel gescannt wird und der Nutzer ein Administrator ist
-Wird ein Barcode von einem Administrator gescannt so wird die App nach schauen ob es zu diesem Barcode bereits einen Artikel gibt oder nicht. Ist dieser Artikel bereits im Sortiment so kann der Administrator diesen wie aus Abbildung \ref{barcodeScanner} gewohnt einfach erwerben. Ist dieser Artikel jedoch noch nicht im Sortiment wird dem Administrator, wie in Abbildung \ref{barcodeScanner-createItem} geschildert, nun die Möglichkeit angeboten diesen Artikel dem Sortiment hinzuzufügen.
+Wird ein Barcode von einem Administrator gescannt so wird die App nach schauen ob es zu diesem Barcode bereits einen Artikel gibt oder nicht.
+Ist dieser Artikel bereits im Sortiment so kann der Administrator diesen wie aus Abbildung~\ref{barcodeScanner} gewohnt einfach erwerben.
+Ist dieser Artikel jedoch noch nicht im Sortiment wird dem Administrator, wie in Abbildung~\ref{barcodeScanner-createItem} geschildert, nun die Möglichkeit angeboten diesen Artikel dem Sortiment hinzuzufügen.
 
 \cfigure{figures/barcodeScanner-createItem}{Barcode Scanner - Einfach neue Artikel anlegen}{\label{barcodeScanner-createItem}}
 
@@ -201,13 +210,22 @@ Wird ein Barcode von einem Administrator gescannt so wird die App nach schauen o
 
 \subsection{Statistiken-Screen} \label{subsec:statistics-screen}
 
-Der Statistiken-Screen ist über die Navigation erreichbar. Dieser stellt den Administratoren als auch den Benutzern der App unterschiedliche Informationen grafisch dar. Ein Administrator kann dort einsehen welche Artikel wie oft gekauft wurden und somit einen Überblick über die verkauften Stückzahlen für jeden Artikel erhalten. Des weiterem wird der Betrag von allen verkauften Artikeln, der Betrag von den selbst eingekauften Artikeln, die Anzahl aller verkaufter Artikel und die Anzahl der selbst eingekauften Artikel dargestellt. Die Ansicht eines Administrators ist in Abbildung \ref{statistics-admin} zu sehen. Ein Benutzer erhält lediglich einen Überblick über seine eignen Einkäufe. Dabei kann der Benutzer sehen wie viele Exemplare eines Artikels dieser gekauft hat. Des weiterem wird dem Benutzer dargestellt wie viel Geld dieser bereits ausgegeben hat und wie viele Artikel dieser insgesamt schon gekauft hat. Die Ansicht eines Benutzers ist ebenfalls in Abbildung \ref{statistics-user} dargestellt. In den Statistiken werden alle Beträge in Euro angezeigt.
+Der Statistiken-Screen ist über die Navigation erreichbar.
+Dieser stellt den Administratoren als auch den Benutzern der App unterschiedliche Informationen grafisch dar.
+Ein Administrator kann dort einsehen welche Artikel wie oft gekauft wurden und somit einen Überblick über die verkauften Stückzahlen für jeden Artikel erhalten.
+Des weiterem wird der Betrag von allen verkauften Artikeln, der Betrag von den selbst eingekauften Artikeln, die Anzahl aller verkaufter Artikel und die Anzahl der selbst eingekauften Artikel dargestellt.
+Die Ansicht eines Administrators ist in Abbildung~\ref{statistics-admin} zu sehen.
+Ein Benutzer erhält lediglich einen Überblick über seine eignen Einkäufe.
+Dabei kann der Benutzer sehen wie viele Exemplare eines Artikels dieser gekauft hat.
+Des weiterem wird dem Benutzer dargestellt wie viel Geld dieser bereits ausgegeben hat und wie viele Artikel dieser insgesamt schon gekauft hat.
+Die Ansicht eines Benutzers ist ebenfalls in Abbildung~\ref{statistics-user} dargestellt.
+In den Statistiken werden alle Beträge in Euro angezeigt.
 
 \dfigure{figures/statistics-admin.png}{figures/statistics-user.png}{Statistiken - Ansicht des Administrators und Ansicht des Benutzers}{\label{statistics-admin}\label{statistics-user}}
 
 \subsection{Einstellungen-Screen} \label{subsec:settings-screen}
 
-\subsection{Aktualisieren von Server-Daten}
+\subsection{Aktualisieren von Server-Daten}\label{subsec:aktualisieren-von-server-daten}
 
 Alle Screens, die Daten vom Server in einer Liste darstellen, können aktualisiert werden.
 Dazu gehören der Shop-Screen, der Nutzer-Screen, sowie der Einkaufs-Historie-Screen.
@@ -216,4 +234,5 @@ Dabei wird ein Lade-Balken sichtbar, der den Fortschritt der Aktualisierung anze
 
 \subsection{Unterstützte Sprachen} \label{subsec:languages}
 
-Von der App wird derzeit Englisch und Deutsch unterstützt. Die Wahl der Sprache hängt hierbei von der Systemsprache des Smartphones ab.
+Von der App wird derzeit Englisch und Deutsch unterstützt.
+Die Wahl der Sprache hängt hierbei von der Systemsprache des Smartphones ab.
