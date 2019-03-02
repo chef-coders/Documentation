@@ -3,48 +3,46 @@
 \subsection{Datenmodell}\label{subsec:datamodel}
 
 Das Datenmodell umfasst drei Klassen: \texttt{Item}, \texttt{User}, \texttt{Purchase}.
-Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben die in Abbildung ~\ref{datamodel} gezeigte Struktur.
+Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben die in Abbildung~\ref{datamodel} gezeigte Struktur.
 
 \cfigure{figures/datamodel.png}{Datenmodell}{\label{datamodel}}
 
 \subsection{Frontend-Architektur}\label{subsec:frontend}
 % generelle Architektur (Klassen, verwendete Patterns, Fragments, Activities) und deren grobe Erklärung
-Um die interaktion mit dem Backend-Layer zu erleichtern, nutzt die 
-App eine Single Activity Architecture.
-Dies hat auch den Vorteil das
-Screen Übergänge bzw. Transitions einfach und 
-einheitlich gestalltet werden können.
+Um die interaktion mit dem Backend-Layer zu erleichtern, nutzt die App eine Single Activity Architecture.
+Dies hat auch den Vorteil das Screen Übergänge bzw.\ Transitions einfach und einheitlich gestaltet werden können.
 
 \subsubsection{MainActivity}
+
 Die \texttt{MainActivity} ist der Einstiegspunkt der App.
-Sie enthält eine Instanz des \texttt{KitchenManagers}, 
-über das alle UI Elemente mit dem Backend kommunizieren können. Sie besteht im Grunde aus drei Elementen. Dem Navigation drawer, der Toolbar und einem Framelayout, in welches Fragments eingebettet werden.
+Sie enthält eine Instanz des \texttt{KitchenManagers}, über den alle UI Elemente mit dem Backend kommunizieren können.
+Sie besteht im Grunde aus drei Elementen: dem Navigation drawer, der Toolbar und einem Framelayout, in welches Fragments eingebettet werden.
 
 \subsubsection{Fragments}
-Die eigentliche Nutzerinteraktion findet in den Fragments statt. 
-Hier sind alle UI Elemente wie Textfelder oder Buttons eingebettet. 
+
+Die eigentliche Nutzerinteraktion findet in den Fragments statt.
+Hier sind alle UI Elemente wie Textfelder oder Buttons eingebettet.
 Für jeden oben genannten Screens, gibt es ein eigenes Fragment.
-Die Fragments selbst können auf die \texttt{MainActivity} zugreifen, wodurch 
-die Navigation durch die App realisiert wurde. 
-Imitiert der Nutzer einen Screen Wechsel, wird auf den \texttt{FragmentManager} in der  \texttt{MainActivity} zugegriffen. Dieser ersetzt das aktuelle Fragment durch ein anderes.
-Alle Fragments erben von \texttt{KitchenFragment} welches Methoden zu Manipulation der Toolbar zur Verfügung stellt.
-  
+Die Fragments selbst können auf die \texttt{MainActivity} zugreifen, wodurch die Navigation durch die App realisiert wurde.
+Imitiert der Nutzer einen Screen Wechsel, wird auf den \texttt{FragmentManager} in der  \texttt{MainActivity} zugegriffen.
+Dieser ersetzt das aktuelle Fragment durch ein anderes.
+Alle Fragments erben von \texttt{KitchenFragment}, welches Methoden zu Manipulation der Toolbar zur Verfügung stellt.
 
 \subsubsection{Ausnahmen}
-Weil es sich angeboten hat und man sich idealerweise nur einmal anmeldet ist der Login Screen eine eigene Activity. 
-Auch der BarcodeScanner ist eine eigene Activity, da die BarcodeScanner Library dies verlangt.
 
+Weil es sich angeboten hat und man sich idealerweise nur einmal anmeldet, ist der Login Screen eine eigene Activity.
+Auch der BarcodeScanner ist eine eigene Activity, da die BarcodeScanner Library dies verlangt.
 
 \subsection{Backend-Architektur}\label{subsec:backend}
 
-Die Backend-Architektur besteht aus drei Ebenen (siehe Abbildung ~\ref{backendArchitecture}).
+Die Backend-Architektur besteht aus drei Ebenen (siehe Abbildung~\ref{backendArchitecture}).
 
 \subsubsection{Base-Layer}
 
 Die unterste Ebene bildet die Klasse \texttt{OkHttpConnection}, welche über das Interface \texttt{HttpConnection} implementiert ist.
 Die Klasse ist verantwortlich für den primitiven Netzwerkverkehr per HTTP mit beliebigen Inhalten.
 Es werden die HTTP-Methoden \texttt{GET}, \texttt{POST}, \texttt{PUT} und \texttt{DELETE} implementiert.
-Bei fehlerhaften Anfragen (HTTP-Code $\neq$ 2xx), sowie bei fehlerhaften URLs wird eine Exception geworfen.
+Bei fehlerhaften Anfragen (HTTP-Code $\neq$ 2xx), sowie bei fehlerhaften URLs, wird eine Exception geworfen.
 
 \subsubsection{Abstraction-Layer}
 
@@ -65,7 +63,8 @@ Auf der zweiten Ebene befinden sich die Klassen \texttt{KitchenConnection}, \tex
 \subsubsection{Access-Layer}
 
 Die Dritte Ebene beinhaltet nur die Klasse \texttt{KitchenManager}.
-Sie ist der Einstiegspunkt des Backend und stellt so alle Operationen zur Verfügung, welche die Oberfläche benötigt. \texttt{KitchenManager} bildet eine vollständige Abstraktion der REST-API, über die Klasse \texttt{KitchenConnection}, welche bereits die Adressen und benötigten Header der API-Aufrufe abstrahierte.
+Sie ist der Einstiegspunkt des Backend und stellt so alle Operationen zur Verfügung, welche die Oberfläche benötigt.
+\texttt{KitchenManager} bildet eine vollständige Abstraktion der REST-API, über die Klasse \texttt{KitchenConnection}, welche bereits die Adressen und benötigten Header der API-Aufrufe abstrahierte.
 
 \cfigure{figures/classStructure.png}{Backend Architektur}{\label{backendArchitecture}}
 
