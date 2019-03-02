@@ -1,4 +1,4 @@
-# Code Camp Kitchen App [![Build Status](https://travis-ci.org/chef-coders/ComTec-Kitchen.svg?branch=master)](https://travis-ci.org/chef-coders/ComTec-Kitchen)
+# Code Camp Kitchen App - Dokumentation
 
 ```
 Java Code Camp Context Awareness
@@ -7,7 +7,7 @@ ComTec
 Uni Kassel
 ```
 
-by Team [ChefCoders](https://github.com/chef-coders):
+von Team [ChefCoders](https://github.com/chef-coders):
 
 - [Jan Bingemann](https://github.com/jannb97)
 - [Johann Feser](https://github.com/Johann13)
