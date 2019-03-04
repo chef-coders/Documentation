@@ -7,7 +7,7 @@ Beim Öffnen der Anwendung wird geprüft, ob sich in den Shared-Preferences des 
 Ist dies der Fall wird der Benutzer anhand dieser eingeloggt.
 Andernfalls öffnet sich zunächst der Login-Screen.
 
-Es wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung ~\ref{loginscreen}) erstellt.
+Es wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung~\ref{loginscreen}) erstellt.
 Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
 Der Login-Screen schließt sich wieder.
 
@@ -208,6 +208,14 @@ Ist dieser Artikel jedoch noch nicht im Sortiment wird dem Administrator, wie in
 
 \subsection{Nutzer-Screen (Administrator Funktionalität)} \label{subsec:user-screen}
 
+Der Nutzer-Screen ist nur im Navigation-Drawer zu sehen, falls der Benutzer ein Administrator ist.
+
+Im Nutzer-Screen hat der Benutzer einen Überblick über alle Nutzer, die beim Server angemeldet sind.
+Sie sind nach den Anfangsbuchstaben ihrer Benutzernamen gruppiert und alphabetisch geordnet.
+
+Tippt der Benutzer auf einen List-Eintrag, öffnet sich der Nutzer-bearbeiten-Screen, der in Abschnitt~\ref{subsec:edit-user-screen} besprochen wurde.
+Statt des eigenen Benutzer-Accounts, kann stattdessen der Account des ausgewählten Benutzers bearbeitet werden.
+
 \subsection{Statistiken-Screen} \label{subsec:statistics-screen}
 
 Der Statistiken-Screen ist über die Navigation erreichbar.
@@ -224,6 +232,11 @@ In den Statistiken werden alle Beträge in Euro angezeigt.
 \dfigure{figures/statistics-admin.png}{figures/statistics-user.png}{Statistiken - Ansicht des Administrators und Ansicht des Benutzers}{\label{statistics-admin}\label{statistics-user}}
 
 \subsection{Einstellungen-Screen} \label{subsec:settings-screen}
+
+Im Einstellungen-Screen hat der Benutzer die Möglichkeit, durch das Tippen eines Switch-Buttons den Dunkel-Modus der App zu aktivieren.
+Die App erscheint dann in einem dunkleren Design und ist dadurch schonender für die Augen.
+Bei erneutem Tippen des Switch-Buttons wird die App wieder in helleren Farben angezeigt.
+Ob der Dunkel-Modus aktiviert oder deaktiviert ist, wird in den Shared-Preferences gespeichert.
 
 \subsection{Aktualisieren von Server-Daten}\label{subsec:aktualisieren-von-server-daten}
 
