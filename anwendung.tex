@@ -90,6 +90,11 @@ Ein Eintrag in dieser Liste enthält folgende Komponenten:
 \end{itemize}
 
 Die Liste ist nach der Art der Gegenstände sortiert (Beispiel: Wasser, Saft, \ldots).
+Als Überschrift ist jeder Gruppierung von Artikeln derselben Art ein Listeneintrag vorangestellt, der den Namen der Art trägt.
+Tippt der Benutzer auf eine Überschrift, faltet sich die Kategorie zusammen.
+Bei erneutem Tippen werden die Artikel wieder angezeigt.
+
+Auf dieselbe Art funktionieren alle Listen der App mit Kategorien.
 
 \subsubsection{Artikel zum Einkaufswagen hinzufügen} \label{subsubsec:shoppingcart-add-item}
 
@@ -202,6 +207,25 @@ Ist dieser Artikel jedoch noch nicht im Sortiment wird dem Administrator, wie in
 \cfigure{figures/barcodeScanner-createItem}{Barcode Scanner - Einfach neue Artikel anlegen}{\label{barcodeScanner-createItem}}
 
 \subsection{Einkaufs-Historie-Screen} \label{subsec:purchases-screen}
+
+Im Einkaufs-Historie-Screen sieht der Benutzer alle seiner getätigten Transaktionen in einer Liste.
+
+Ein Listeintrag stellt einen oder mehrere Artikel einer Sorte dar, die in der Transaktion gekauft wurden.
+Er enthält folgende Komponenten:
+
+\begin{itemize}
+	\item Den Namen des Artikels
+
+	\item Den Barcode des Artikels
+
+	\item Die Anzahl, die man von diesem Artikeltyp gekauft hat.
+
+	\item Der Gesamtpreis, der für diesen Artikeltyp anfällt.
+	Hierbei handelt es sich um den Kumulierten Preis (ausgewählte Anzahl $\cdot$ Preis) des Artikels.
+	Dieser wird nur angezeigt, wenn mehr als ein Artikel des Typs gekauft wurde.
+\end{itemize}
+
+Die Listeinträge einer Transaktion sind nach dem Datum der Transaktion gruppiert.
 
 % Bild des Purchases-Screen, evtl. Erklärung anpassen
 \cfigure{figures/screen_placeholder.png}{Liste getätigter Einkäufe}{\label{purchases-screen}}
