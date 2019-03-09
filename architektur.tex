@@ -33,15 +33,15 @@ Dies erfolgt durch Zugriff auf den \texttt{FragmentManager} der \texttt{MainActi
 
 \subsubsection{Toolbar}
 
-Im Gegensatz zu den Fragmenten, wird die Toolbar bei Screen-Wechseln nicht ausgetauscht, sondern manipuliert.
+Im Gegensatz zu den Fragmenten, wird die Toolbar bei Screen-Wechseln nicht ausgetauscht, sondern kann vom neu angezeigten Fragment manipuliert werden.
 
-Die Vorraussetzung dafür ist, dass alle Fragments von \texttt{KitchenFragment} erben.
+Die Voraussetzung dafür ist, dass alle Fragments von \texttt{KitchenFragment} erben.
 Dieses stellt eine Methode bereit, die aufgerufen wird, sobald das Fragment in der MainActivity angezeigt wird.
-Typischer Weise wird dann der Name des Screens angezeigt.
+Beispielsweise können hier spezielle Symbole des Fragments in der Toolbar angezeigt werden.
 
 Hier zeigt sich ein Vorteil der Single-Activity-Architecture.
 Wäre jeder Screen eine eigene Activity, müsste jedes Layout eine eigene Toolbar beinhalten.
-Diese Redundanz kann hier vermieden werden, da es nur eine Toolbar im Layout der MainActivity benötigt wird.
+Die daraus resultierende Redundanz kann hier vermieden werden, da nur eine Toolbar im Layout der MainActivity benötigt wird.
 
 \subsubsection{Navigation-Drawer}
 
@@ -50,7 +50,7 @@ Dies führt dazu, dass das Tippen eines Elements im Navigation-Drawer zentral ve
 Dadurch kann beispielsweise das Zurückgleiten des Navigation-Drawers nach einem Tipp-Event, sehr einfach erreicht werden.
 
 Im Gegensatz dazu müsste bei der Verwendung vieler Activities, jede Activity ein Navigation-Drawer in deren Layout definieren.
-Dies wäre zum einen redundant, zum anderen würde die Verarbeitung von Tipp-Events und die korrekte Anzeige des Navigation-Drawers weitaus komplexer, da mit anderen Activities kommuniziert werden müsste.
+Dies wäre nicht nur redundant, sondern würde auch die Verarbeitung von Tipp-Events und die korrekte Anzeige des Navigation-Drawers weitaus komplexer machen, da mit anderen Activities kommuniziert werden müsste.
 
 \subsubsection{Ausnahmen}
 
