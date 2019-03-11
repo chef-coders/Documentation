@@ -7,7 +7,7 @@ Beim Öffnen der Anwendung wird geprüft, ob sich in den Shared-Preferences des 
 Ist dies der Fall wird der Benutzer anhand dieser eingeloggt.
 Andernfalls öffnet sich zunächst der Login-Screen.
 
-Es wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Adminflag, siehe Abbildung~\ref{loginscreen}) erstellt.
+Es wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Admin-Flag, siehe Abbildung~\ref{loginscreen}) erstellt.
 Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
 Der Login-Screen schließt sich wieder.
 
@@ -154,7 +154,7 @@ Die Toolbar wird wieder blau gefärbt und das Plus-Symbol wird wieder durch das 
 
 \subsubsection{Artikel bearbeiten} \label{subsubsec:shop-edit-items}
 
-Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeneintrag so öffnet sich, wie es in Abbildung~\ref{editItem} zu sehen ist, der Artikel-Bearbeiten-Screen.
+Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeneintrag so öffnet sich, wie es in Abbildung~\ref{createEditItem} rechts zu sehen ist, der Artikel-Bearbeiten-Screen.
 Der Benutzer hat nun die Möglichkeit die folgenden Eigenschaften des Artikels zu ändern:
 
 \begin{itemize}
@@ -171,11 +171,11 @@ Der Benutzer hat nun die Möglichkeit die folgenden Eigenschaften des Artikels z
 Der Barcode selbst kann nicht bearbeitet werden.
 Tippt der Benutzer auf den Bearbeiten-Button, wird er zum Shop-Screen im Bearbeitungs-Modus weitergeleitet, der den bearbeiteten Artikel enthält.
 
-\cfigure{figures/button-editItem.png}{Bestehenden Artikel bearbeiten}{\label{editItem}}
+\dfigure{figures/button-createItem.png}{figures/button-editItem.png}{Anlegen eines neuen Artikels / Bestehenden Artikel bearbeiten}{\label{createEditItem}}
 
 \subsubsection{Artikel hinzufügen} \label{subsubsec:shop-add-items}
 
-Ist der aktuelle Benutzer als Administrator eingeloggt, kann dieser mit dem + Knopf im oberen Banner des Shop-Screens, wie in Abbildung~\ref{createItem} demonstriert, neue Artikel hinzufügen.
+Ist der aktuelle Benutzer als Administrator eingeloggt, kann dieser mit dem + Knopf im oberen Banner des Shop-Screens, wie in Abbildung~\ref{createEditItem} links demonstriert, neue Artikel hinzufügen.
 Dazu müssen für jeden neuen Artikel die folgenden Daten eingegeben werden:
 
 \begin{itemize}
@@ -193,9 +193,6 @@ Dazu müssen für jeden neuen Artikel die folgenden Daten eingegeben werden:
 
 Wird auf den Anlegen-Button getippt so wird der Artikel erstellt.
 Es öffnet sich wieder der Shop-Screen im Bearbeitungs-Modus, dessen Artikel-Liste den neu erstellten Artikel enthält.
-
-% Bild vom create-Item-Screen, evtl. Erklärungen anpassen
-\cfigure{figures/button-createItem.png}{Anlegen eines neuen Artikels}{\label{createItem}}
 
 \subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-admin-scan-item}
 
@@ -251,9 +248,10 @@ Ein Benutzer erhält lediglich einen Überblick über seine eignen Einkäufe.
 Dabei kann der Benutzer sehen wie viele Exemplare eines Artikels dieser gekauft hat.
 Des weiterem wird dem Benutzer dargestellt wie viel Geld dieser bereits ausgegeben hat und wie viele Artikel dieser insgesamt schon gekauft hat.
 Die Ansicht eines Benutzers ist ebenfalls in Abbildung~\ref{statistics-user} dargestellt.
+Natürlich kann ein Administrator, wie der Benutzer, auch seine eignen Einkäufe einsehen.
 In den Statistiken werden alle Beträge in Euro angezeigt.
 
-\dfigure{figures/statistics-admin.png}{figures/statistics-user.png}{Statistiken - Ansicht des Administrators und Ansicht des Benutzers}{\label{statistics-admin}\label{statistics-user}}
+\dfigure{figures/statistics-admin-all.png}{figures/statistics-user.png}{Statistiken - Ansicht des Administrators und Ansicht des Benutzers}{\label{statistics-admin}\label{statistics-user}}
 
 \subsection{Einstellungen-Screen} \label{subsec:settings-screen}
 

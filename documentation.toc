@@ -1,0 +1,44 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Einleitung}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Ziele}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Funktionsweise}{3}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}\IeC {\"U}berblick}{3}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Inhalt}{3}{subsection.1.4}% 
+\contentsline {section}{\numberline {2}Anwendung}{3}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Start}{3}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Navigation}{3}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Nutzer-bearbeiten-Screen}{5}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Shop-Screen}{5}{subsection.2.4}% 
+\contentsline {subsubsection}{\numberline {2.4.1}Artikel zum Einkaufswagen hinzuf\IeC {\"u}gen}{6}{subsubsection.2.4.1}% 
+\contentsline {subsubsection}{\numberline {2.4.2}Artikel aus dem Einkaufswagen entfernen}{6}{subsubsection.2.4.2}% 
+\contentsline {subsubsection}{\numberline {2.4.3}Verhalten des Einkaufswagen-Buttons}{6}{subsubsection.2.4.3}% 
+\contentsline {subsubsection}{\numberline {2.4.4}Artikel kaufen}{6}{subsubsection.2.4.4}% 
+\contentsline {subsubsection}{\numberline {2.4.5}Barcode von Artikeln scannen}{6}{subsubsection.2.4.5}% 
+\contentsline {subsection}{\numberline {2.5}Shop-Screen (Zus\IeC {\"a}tzliche Administrator Funktionalit\IeC {\"a}ten)}{7}{subsection.2.5}% 
+\contentsline {subsubsection}{\numberline {2.5.1}Artikel bearbeiten}{7}{subsubsection.2.5.1}% 
+\contentsline {subsubsection}{\numberline {2.5.2}Artikel hinzuf\IeC {\"u}gen}{7}{subsubsection.2.5.2}% 
+\contentsline {subsubsection}{\numberline {2.5.3}Barcode von Artikeln scannen}{8}{subsubsection.2.5.3}% 
+\contentsline {subsection}{\numberline {2.6}Einkaufs-Historie-Screen}{8}{subsection.2.6}% 
+\contentsline {subsection}{\numberline {2.7}Nutzer-Screen (Administrator Funktionalit\IeC {\"a}t)}{9}{subsection.2.7}% 
+\contentsline {subsection}{\numberline {2.8}Statistiken-Screen}{9}{subsection.2.8}% 
+\contentsline {subsection}{\numberline {2.9}Einstellungen-Screen}{10}{subsection.2.9}% 
+\contentsline {subsection}{\numberline {2.10}Aktualisieren von Server-Daten}{10}{subsection.2.10}% 
+\contentsline {subsection}{\numberline {2.11}Unterst\IeC {\"u}tzte Sprachen}{11}{subsection.2.11}% 
+\contentsline {subsection}{\numberline {2.12}Shortcut-Funktion zum Scannen von Artikeln}{11}{subsection.2.12}% 
+\contentsline {section}{\numberline {3}Architektur}{11}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Datenmodell}{11}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Frontend-Architektur}{11}{subsection.3.2}% 
+\contentsline {subsubsection}{\numberline {3.2.1}Aufbau der MainActivity}{11}{subsubsection.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.2}Fragmente}{12}{subsubsection.3.2.2}% 
+\contentsline {subsubsection}{\numberline {3.2.3}Toolbar}{12}{subsubsection.3.2.3}% 
+\contentsline {subsubsection}{\numberline {3.2.4}Navigation-Drawer}{13}{subsubsection.3.2.4}% 
+\contentsline {subsubsection}{\numberline {3.2.5}Ausnahmen}{13}{subsubsection.3.2.5}% 
+\contentsline {subsubsection}{\numberline {3.2.6}Kommunikation mit dem Backend-Layer}{13}{subsubsection.3.2.6}% 
+\contentsline {subsubsection}{\numberline {3.2.7}RecyclerViews}{14}{subsubsection.3.2.7}% 
+\contentsline {subsection}{\numberline {3.3}Backend-Architektur}{14}{subsection.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.1}Base-Layer}{14}{subsubsection.3.3.1}% 
+\contentsline {subsubsection}{\numberline {3.3.2}Abstraction-Layer}{14}{subsubsection.3.3.2}% 
+\contentsline {subsubsection}{\numberline {3.3.3}Access-Layer}{14}{subsubsection.3.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.4}Tests}{14}{subsubsection.3.3.4}% 
+\contentsline {section}{\numberline {4}Anhang}{15}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Bibliotheken}{15}{subsection.4.1}% 
