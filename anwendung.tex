@@ -7,14 +7,14 @@ Beim Öffnen der Anwendung wird geprüft, ob sich in den Shared-Preferences des 
 Ist dies der Fall wird der Benutzer anhand dieser eingeloggt.
 Andernfalls öffnet sich zunächst der Login-Screen.
 
-Es wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Admin-Flag, siehe Abbildung~\ref{loginscreen}) erstellt.
+Es wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Admin-Flag, siehe Abbildung~\ref{loginshopscreen}) erstellt.
 Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
 Der Login-Screen schließt sich wieder.
 
 Sowohl im Fall des automatischen Logins, als auch nach der Anmeldung im Login-Screen, öffnet sich dann der Shop-Screen.
 
 % Bild vom Login-Screen mit Erklärung
-\cfigure{figures/screen_placeholder.png}{login-screen}{\label{loginscreen}}
+\dfigure{figures/screen_placeholder.png}{figures/screen_placeholder.png}{Login-Screen und Shop-Screen}{\label{loginshopscreen}}
 
 \subsection{Navigation} \label{subsec:navigation}
 
@@ -48,29 +48,10 @@ Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeich
 Der Benutzer wird zum Login-Screen weitergeleitet, um sich einen neuen Account zu erstellen.
 Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich.
 
-\subsection{Nutzer-bearbeiten-Screen} \label{subsec:edit-user-screen}
-
-Im Nutzer-bearbeiten-Screen kann der Benutzer sein eigenes Profil bearbeiten (siehe Abbildung~\ref{editUserScreen}).
-
-\cfigure{figures/screen_placeholder.png}{Nutzer-bearbeiten-Screen}{\label{editUserScreen}}
-
-Er kann die folgenden Daten verändern:
-
-\begin{itemize}
-	\item Den Nutzernamen
-	\item Die Email-Adresse
-	\item Das eigene Guthaben, falls er ein Administrator ist
-\end{itemize}
-
-Tippt der Benutzer auf den Speicher-Button, wird das Nutzer-Profil gespeichert und es öffnet sich der Nutzer-Screen.
-
 \subsection{Shop-Screen}\label{subsec:shop-screen}
 
 Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Shop-Screen.
-Dieser zeigt eine Liste der Gegenstände, die zum Kaufen verfügbar sind (siehe Abbildung~\ref{shopscreen}).
-
-% Bild vom Main-Screen mit Item-Liste, evtl. Erklärungen anpassen
-\cfigure{figures/screen_placeholder.png}{Shop-Screen}{\label{shopscreen}}
+Dieser zeigt eine Liste der Gegenstände, die zum Kaufen verfügbar sind (siehe Abbildung~\ref{loginshopscreen}).
 
 Ein Eintrag in dieser Liste enthält folgende Komponenten:
 
@@ -230,11 +211,27 @@ Die Listeneinträge einer Transaktion sind nach dem Datum der Transaktion gruppi
 % Bild des Purchases-Screen, evtl. Erklärung anpassen
 \cfigure{figures/screen_placeholder.png}{Liste getätigter Einkäufe}{\label{purchases-screen}}
 
+\subsection{Nutzer-bearbeiten-Screen} \label{subsec:edit-user-screen}
+
+Im Nutzer-bearbeiten-Screen kann der Benutzer sein eigenes Profil bearbeiten (siehe Abbildung~\ref{userScreen}).
+
+\dfigure{figures/screen_placeholder.png}{figures/screen_placeholder.png}{Nutzer-bearbeiten-Screen und Nutzer-Screen}{\label{userScreen}}
+
+Er kann die folgenden Daten verändern:
+
+\begin{itemize}
+	\item Den Nutzernamen
+	\item Die Email-Adresse
+	\item Das eigene Guthaben, falls er ein Administrator ist
+\end{itemize}
+
+Tippt der Benutzer auf den Speicher-Button, wird das Nutzer-Profil gespeichert und es öffnet sich der Nutzer-Screen.
+
 \subsection{Nutzer-Screen (Administrator Funktionalität)} \label{subsec:user-screen}
 
 Der Nutzer-Screen ist nur im Navigation-Drawer zu sehen, falls der Benutzer ein Administrator ist.
 
-Im Nutzer-Screen hat der Benutzer einen Überblick über alle Nutzer, die beim Server angemeldet sind.
+Im Nutzer-Screen hat der Benutzer einen Überblick über alle Nutzer, die beim Server angemeldet sind (siehe Abbildung~\ref{userScreen}).
 Sie sind nach den Anfangsbuchstaben ihrer Benutzernamen gruppiert und alphabetisch geordnet.
 
 Tippt der Benutzer auf einen List-Eintrag, öffnet sich der Nutzer-bearbeiten-Screen, der in Abschnitt~\ref{subsec:edit-user-screen} erläutert wurde.
