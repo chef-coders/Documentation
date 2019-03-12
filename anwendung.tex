@@ -31,7 +31,7 @@ Darunter zeigen sich viele Buttons, mit denen zu allen Screens der App navigiert
 	\item Shop-Button: Der Shop-Screen wird geöffnet.
 	Dies ist der zentrale Screen der App, da hier Artikel gekauft werden können.
 
-	\item Einkaufs Historie-Button: Der Einkaufs-Historie-Screen öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases}).
+	\item Einkaufs Historie-Button: Der Einkaufs-Historie-Screen öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases-screen}).
 
 	\item Nutzer-Button (Administrator): Dieser Button ist nur verfügbar, wenn der Benutzer ein Administrator ist.
 	Klickt er auf diesen Button, öffnet sich das Nutzer-Fragment, das die Liste aller Nutzer zeigt.
@@ -50,7 +50,10 @@ Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich
 
 \subsection{Nutzer-bearbeiten-Screen} \label{subsec:edit-user-screen}
 
-Im Nutzer-bearbeiten-Screen kann der Benutzer sein eigenes Profil bearbeiten.
+Im Nutzer-bearbeiten-Screen kann der Benutzer sein eigenes Profil bearbeiten (siehe Abbildung~\ref{editUserScreen}).
+
+\cfigure{figures/screen_placeholder.png}{Nutzer-bearbeiten-Screen}{\label{editUserScreen}}
+
 Er kann die folgenden Daten verändern:
 
 \begin{itemize}
@@ -64,10 +67,10 @@ Tippt der Benutzer auf den Speicher-Button, wird das Nutzer-Profil gespeichert u
 \subsection{Shop-Screen}\label{subsec:shop-screen}
 
 Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Shop-Screen.
-Dieser zeigt eine Liste der kaufbaren Gegenstände (siehe Abbildung ~\ref{mainscreen}).
+Dieser zeigt eine Liste der Gegenstände, die zum Kaufen verfügbar sind (siehe Abbildung ~\ref{shopscreen}).
 
 % Bild vom Main-Screen mit Item-Liste, evtl. Erklärungen anpassen
-\cfigure{figures/screen_placeholder.png}{Haupt-Screen}{\label{mainscreen}}
+\cfigure{figures/screen_placeholder.png}{Shop-Screen}{\label{shopscreen}}
 
 Ein Eintrag in dieser Liste enthält folgende Komponenten:
 
