@@ -11,20 +11,28 @@
 \author{Adrian Kunz, Jan Bingemann, Johann Feser, Michael Prasil, Sven Starcke}
 \date{Kassel, den \today}
 
-\newcommand{\cfigure}[3]{%
+\newcommand{\singleFigure}[4]{%
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.4\columnwidth]{#1}
+	\includegraphics[width=#4]{#1}
 	\caption{#2}{#3} % #3 is the label, include "\label{" and "}"!
 \end{figure}
+}
+
+\newcommand{\cfigure}[3]{%
+	\singleFigure{#1}{#2}{#3}{0.4 \columnwidth}
+}
+
+\newcommand{\cfigureLarge}[3]{%
+	\singleFigure{#1}{#2}{#3}{0.8 \columnwidth}
 }
 
 \newcommand{\dfigure}[4]{%
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.4\columnwidth]{#1}
+	\includegraphics[width=0.4 \columnwidth]{#1}
 	\hspace{\columnsep}
-	\includegraphics[width=0.4\columnwidth]{#2}
+	\includegraphics[width=0.4 \columnwidth]{#2}
 	\caption{#3}{#4}
 \end{figure}
 }
