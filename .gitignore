@@ -2,3 +2,9 @@
 /out/
 .DS_Store
 /auxil/
+*.aux
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.toc
