@@ -3,12 +3,13 @@
 \subsection{Datenmodell}\label{subsec:datamodel}
 
 Das Datenmodell umfasst drei Klassen: \texttt{Item}, \texttt{User}, \texttt{Purchase}.
-Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben die in Abbildung~\ref{datamodel} gezeigte Struktur.
+Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben die in Abbildung~\ref{fig:datamodel} gezeigte Struktur.
 
-\cfigure{figures/datamodel.png}{Datenmodell}{\label{datamodel}}
+\cfigure{figures/datamodel.png}{Datenmodell}{\label{fig:datamodel}}
 
 \subsection{Frontend-Architektur}\label{subsec:frontend}
 % generelle Architektur (Klassen, verwendete Patterns, Fragments, Activities) und deren grobe Erklärung
+
 Die App nutzt eine Single Activity Architektur und läuft damit hauptsächlich in einer einzigen Activity, der \texttt{MainActivity}.
 Durch diese Architektur ergeben sich eine Vielzahl von Vorteilen.
 
@@ -59,9 +60,9 @@ Auch der BarcodeScanner ist eine eigene Activity, da die BarcodeScanner Library 
 
 \subsubsection{Kommunikation mit dem Backend-Layer}
 
-Die Architektur ermöglichst sehr einfache Kommunikation mit dem Backend-Layer.
-Die MainActivity enthält eine Instanz des \texttt{KitchenManagers}, über den alle UI Elemente, einschließlich der Framgente, mit dem Backend kommunizieren können.
-Der genaue Aufbau des \texttt{KitchenManagers} wird in Abschnitt~\ref{subsubsec:access-layer} beschrieben.
+Die Architektur ermöglicht sehr einfache Kommunikation mit dem Backend-Layer.
+Über statische Instanzen von Hilfsklassen haben alle UI-Klassen kontrollierten Zugriff auf das Backend.
+Diese Hilfsklassen werden in Abschnitt~\ref{subsubsec:access-layer} genauer beschrieben.
 
 \subsection{Backend-Architektur}\label{subsec:backend}
 
@@ -76,15 +77,12 @@ Bei fehlerhaften Anfragen (HTTP-Code $\neq$ 2xx), sowie bei fehlerhaften URLs, w
 
 \subsubsection{Abstraction-Layer}
 
-Auf der zweiten Ebene befinden sich die Klassen \texttt{KitchenConnection}, \texttt{LocalDataStore} und \texttt{JsonTranslator}.
+Auf der zweiten Ebene befinden sich die Klassen \texttt{KitchenConnection} und \texttt{JsonTranslator}.
 
 \begin{itemize}
 	\item  \texttt{KitchenConnection} ist verantwortlich für die spezialisierte Kommunikation mit der bereitgestellten REST-API. Die Klasse enthält Attribute für die Basis-URL des REST-Servers, sowie für Schlüssel zur Erzeugung von Nutzern.
 	Alle Funktionen der REST-API werden hier implementiert, indem jede Methode der Klasse einen Pfad der REST-API abdeckt.
 	Die Funktionsnamen entsprechen der Spezifikation der REST-API\@.
-
-	\item \texttt{LocalDataStore} ist verantwortlich für das Zwischenspeichern der User, Items und Purchases.
-	Dies ermöglicht schnelleren Zugriff auf die jeweiligen Objekte.
 
 	\item \texttt{JsonTranslator} ist verantwortlich für die bidirektionale Umwandlung zwischen Objekten des Datenmodells und JSON-Strings.
 	Die verwendete Bibliothek für die Umwandlung ist Google's \texttt{GSON}.
@@ -92,9 +90,34 @@ Auf der zweiten Ebene befinden sich die Klassen \texttt{KitchenConnection}, \tex
 
 \subsubsection{Access-Layer} \label{subsubsec:access-layer}
 
-Die Dritte Ebene beinhaltet nur die Klasse \texttt{KitchenManager}.
-Sie ist der Einstiegspunkt des Backend und stellt so alle Operationen zur Verfügung, welche die Oberfläche benötigt.
-\texttt{KitchenManager} bildet eine vollständige Abstraktion der REST-API, über die Klasse \texttt{KitchenConnection}, welche bereits die Adressen und benötigten Header der API-Aufrufe abstrahierte.
+Die dritte Ebene beinhaltet fünf Klassen \texttt{Users}, \texttt{Items}, \texttt{Purchases}, \texttt{Cart} und \texttt{Session}.
+Sie sind die Einstiegspunkte des Backend und stellen alle Operationen zur Verfügung, welche die Oberfläche benötigt.
+
+Instanzen dieser Klassen sind für das UI durch statische Felder zugänglich.
+Untereinander verwenden die Klassen Instanzvariablen der jeweils anderen Klassen, welche per Konstruktor gesetzt werden und somit das Testen vereinfachen.
+So hat beispielsweise die Klasse \texttt{Cart} die Felder \texttt{KitchenConnection connection}, \texttt{Session session} und \texttt{Items items}, da ihre Implementierung diese benötigt.
+Die statischen Feldern werden nur für Zugriff vom UI verwendet, intern greifen die Klassen nur auf die Instanzvariablen zu.
+
+\begin{itemize}
+	\item \texttt{Users} bietet Methoden zum Lesen, Verändern und Löschen von Benutzern sowie einen lokalen Zwischenspeicher.
+	\item \texttt{Items} bietet ähnliche Funktionalität für Artikel, erlaubt jedoch auch das Erzeugen.
+	\item \texttt{Purchases} ermöglicht das Lesen und Gruppieren von Käufen aller Benutzer und des aktuell angemeldeten Benutzers.
+	\item \texttt{Cart} abstrahiert eine Liste von \texttt{Purchase}-Objekten, die die aktuell im Einkaufswagen liegenden Artikel und deren Anzahl speichern.
+	Hier werden auch Preisberechnungen und Bestandsprüfungen implementiert.
+	\item \texttt{Session} implementiert die Logik für Login und Registrierung sowie das persistente Lesen und Speichern von Benutzer-ID und -Token.
+	Weiterhin können damit einige Informationen über den aktuell angemeldeten Benutzer ermittelt werden.
+\end{itemize}
+
+Die Methoden der Klassen sind stets in drei Bereiche unterteilt, um eine interne Struktur zu erreichen und die Auswirkungen leicht verständlich zu machen:
+
+\begin{itemize}
+	\item \texttt{Access} erlaubt den Zugriff auf den lokalen Zwischenspeicher, inklusive in gefilterter und gruppierter Form (z.B.\ eigene Käufe, Artikel gruppiert nach Kategorie).
+	\item \texttt{Modification} enthält Methoden, die den lokalen Zwischenspeicher verändern.
+	Dazu gehören beispielsweise das Speichern von Datenmodellobjekten und das Hinzufügen von Artikeln zum Warenkorb.
+	\item \texttt{Communication} umfasst die Methoden, welche eine Serverkommunikation durchführen.
+	Beispiele sind die Aktualiserung aller Benutzer und das Erzeugen oder Bearbeiten von Artikeln.
+	Hier wird jedoch nicht zwischen Lesen und Schreiben getrennt.
+\end{itemize}
 
 \cfigureLarge{figures/classStructure.png}{Backend Architektur}{\label{backendArchitecture}}
 
