@@ -66,7 +66,13 @@ Diese Hilfsklassen werden in Abschnitt~\ref{subsubsec:access-layer} genauer besc
 
 \subsection{Backend-Architektur}\label{subsec:backend}
 
-Die Backend-Architektur besteht aus drei Ebenen (siehe Abbildung~\ref{backendArchitecture}).
+Die Backend-Architektur besteht aus drei Ebenen.
+Auf der Base-Ebene sind primitive HTTP-Funktionen implementiert,
+welche von der Abstraction-Ebene im Kontext der Kitchen-API verwendet werden.
+Auf die Access-Ebene wird direkt aus dem UI zugegriffen, dabei implementiert sie abstrakte Logik der verschiedenen clientseitigen Interaktionen.
+Abbildung~\ref{fig:backend} zeigt diese Ebenen und die zugehörigen Klassen, welche im Folgenden kurz beschrieben werden.
+
+\cfigureLarge{figures/backend.png}{Backend Architektur}{\label{fig:backend}}
 
 \subsubsection{Base-Layer}
 
@@ -118,8 +124,6 @@ Die Methoden der Klassen sind stets in drei Bereiche unterteilt, um eine interne
 	Beispiele sind die Aktualiserung aller Benutzer und das Erzeugen oder Bearbeiten von Artikeln.
 	Hier wird jedoch nicht zwischen Lesen und Schreiben getrennt.
 \end{itemize}
-
-\cfigureLarge{figures/classStructure.png}{Backend Architektur}{\label{backendArchitecture}}
 
 \subsubsection{Tests}
 
