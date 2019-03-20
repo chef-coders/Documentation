@@ -35,7 +35,7 @@ Darunter zeigen sich viele Buttons, mit denen zu allen Ansichten der App navigie
 	\item Kaufhistorie-Button: Die Kaufhistorien-Ansicht öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases-screen}).
 
 	\item Nutzer-Button (Administrator): Dieser Button ist nur verfügbar, wenn der Benutzer ein Administrator ist.
-	Klickt er auf diesen Button, öffnet sich das Nutzer-Fragment, das die Liste aller Nutzer zeigt.
+	Tippt er auf diesen Button, öffnet sich das Nutzer-Fragment, das die Liste aller Nutzer zeigt.
 
 	\item Statistiken-Button: Wird dieser Button geklickt, öffnet sich der Statistiken-Ansicht, welches Statistiken zum Verhalten des Benutzers liefert.
 
@@ -45,7 +45,7 @@ Darunter zeigen sich viele Buttons, mit denen zu allen Ansichten der App navigie
 \end{itemize}
 
 Der unterste Button, der mit dem Label \gqq{Logout} versehen ist, hat nichts mit der Navigation zwischen Ansichten zu tun.
-Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
+Beim Tippen auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
 Der Benutzer wird zur Login-Ansicht weitergeleitet, um sich einen neuen Account zu erstellen.
 Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich.
 
@@ -62,7 +62,7 @@ Ein Eintrag in dieser Liste enthält folgende Komponenten:
 	\item Den Preis für einen Gegenstande des ausgewählten Typs
 
 	\item Die ausgewählte Anzahl der Gegenstände des ausgewählten Typs, welche man kaufen möchte.
-	Sie erhöht sich mit jedem Klick auf den Eintrag.
+	Sie erhöht sich mit jedem Tippen auf den Eintrag.
 	Wischt man hingegen von rechts nach links über den Eintrag, so wird die ausgewählte Anzahl auf 0 gesetzt.
 	Die Anzahl wird nur angezeigt, wenn sie größer als 0 ist.
 
@@ -97,7 +97,7 @@ Es werden dann alle Exemplare des Artikels aus dem Warenkorb entfernt.
 \subsubsection{Verhalten des Einkaufswagen-Buttons} \label{subsubsec:shoppingcart-button}
 
 Der Einkaufswagen-Button schwebt über der Artikel-Liste.
-Durch das Klicken auf diesen kann man den Einkaufswagen in einer separaten Ansicht betrachten und den Kauf tätigen.
+Durch das Tippen auf diesen kann man den Einkaufswagen in einer separaten Ansicht betrachten und den Kauf tätigen.
 
 Der Button zeigt sich erst, sobald sich mindestens ein Element im Warenkorb befindet.
 Werden alle Elemente aus dem Warenkorb entfernt, verschwindet der Button wieder.
@@ -107,13 +107,13 @@ Scrollt der Benutzer nach oben, erscheint der Einkaufswagen-Button wieder.
 
 \subsubsection{Artikel kaufen} \label{subsubsec:shop-buy}
 
-Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button die Warenkorb-Ansicht geöffnet.
+Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch Tippen auf den Einkaufswagen-Button die Warenkorb-Ansicht geöffnet.
 Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragstruktur.
-Auch hier können durch einen Klick auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden.
-Durch einen Klick auf den Löschen-Button kann der komplette Einkauf gelöscht werden.
-Durch einen Klick auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung~\ref{shoppingCartCheck}) mit einer Abfrage, ob der Kauf durchgeführt werden soll.
+Auch hier können durch Tippen auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden.
+Mit dem Löschen-Button kann der komplette Einkaufswagen geleert werden.
+Durch Tippen auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung~\ref{shoppingCartCheck}) mit einer Abfrage, ob der Kauf durchgeführt werden soll.
 Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt.
-Beim Klick auf \gqq{yes} wird der Kauf getätigt und man wird auf die Shop-Ansicht weitergeleitet.
+Tippen auf \gqq{Ja} bewirkt, dass der Kauf getätigt wird und man auf die Shop-Ansicht weitergeleitet wird.
 Durch ein Pop-Up am unteren Bildschirmrand wird gezeigt, dass der Kauf erfolgreich war (siehe Abbildung~\ref{purchaseSuccess}).
 
 % Bild des Bestätigungs-Modal, nachdem Haken im Shopping-Cart gecklickt
@@ -123,7 +123,7 @@ Durch ein Pop-Up am unteren Bildschirmrand wird gezeigt, dass der Kauf erfolgrei
 \subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-scan-item}
 
 % Was passiert, wenn ein normaler Nutzer den Barcode eines Artikels einscannt
-Durch einen Klick auf das Kamera-Icon in der oberen rechten Ecke der Shop-Ansicht, das in Abbildung~\ref{mainscreen} zu sehen ist, öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner, wie in Abbildung~\ref{barcodeScanner}.
+Durch Tippen auf das Kamera-Icon in der oberen rechten Ecke der Shop-Ansicht, das in Abbildung~\ref{mainscreen} zu sehen ist, öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner, wie in Abbildung~\ref{barcodeScanner}.
 Hiermit kann der Benutzer Barcodes einscannen und die Artikel bequemer erwerben.
 
 \dfigure{figures/barcodeScanner.png}{figures/barcodeScanner-purchaseItem}{Barcode Scanner}{\label{barcodeScanner}}
