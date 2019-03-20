@@ -5,11 +5,12 @@
 
 Beim Öffnen der Anwendung wird geprüft, ob sich in den Shared-Preferences des Android-Geräts bereits ein gültiges User-Token und eine passende User-Id befindet.
 Ist dies der Fall wird der Benutzer anhand dieser eingeloggt.
-Andernfalls öffnet sich zunächst der Login-Screen.
+Andernfalls öffnet sich zunächst der Login-Screen (siehe Abbildung~\ref{loginshopscreen}).
 
-Es wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Anmeldedaten (Name, E-Mail, Admin-Flag, siehe Abbildung~\ref{loginshopscreen}) erstellt.
-Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert.
-Der Login-Screen schließt sich wieder.
+Im Login-Screen muss der Benutzer die Textfelder für den Benutzernamen und die E-Mail-Adresse ausfüllen.
+Durch Aktivieren des Switch-Buttons hat der Benutzer die Möglichkeit, einen Administrator-Account zu erstellen.
+Tippt der Benutzer auf den Login-Button wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Daten erstellt.
+Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert und der Login-Screen schließt sich wieder.
 
 Sowohl im Fall des automatischen Logins, als auch nach der Anmeldung im Login-Screen, öffnet sich dann der Shop-Screen.
 
