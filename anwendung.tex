@@ -5,53 +5,53 @@
 
 Beim Öffnen der Anwendung wird geprüft, ob sich in den Shared-Preferences des Android-Geräts bereits ein gültiges User-Token und eine passende User-Id befindet.
 Ist dies der Fall wird der Benutzer anhand dieser eingeloggt.
-Andernfalls öffnet sich zunächst der Login-Screen (siehe Abbildung~\ref{loginshopscreen}).
+Andernfalls öffnet sich zunächst die Login-Ansicht (siehe Abbildung~\ref{loginshopscreen}).
 
-Im Login-Screen muss der Benutzer die Textfelder für den Benutzernamen und die E-Mail-Adresse ausfüllen.
+In der Login-Ansicht muss der Benutzer die Textfelder für den Benutzernamen und die E-Mail-Adresse ausfüllen.
 Durch Aktivieren des Switch-Buttons hat der Benutzer die Möglichkeit, einen Administrator-Account zu erstellen.
 Tippt der Benutzer auf den Login-Button wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Daten erstellt.
-Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert und der Login-Screen schließt sich wieder.
+Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert und die Login-Ansicht schließt sich wieder.
 
-Sowohl im Fall des automatischen Logins, als auch nach der Anmeldung im Login-Screen, öffnet sich dann der Shop-Screen.
+Sowohl im Fall des automatischen Logins, als auch nach der Anmeldung in der Login-Ansicht, öffnet sich dann die Shop-Ansicht.
 
 % Bild vom Login-Screen mit Erklärung
-\dfigure{figures/screen_placeholder.png}{figures/screen_placeholder.png}{Login-Screen und Shop-Screen}{\label{loginshopscreen}}
+\dfigure{figures/screen_placeholder.png}{figures/screen_placeholder.png}{Login-Ansicht und Shop-Ansicht}{\label{loginshopscreen}}
 
 \subsection{Navigation} \label{subsec:navigation}
 
-Mittels des Kontext-Menu-Button in der oberen, linken Bildschirmecke des Shop-Screens oder durch Wischen nach Rechts erscheint ein Navigation Drawer.
+Mittels des Kontext-Menu-Button in der oberen, linken Bildschirmecke der Shop-Ansicht oder durch Wischen nach Rechts erscheint ein Navigation Drawer.
 
 Im oberen Bereich des Navigation Drawers befinden sich Informationen zum Benutzer (Der Nutzernamen, die Email-Adresse und das Guthaben).
 Falls der Nutzer ein Administrator ist, steht hinter dem Benutzernamen in Klammern ''Admin''.
 Zudem befindet sich in diesem Fall ein Stift-Button auf der rechten Seite.
-Über diesen öffnet sich der Nutzer-bearbeiten-Screen, der das Bearbeiten des eigene Benutzer-Profils ermöglichst.
+Über diesen öffnet sich die Nutzer-Bearbeiten-Ansicht, der das Bearbeiten des eigene Benutzer-Profils ermöglichst.
 
-Darunter zeigen sich viele Buttons, mit denen zu allen Screens der App navigiert werden kann:
+Darunter zeigen sich viele Buttons, mit denen zu allen Ansichten der App navigiert werden kann:
 
 \begin{itemize}
-	\item Shop-Button: Der Shop-Screen wird geöffnet.
-	Dies ist der zentrale Screen der App, da hier Artikel gekauft werden können.
+	\item Shop-Button: Die Shop-Ansicht wird geöffnet.
+	Dies ist der zentrale Ansicht der App, da hier Artikel gekauft werden können.
 
-	\item Einkaufs Historie-Button: Der Einkaufs-Historie-Screen öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases-screen}).
+	\item Kaufhistorie-Button: Die Kaufhistorien-Ansicht öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases-screen}).
 
 	\item Nutzer-Button (Administrator): Dieser Button ist nur verfügbar, wenn der Benutzer ein Administrator ist.
 	Klickt er auf diesen Button, öffnet sich das Nutzer-Fragment, das die Liste aller Nutzer zeigt.
 
-	\item Statistiken-Button: Wird dieser Button geklickt, öffnet sich der Statistiken-Screen, welches Statistiken zum Verhalten des Benutzers liefert.
+	\item Statistiken-Button: Wird dieser Button geklickt, öffnet sich der Statistiken-Ansicht, welches Statistiken zum Verhalten des Benutzers liefert.
 
-	\item Einstellungen-Button: Über diesen Button kann der Einstellungen-Screen geöffnet werden.
-	In diesem kann ein Dunkel-Modus aktiviert werden.
+	\item Einstellungen-Button: Über diesen Button kann die Einstellungs-Ansicht geöffnet werden.
+	In diesem kann ein Nachtmodus aktiviert werden.
 
 \end{itemize}
 
-Der unterste Button, der mit dem Label "Logout-Button" versehen ist, hat nichts mit der Navigation zwischen Screens zu tun.
+Der unterste Button, der mit dem Label \gqq{Logout} versehen ist, hat nichts mit der Navigation zwischen Ansichten zu tun.
 Bei einem Klick auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
-Der Benutzer wird zum Login-Screen weitergeleitet, um sich einen neuen Account zu erstellen.
+Der Benutzer wird zur Login-Ansicht weitergeleitet, um sich einen neuen Account zu erstellen.
 Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich.
 
-\subsection{Shop-Screen}\label{subsec:shop-screen}
+\subsection{Shop-Ansicht}\label{subsec:shop-screen}
 
-Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf den Shop-Screen.
+Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf die Shop-Ansicht.
 Dieser zeigt eine Liste der Gegenstände, die zum Kaufen verfügbar sind (siehe Abbildung~\ref{loginshopscreen}).
 
 Ein Eintrag in dieser Liste enthält folgende Komponenten:
@@ -97,7 +97,7 @@ Es werden dann alle Exemplare des Artikels aus dem Warenkorb entfernt.
 \subsubsection{Verhalten des Einkaufswagen-Buttons} \label{subsubsec:shoppingcart-button}
 
 Der Einkaufswagen-Button schwebt über der Artikel-Liste.
-Durch das Klicken auf diesen kann man den Einkaufswagen in einem separaten Screen betrachten und den Kauf tätigen.
+Durch das Klicken auf diesen kann man den Einkaufswagen in einer separaten Ansicht betrachten und den Kauf tätigen.
 
 Der Button zeigt sich erst, sobald sich mindestens ein Element im Warenkorb befindet.
 Werden alle Elemente aus dem Warenkorb entfernt, verschwindet der Button wieder.
@@ -107,13 +107,13 @@ Scrollt der Benutzer nach oben, erscheint der Einkaufswagen-Button wieder.
 
 \subsubsection{Artikel kaufen} \label{subsubsec:shop-buy}
 
-Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button der Warenkorb-Screen geöffnet.
+Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch einen Klick auf den Einkaufswagen-Button die Warenkorb-Ansicht geöffnet.
 Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragstruktur.
 Auch hier können durch einen Klick auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden.
 Durch einen Klick auf den Löschen-Button kann der komplette Einkauf gelöscht werden.
 Durch einen Klick auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung~\ref{shoppingCartCheck}) mit einer Abfrage, ob der Kauf durchgeführt werden soll.
 Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt.
-Beim Klick auf \gqq{yes} wird der Kauf getätigt und man wird auf den Shop-Screen weitergeleitet.
+Beim Klick auf \gqq{yes} wird der Kauf getätigt und man wird auf die Shop-Ansicht weitergeleitet.
 Durch ein Pop-Up am unteren Bildschirmrand wird gezeigt, dass der Kauf erfolgreich war (siehe Abbildung~\ref{purchaseSuccess}).
 
 % Bild des Bestätigungs-Modal, nachdem Haken im Shopping-Cart gecklickt
@@ -123,12 +123,12 @@ Durch ein Pop-Up am unteren Bildschirmrand wird gezeigt, dass der Kauf erfolgrei
 \subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-scan-item}
 
 % Was passiert, wenn ein normaler Nutzer den Barcode eines Artikels einscannt
-Durch einen Klick auf das Kamera-Icon in der oberen rechten Ecke des Shop-Screens, das in Abbildung~\ref{mainscreen} zu sehen ist, öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner, wie in Abbildung~\ref{barcodeScanner}.
+Durch einen Klick auf das Kamera-Icon in der oberen rechten Ecke der Shop-Ansicht, das in Abbildung~\ref{mainscreen} zu sehen ist, öffnet sich die Kamera des Gerätes mit einem eingebauten Barcode-Scanner, wie in Abbildung~\ref{barcodeScanner}.
 Hiermit kann der Benutzer Barcodes einscannen und die Artikel bequemer erwerben.
 
 \dfigure{figures/barcodeScanner.png}{figures/barcodeScanner-purchaseItem}{Barcode Scanner}{\label{barcodeScanner}}
 
-\subsection{Shop-Screen (Zusätzliche Administrator Funktionalitäten)} \label{subsec:shop-screen-admin}
+\subsection{Shop-Ansicht (für Administratoren)} \label{subsec:shop-screen-admin}
 
 Ist der Benutzer ein Administrator, ist in der Toolbar ein Stift-Symbol zu sehen.
 Mit diesem lässt sich der Bearbeitungs-Modus aktivieren.
@@ -139,7 +139,7 @@ Die Toolbar wird wieder blau gefärbt und das Plus-Symbol wird wieder durch das 
 
 \subsubsection{Artikel bearbeiten} \label{subsubsec:shop-edit-items}
 
-Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeneintrag so öffnet sich, wie es in Abbildung~\ref{createEditItem} rechts zu sehen ist, der Artikel-Bearbeiten-Screen.
+Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeneintrag so öffnet sich, wie es in Abbildung~\ref{createEditItem} rechts zu sehen ist, die Artikel-Bearbeiten-Ansicht.
 Der Benutzer hat nun die Möglichkeit die folgenden Eigenschaften des Artikels zu ändern:
 
 \begin{itemize}
@@ -154,13 +154,13 @@ Der Benutzer hat nun die Möglichkeit die folgenden Eigenschaften des Artikels z
 \end{itemize}
 
 Der Barcode selbst kann nicht bearbeitet werden.
-Tippt der Benutzer auf den Bearbeiten-Button, wird er zum Shop-Screen im Bearbeitungs-Modus weitergeleitet, der den bearbeiteten Artikel enthält.
+Tippt der Benutzer auf den Bearbeiten-Button, wird er zur Shop-Ansicht im Bearbeitungs-Modus weitergeleitet, der den bearbeiteten Artikel enthält.
 
 \dfigure{figures/button-createItem.png}{figures/button-editItem.png}{Anlegen eines neuen Artikels / Bestehenden Artikel bearbeiten}{\label{createEditItem}}
 
 \subsubsection{Artikel hinzufügen} \label{subsubsec:shop-add-items}
 
-Ist der aktuelle Benutzer als Administrator eingeloggt, kann dieser mit dem + Knopf im oberen Banner des Shop-Screens, wie in Abbildung~\ref{createEditItem} links demonstriert, neue Artikel hinzufügen.
+Ist der aktuelle Benutzer als Administrator eingeloggt, kann dieser mit dem + Knopf im oberen Banner der Shop-Ansicht, wie in Abbildung~\ref{createEditItem} links demonstriert, neue Artikel hinzufügen.
 Dazu müssen für jeden neuen Artikel die folgenden Daten eingegeben werden:
 
 \begin{itemize}
@@ -177,7 +177,7 @@ Dazu müssen für jeden neuen Artikel die folgenden Daten eingegeben werden:
 \end{itemize}
 
 Wird auf den Anlegen-Button getippt so wird der Artikel erstellt.
-Es öffnet sich wieder der Shop-Screen im Bearbeitungs-Modus, dessen Artikel-Liste den neu erstellten Artikel enthält.
+Es öffnet sich wieder die Shop-Ansicht im Bearbeitungs-Modus, dessen Artikel-Liste den neu erstellten Artikel enthält.
 
 \subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-admin-scan-item}
 
@@ -188,9 +188,9 @@ Ist dieser Artikel jedoch noch nicht im Sortiment wird dem Administrator, wie in
 
 \cfigure{figures/barcodeScanner-createItem}{Barcode Scanner - Einfach neue Artikel anlegen}{\label{barcodeScanner-createItem}}
 
-\subsection{Einkaufs-Historie-Screen} \label{subsec:purchases-screen}
+\subsection{Kaufhistorien-Ansicht} \label{subsec:purchases-screen}
 
-Im Einkaufs-Historie-Screen sieht der Benutzer alle seiner getätigten Transaktionen in einer Liste (siehe Abbildung~\ref{purchases-screen}).
+In der Kaufhistorien-Ansicht sieht der Benutzer alle seiner getätigten Transaktionen in einer Liste (siehe Abbildung~\ref{purchases-screen}).
 
 Ein Listeneintrag stellt einen oder mehrere Artikel einer Sorte dar, die in der Transaktion gekauft wurden.
 Er enthält folgende Komponenten:
@@ -212,11 +212,11 @@ Die Listeneinträge einer Transaktion sind nach dem Datum der Transaktion gruppi
 % Bild des Purchases-Screen, evtl. Erklärung anpassen
 \cfigure{figures/screen_placeholder.png}{Liste getätigter Einkäufe}{\label{purchases-screen}}
 
-\subsection{Nutzer-bearbeiten-Screen} \label{subsec:edit-user-screen}
+\subsection{Nutzer-Bearbeiten-Ansicht} \label{subsec:edit-user-screen}
 
-Im Nutzer-bearbeiten-Screen kann der Benutzer sein eigenes Profil bearbeiten (siehe Abbildung~\ref{userScreen}).
+In der Nutzer-Bearbeiten-Ansicht kann der Benutzer sein eigenes Profil bearbeiten (siehe Abbildung~\ref{userScreen}).
 
-\dfigure{figures/screen_placeholder.png}{figures/screen_placeholder.png}{Nutzer-bearbeiten-Screen und Nutzer-Screen}{\label{userScreen}}
+\dfigure{figures/screen_placeholder.png}{figures/screen_placeholder.png}{Nutzer-Bearbeiten-Ansicht und Nutzer-Ansicht}{\label{userScreen}}
 
 Er kann die folgenden Daten verändern:
 
@@ -226,22 +226,22 @@ Er kann die folgenden Daten verändern:
 	\item Das eigene Guthaben, falls er ein Administrator ist
 \end{itemize}
 
-Tippt der Benutzer auf den Speicher-Button, wird das Nutzer-Profil gespeichert und es öffnet sich der Nutzer-Screen.
+Tippt der Benutzer auf den Speicher-Button, wird das Nutzer-Profil gespeichert und es öffnet sich die Nutzer-Ansicht.
 
-\subsection{Nutzer-Screen (Administrator Funktionalität)} \label{subsec:user-screen}
+\subsection{Nutzer-Ansicht (für Administratoren)} \label{subsec:user-screen}
 
-Der Nutzer-Screen ist nur im Navigation-Drawer zu sehen, falls der Benutzer ein Administrator ist.
+Die Nutzer-Ansicht ist nur im Navigation-Drawer zu sehen, falls der Benutzer ein Administrator ist.
 
-Im Nutzer-Screen hat der Benutzer einen Überblick über alle Nutzer, die beim Server angemeldet sind (siehe Abbildung~\ref{userScreen}).
+In der Nutzer-Ansicht hat der Benutzer einen Überblick über alle Nutzer, die beim Server angemeldet sind (siehe Abbildung~\ref{userScreen}).
 Sie sind nach den Anfangsbuchstaben ihrer Benutzernamen gruppiert und alphabetisch geordnet.
 
-Tippt der Benutzer auf einen List-Eintrag, öffnet sich der Nutzer-bearbeiten-Screen, der in Abschnitt~\ref{subsec:edit-user-screen} erläutert wurde.
+Tippt der Benutzer auf einen Listeneintrag, öffnet sich die Nutzer-Bearbeiten-Ansicht, die in Abschnitt~\ref{subsec:edit-user-screen} erläutert wurde.
 Statt des eigenen Benutzer-Accounts, kann der Account des ausgewählten Benutzers bearbeitet werden.
 
-\subsection{Statistiken-Screen} \label{subsec:statistics-screen}
+\subsection{Statistiken-Ansicht} \label{subsec:statistics-screen}
 
-Der Statistiken-Screen ist über die Navigation erreichbar.
-Dieser stellt den Administratoren als auch den Benutzern der App unterschiedliche Informationen grafisch dar.
+Die Statistiken-Ansicht ist über die Navigation erreichbar.
+Diese stellt den Administratoren als auch den Benutzern der App unterschiedliche Informationen grafisch dar.
 Ein Administrator kann dort einsehen welche Artikel wie oft gekauft wurden und somit einen Überblick über die verkauften Stückzahlen für jeden Artikel erhalten.
 Des weiterem wird der Betrag von allen verkauften Artikeln, der Betrag von den selbst eingekauften Artikeln, die Anzahl aller verkaufter Artikel und die Anzahl der selbst eingekauften Artikel dargestellt.
 Die Ansicht eines Administrators ist in Abbildung~\ref{statistics-admin} zu sehen.
@@ -254,17 +254,17 @@ In den Statistiken werden alle Beträge in Euro angezeigt.
 
 \dfigure{figures/statistics-admin-all.png}{figures/statistics-user.png}{Statistiken - Ansicht des Administrators und Ansicht des Benutzers}{\label{statistics-admin}\label{statistics-user}}
 
-\subsection{Einstellungen-Screen} \label{subsec:settings-screen}
+\subsection{Einstellungen-Ansicht} \label{subsec:settings-screen}
 
-Im Einstellungen-Screen hat der Benutzer die Möglichkeit, durch das Tippen eines Switch-Buttons den Dunkel-Modus der App zu aktivieren.
+In der Einstellungen-Ansicht hat der Benutzer die Möglichkeit, durch das Tippen eines Switch-Buttons den Nachtmodus der App zu aktivieren.
 Die App erscheint dann in einem dunkleren Design und ist dadurch schonender für die Augen.
 Bei erneutem Tippen des Switch-Buttons wird die App wieder in helleren Farben angezeigt.
-Ob der Dunkel-Modus aktiviert oder deaktiviert ist, wird in den Shared-Preferences gespeichert.
+Ob der Nachtmodus aktiviert oder deaktiviert ist, wird in den Shared-Preferences gespeichert.
 
 \subsection{Aktualisieren von Server-Daten}\label{subsec:aktualisieren-von-server-daten}
 
-Alle Screens, die Daten vom Server in einer Liste darstellen, können aktualisiert werden.
-Dazu gehören der Shop-Screen, der Nutzer-Screen, sowie der Einkaufs-Historie-Screen.
+Alle Ansichten, die Daten vom Server in einer Liste darstellen, können aktualisiert werden.
+Dazu gehören die Shop-Ansicht, die Nutzer-Ansicht, sowie die Kaufhistorien-Ansicht.
 Eine Aktualisierung erfolgt, indem am oberen Ende der Liste ein Zieh-Bewegung nach Unten durchgeführt wird.
 Dabei wird ein Lade-Balken sichtbar, der den Fortschritt der Aktualisierung anzeigt.
 
@@ -278,5 +278,5 @@ Die Wahl der Sprache hängt hierbei von der Systemsprache des Smartphones ab.
 Mit Android-Shortcuts können beliebte Funktionen einer App direkt im Android-Startbildschirm aufgerufen werden, ohne durch die App navigieren zu müssen.
 Die Shortcuts, die dem Benutzer bei einer App angeboten werden, können durch langes Drücken des App-Icons angezeigt werden.
 Bei der hier vorgestellten App erscheint in diesem Fall ein Shortcut zum Scannen von Artikeln.
-Tippt der Benutzer auf den angezeigten Shortcut, öffnet sich die App sofort im Screen zum Scannen von Artikeln, wie in Abschnitt~\ref{subsubsec:shop-scan-item} beschrieben.
-Im weiteren Verlauf verhält sich die App, als hätte man die App geöffnet und zum besagten Screen navigiert.
+Tippt der Benutzer auf den angezeigten Shortcut, öffnet sich die App sofort in der Ansicht zum Scannen von Artikeln, wie in Abschnitt~\ref{subsubsec:shop-scan-item} beschrieben.
+Im weiteren Verlauf verhält sich die App, als hätte man die App geöffnet und zur besagten Ansicht navigiert.
