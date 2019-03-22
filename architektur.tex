@@ -5,7 +5,7 @@
 Das Datenmodell umfasst drei Klassen: \texttt{Item}, \texttt{User}, \texttt{Purchase}.
 Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben die in Abbildung~\ref{fig:datamodel} gezeigte Struktur.
 
-\cfigure{figures/datamodel.png}{Datenmodell}{\label{fig:datamodel}}
+\dfigure{figures/datamodel.png}{figures/main-activity-aufbau.png}{Datenmodell und Aufbau der MainActivity}{\label{fig:datamodel}\label{fig:main-activity-aufbau}}
 
 \subsection{Frontend-Architektur}\label{subsec:frontend}
 % generelle Architektur (Klassen, verwendete Patterns, Fragments, Activities) und deren grobe Erklärung
@@ -15,7 +15,7 @@ Durch diese Architektur ergeben sich eine Vielzahl von Vorteilen.
 
 \subsubsection{Aufbau der MainActivity}
 
-Der Aufbau der \texttt{MainActivity} wird in Abbildung~\ref{fig:mainActivityAufbau} dargestellt.
+Der Aufbau der \texttt{MainActivity} wird in Abbildung~\ref{fig:main-activity-aufbau} dargestellt.
 Er besteht aus einem Frame-Layout und einer Toolbar.
 Zudem wird durch eine Wisch-Bewegung nach Rechts ein Navigation-Drawer angezeigt.
 
@@ -28,9 +28,7 @@ Befindet sich der Benutzer zum Beispiel in der Shop-Ansicht, wird das Shop-Fragm
 Wechselt der Benutzer zu einer anderen Ansicht, wird das Fragment im Frame-Layout durch das Fragment der neuen Ansicht ersetzt.
 Dies erfolgt durch Zugriff auf den \texttt{FragmentManager} der \texttt{MainActivity}.
 
-% Vorteile der Fragmente gegenüber Activities
-
-\cfigure{figures/main-activity-aufbau.png}{Aufbau der MainActivity}{\label{fig:mainActivityAufbau}}
+% TODO Vorteile der Fragmente gegenüber Activities
 
 \subsubsection{Toolbar}
 
