@@ -9,13 +9,13 @@
         \hline
         \textbf{Name} & \textbf{Entwickler} & \textbf{Verwendung} & \textbf{Version} & \textbf{Lizenz} \\
         [0.5ex] \hline
-        Android AppCompat Library V7 & AOSP & Android & 28.0.0 & Apache 2.0\\    % com.android.support:appcompat-v7:28.0.0
         Android Support Library V4 & AOSP & Android & 28.0.0 & Apache 2.0\\   % com.android.support:support-v4:28.0.0
         \hline
 
         Play Services Vision & Google & Play Services & 11.0.2 & Android SDK\\  % com.google.android.gms:play-services-vision:11.0.2
         \hline
 
+        Android AppCompat Library V7 & AOSP & Benutzeroberfläche & 28.0.0 & Apache 2.0\\    % com.android.support:appcompat-v7:28.0.0
         Android ConstraintLayout & AOSP & Benutzeroberfläche & 1.1.3 & Apache 2.0\\   % com.android.support.constraint:constraint-layout:1.1.3
         Material Components For Android & AOSP & Benutzeroberfläche & 28.0.0 & Apache 2.0\\  % com.android.support:design:28.0.0
         SectionedRecyclerViewAdapter & Gustavo Pagani & Benutzeroberfläche & 1.2.0 & MIT\\   % io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:1.2.0
@@ -49,20 +49,27 @@ In Tabelle~\ref{tab:libraries} sind alle verwendeten Bibliotheken aufgelistet.
 In den folgenden Abschnitten wird auf die Verwendung der einzelnen Bibliotheken näher eingegangen.
 
 \subsubsection{Android} \label{subsubsec:android-libraries}
+Die vierte Version der Android Support Bibliothek stellt eine große Anzahl von zusätzlichen Frameworks bereit, die für die App benötigt werden.
+Beispielsweise wurden mit ihr die Fragmente, sowie der Navigation-Drawer realisiert.
+Außerdem bildet sie die Voraussetzung für die siebte Version der Android Support Bibliothek, aus der einige, der in den nächsten Abschnitten beschriebenen Komponente, in der App verwendet werden.
 
 \subsubsection{Play Services} \label{subsubsec:play-service-libraries}
+Zur Ansteuerung der Kamera des Smartphones musste eine Play Services Bibliothek implementiert werden.
 
 \subsubsection{Benutzeroberfläche} \label{subsubsec:ui-libraries}
-Zur Implementierung des RecyclerView, welches Sektionen anzeigen kann, wurde die Bibliothek SectionedRecyclerViewAdapter verwendet.
-Für den Barcode-Scanner der App wurde eine Bibliothek vom Entwickler Ravi verwendet und für die Darstellungen der Statistiken im Statistiken-Screen die MPAndroidChart-Bibliothek vom Entwickler Philipp Jahoda.
+Die AppCompat Bibliothek, aus der siebten Version der Android Support Bibliothek, bietet Unterstützung für die ActionBar, mit der die Toolbar der App implementiert wurde.
+Mit der Design Support Bibliothek können Material Design Komponenten benutzt werden.
+Im Fall der App wurde der Floating Action Button verwendet.
+Für RecyclerViews, die die Gruppierung ihrer Listenelemente ermöglichen, wurde die Bibliothek SectionedRecyclerViewAdapter verwendet.
+Für die Implementierung des Barcode-Scanner der App wurde eine Bibliothek vom Entwickler Ravi verwendet und für die Darstellungen der Statistiken im Statistiken-Screen die MPAndroidChart-Bibliothek vom Entwickler Philipp Jahoda.
 
 \subsubsection{Datenmodell} \label{subsubsec:model-libraries}
 Mit Hilfe des von Albert Zündorf entwickelten Fulibs wurde das Datenmodell der App generiert.
 
 \subsubsection{Netzwerk} \label{subsubsec:network-libraries}
 Zur Kommunikation mit dem REST-Server von ComTec wurde OkHttp verwendet.
-Für die Verarbeitung der JSON-Dateien wurde Gson benutzt.
+Für die Verarbeitung der JSON-Daten wurde Gson benutzt.
 
 \subsubsection{Tests} \label{subsubsec:tests-libraries}
-
-\subsubsection{Android-Tests} \label{subsubsec:android-tests-libraries}
+Für allgemeine Tests wurde JUnit verwendet.
+Zum Testen der Benutzeroberfläche wurde das Espresso-Framework benutzt.
