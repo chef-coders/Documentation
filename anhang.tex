@@ -54,13 +54,13 @@ Beispielsweise wurden mit ihr die Fragmente, sowie der Navigation-Drawer realisi
 Außerdem bildet sie die Voraussetzung für die siebte Version der Android Support Bibliothek, aus der einige, der in den nächsten Abschnitten beschriebenen Komponente, in der App verwendet werden.
 
 \subsubsection{Play Services} \label{subsubsec:play-service-libraries}
-Zur Ansteuerung der Kamera des Smartphones musste eine Play Services Bibliothek implementiert werden.
+Zur Ansteuerung der Kamera des Smartphones für den Barcode-Scanner, musste eine Play Services Bibliothek implementiert werden.
 
 \subsubsection{Benutzeroberfläche} \label{subsubsec:ui-libraries}
 Die AppCompat Bibliothek, aus der siebten Version der Android Support Bibliothek, bietet Unterstützung für die ActionBar, mit der die Toolbar der App implementiert wurde.
 Mit der Design Support Bibliothek können Material Design Komponenten benutzt werden.
 Im Fall der App wurde der Floating Action Button verwendet.
-Für RecyclerViews, die die Gruppierung ihrer Listenelemente ermöglichen, wurde die Bibliothek SectionedRecyclerViewAdapter verwendet.
+RecyclerViews, die die Gruppierung ihrer Listenelemente ermöglichen, wurde mit Hilfe der SectionedRecyclerViewAdapter Bibliothek erreicht.
 Für die Implementierung des Barcode-Scanner der App wurde eine Bibliothek vom Entwickler Ravi verwendet und für die Darstellungen der Statistiken im Statistiken-Screen die MPAndroidChart-Bibliothek vom Entwickler Philipp Jahoda.
 
 \subsubsection{Datenmodell} \label{subsubsec:model-libraries}
@@ -72,4 +72,5 @@ Für die Verarbeitung der JSON-Daten wurde Gson benutzt.
 
 \subsubsection{Tests} \label{subsubsec:tests-libraries}
 Für allgemeine Tests wurde JUnit verwendet.
+Das JMock Framework wurde gebraucht, um den Server für diese Tests zu simulieren.
 Zum Testen der Benutzeroberfläche wurde das Espresso-Framework benutzt.
