@@ -3,8 +3,8 @@
 
 \subsection{Start}\label{subsec:start}
 
-Beim Öffnen der Anwendung wird geprüft, ob sich in den Shared-Preferences des Android-Geräts bereits ein gültiges User-Token und eine passende User-Id befindet.
-Ist dies der Fall wird der Benutzer anhand dieser eingeloggt.
+Beim Öffnen der Anwendung wird geprüft, ob sich in den Shared-Preferences des Android-Geräts bereits ein gültiges User-Token und eine passende User-ID befindet.
+Ist dies der Fall, wird der Benutzer mit diesen eingeloggt.
 Andernfalls öffnet sich zunächst die Login-Ansicht (siehe Abbildung~\ref{loginshopscreen}).
 
 In der Login-Ansicht muss der Benutzer die Textfelder für den Benutzernamen und die E-Mail-Adresse ausfüllen.
@@ -12,19 +12,19 @@ Durch Aktivieren des Switch-Buttons hat der Benutzer die Möglichkeit, einen Adm
 Tippt der Benutzer auf den Login-Button wird ein neuer Nutzer auf Basis der in der Oberfläche eingegebenen Daten erstellt.
 Das User-Token wird für die weitere Verwendung in den Shared-Preferences zwischengespeichert und die Login-Ansicht schließt sich wieder.
 
-Sowohl im Fall des automatischen Logins, als auch nach der Anmeldung in der Login-Ansicht, öffnet sich dann die Shop-Ansicht.
+Sowohl im Fall des automatischen Logins, als auch nach der Anmeldung in der Login-Ansicht, öffnet sich die Shop-Ansicht.
 
 % Bild vom Login-Screen mit Erklärung
 \dfigure{screenshots/login.png}{screenshots/shop.png}{Login-Ansicht und Shop-Ansicht}{\label{loginshopscreen}}
 
 \subsection{Navigation} \label{subsec:navigation}
 
-Mittels des Kontext-Menu-Button in der oberen, linken Bildschirmecke der Shop-Ansicht oder durch Wischen nach Rechts erscheint ein Navigation Drawer.
+Mittels des Kontext-Menu-Button in der oberen linken Bildschirmecke der Shop-Ansicht oder durch Wischen nach Rechts erscheint ein Navigation Drawer.
 
-Im oberen Bereich des Navigation Drawers befinden sich Informationen zum Benutzer (Der Nutzernamen, die Email-Adresse und das Guthaben).
-Falls der Nutzer ein Administrator ist, steht hinter dem Benutzernamen in Klammern ''Admin''.
+Im oberen Bereich des Navigation Drawers befinden sich Informationen zum Benutzer (der Nutzername, die Email-Adresse und das Guthaben).
+Falls der Nutzer ein Administrator ist, steht hinter dem Benutzernamen in Klammern \gqq{Admin}.
 Zudem befindet sich in diesem Fall ein Stift-Button auf der rechten Seite.
-Über diesen öffnet sich die Nutzer-Bearbeiten-Ansicht, der das Bearbeiten des eigene Benutzer-Profils ermöglichst.
+Über diesen öffnet sich die Nutzer-Bearbeiten-Ansicht, der das Bearbeiten des eigenen Benutzer-Profils ermöglichst.
 
 Darunter zeigen sich viele Buttons, mit denen zu allen Ansichten der App navigiert werden kann:
 
@@ -32,7 +32,7 @@ Darunter zeigen sich viele Buttons, mit denen zu allen Ansichten der App navigie
 	\item Shop-Button: Die Shop-Ansicht wird geöffnet.
 	Dies ist der zentrale Ansicht der App, da hier Artikel gekauft werden können.
 
-	\item Kaufhistorie-Button: Die Kaufhistorien-Ansicht öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung ~\ref{purchases-screen}).
+	\item Kaufhistorie-Button: Die Kaufhistorien-Ansicht öffnet sich, in welchem alle vergangenen Einkäufe nach Datum und Zeit sortiert aufgelistet werden (siehe Abbildung~\ref{purchases-screen}).
 
 	\item Nutzer-Button (Administrator): Dieser Button ist nur verfügbar, wenn der Benutzer ein Administrator ist.
 	Tippt er auf diesen Button, öffnet sich das Nutzer-Fragment, das die Liste aller Nutzer zeigt.
@@ -40,26 +40,26 @@ Darunter zeigen sich viele Buttons, mit denen zu allen Ansichten der App navigie
 	\item Statistiken-Button: Wird dieser Button geklickt, öffnet sich der Statistiken-Ansicht, welches Statistiken zum Verhalten des Benutzers liefert.
 
 	\item Einstellungen-Button: Über diesen Button kann die Einstellungs-Ansicht geöffnet werden.
-	In diesem kann ein Nachtmodus aktiviert werden.
+	In dieser kann ein Nachtmodus aktiviert werden.
 
 \end{itemize}
 
 Der unterste Button, der mit dem Label \gqq{Logout} versehen ist, hat nichts mit der Navigation zwischen Ansichten zu tun.
 Beim Tippen auf diesen Eintrag werden die in den Shared-Preferences gespeicherten Anmeldedaten gelöscht.
 Der Benutzer wird zur Login-Ansicht weitergeleitet, um sich einen neuen Account zu erstellen.
-Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich.
+Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung mit dem alten Nutzeraccount ohne das Token nicht möglich.
 
 \subsection{Shop-Ansicht}\label{subsec:shop-screen}
 
 Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf die Shop-Ansicht.
-Dieser zeigt eine Liste der Artikel, die zum Kaufen verfügbar sind (siehe Abbildung~\ref{loginshopscreen}).
+Diese zeigt eine Liste der Artikel, die zum Kaufen verfügbar sind (siehe Abbildung~\ref{loginshopscreen}).
 
 Ein Eintrag in dieser Liste enthält folgende Komponenten:
 
 \begin{itemize}
 	\item Den Namen des ausgewählten Artikels
 
-	\item Den Preis für einen Artikele des ausgewählten Typs
+	\item Den Preis für einen Artikel des ausgewählten Typs
 
 	\item Die ausgewählte Anzahl der Artikel des ausgewählten Typs, welche man kaufen möchte.
 	Sie erhöht sich mit jedem Tippen auf den Eintrag.
@@ -70,8 +70,7 @@ Ein Eintrag in dieser Liste enthält folgende Komponenten:
 	Hierbei handelt es sich um den Kumulierten Preis (ausgewählte Anzahl $\cdot$ Preis) des Artikels.
 	Dieser wird nur angezeigt, wenn mehr als ein Artikel des ausgewählten Typs verlangt wird.
 
-	\item verfügbare Anzahl: Zeigt an, wie viele Artikel des ausgewählten Typs gekauft werden können.
-	Sie kann aufgrund des Design der REST-API negativ werden.
+	\item verfügbare Anzahl: Zeigt an, ob und wie viele Artikel des ausgewählten Typs gekauft werden können, d.h.\ auf Lager sind.
 \end{itemize}
 
 Die Liste ist nach der Art der Artikel sortiert (Beispiel: Wasser, Saft, \ldots).
@@ -111,9 +110,10 @@ Wenn alle gewünschten Artikel ausgewählt sind, wird durch Tippen auf den Einka
 Hierbei handelt es sich um eine Darstellung nur der ausgewählten Artikel mit der bereits bekannten Eintragstruktur.
 Auch hier können durch Tippen auf die Einträge Artikel hinzugefügt und durch Wischen über einen Eintrag alle Artikel dieses Typs entfernt werden.
 Mit dem Löschen-Button kann der komplette Einkaufswagen geleert werden.
-Durch Tippen auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung~\ref{shoppingCart}) mit einer Abfrage, ob der Kauf durchgeführt werden soll.
+Durch Tippen auf den Bestätigen-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung~\ref{shoppingCart}) mit einer Abfrage, ob der Kauf durchgeführt werden soll.
 Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt.
 Tippen auf \gqq{Ja} bewirkt, dass der Kauf getätigt wird und man auf die Shop-Ansicht weitergeleitet wird.
+Mit \gqq{Abbrechen} wird das Modal-Fenster geschlossen.
 Durch ein Pop-Up am unteren Bildschirmrand wird gezeigt, dass der Kauf erfolgreich war.
 
 \dfigure{screenshots/shopping-cart.png}{screenshots/shopping-cart-modal.png}{Warenkorb-Ansicht und Modal-Fenster zur Bestätigung des Einkaufs}{\label{shoppingCart}}
@@ -137,15 +137,15 @@ Die Toolbar wird wieder blau gefärbt und das Plus-Symbol wird wieder durch das 
 
 \subsubsection{Artikel bearbeiten} \label{subsubsec:shop-edit-items}
 
-Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeneintrag so öffnet sich, wie es in Abbildung~\ref{createEditItem} rechts zu sehen ist, die Artikel-Bearbeiten-Ansicht.
+Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeneintrag, so öffnet sich die Artikel-Bearbeiten-Ansicht, wie es in Abbildung~\ref{createEditItem} rechts zu sehen ist.
 Der Benutzer hat nun die Möglichkeit die folgenden Eigenschaften des Artikels zu ändern:
 
 \begin{itemize}
-	\item Der Name des zu erstellenden Artikels
+	\item Der Name des zu erstellenden Artikels.
 
-	\item Der Preis des zu erstellenden Artikels
+	\item Der Preis des zu erstellenden Artikels.
 
-	\item Die Menge, in der der Artikel verfügbar ist
+	\item Die Menge, in der dieser Artikel auf Vorrat ist.
 
 	\item Die Art des Artikels.
 	Hier wird aus einem Drop-Down-Menu eine Art ausgewählt.
@@ -158,12 +158,12 @@ Tippt der Benutzer auf den Bearbeiten-Button, wird er zur Shop-Ansicht im Bearbe
 
 \subsubsection{Artikel hinzufügen} \label{subsubsec:shop-add-items}
 
-Ist der aktuelle Benutzer als Administrator eingeloggt, kann dieser mit dem + Knopf im oberen Banner der Shop-Ansicht, wie in Abbildung~\ref{createEditItem} links demonstriert, neue Artikel hinzufügen.
+Ist der aktuelle Benutzer als Administrator eingeloggt, kann dieser mit dem Plus-Button im oberen Banner der Shop-Ansicht, wie in Abbildung~\ref{createEditItem} links demonstriert, neue Artikel hinzufügen.
 Dazu müssen für jeden neuen Artikel die folgenden Daten eingegeben werden:
 
 \begin{itemize}
 	\item Der Barcode des Artikels.
-	Anstatt selbst einen Barcode zu wählen, kann durch Tippen des ID-Generieren-Buttons eine zufälliger ID generiert werden.
+	Anstatt selbst einen Barcode zu wählen, kann durch Tippen des ID-Generieren-Buttons eine zufällige ID generiert werden.
 
 	\item Der Name des neuen Artikels.
 
@@ -171,38 +171,37 @@ Dazu müssen für jeden neuen Artikel die folgenden Daten eingegeben werden:
 
 	\item Die Menge, in der dieser Artikel auf Vorrat ist.
 
-	\item Die Warengruppe des Artikels.
+	\item Die Art des Artikels.
 	Hier wird aus einem Drop-Down-Menu eine Art ausgewählt.
 \end{itemize}
 
-Wird auf den Anlegen-Button getippt so wird der Artikel erstellt.
-Es öffnet sich wieder die Shop-Ansicht im Bearbeitungs-Modus, dessen Artikel-Liste den neu erstellten Artikel enthält.
+Wird auf den Anlegen-Button getippt, so wird der Artikel erstellt.
+Es öffnet sich wieder die Shop-Ansicht im Bearbeitungs-Modus, dessen Artikel-Liste nun den neu erstellten Artikel enthält.
 
 \subsubsection{Barcode von Artikeln scannen} \label{subsubsec:shop-admin-scan-item}
 
-% Was passiert, wenn ein Artikel gescannt wird und der Nutzer ein Administrator ist
-Wird ein Barcode von einem Administrator gescannt so wird die App nach schauen ob es zu diesem Barcode bereits einen Artikel gibt oder nicht.
-Ist dieser Artikel bereits im Sortiment so kann der Administrator diesen wie aus Abbildung~\ref{barcodeScanner} gewohnt einfach erwerben.
-Ist dieser Artikel jedoch noch nicht im Sortiment wird dem Administrator, wie in Abbildung~\ref{barcodeScanner-createItem} geschildert, nun die Möglichkeit angeboten diesen Artikel dem Sortiment hinzuzufügen.
+Wird ein Barcode von einem Administrator gescannt, so wird die App nachschauen, ob es zu diesem Barcode bereits einen Artikel gibt oder nicht.
+Ist dieser Artikel bereits im Sortimentm so kann der Administrator diesen wie aus Abbildung~\ref{barcodeScanner} gewohnt einfach erwerben.
+Ist dieser Artikel jedoch noch nicht im Sortiment, wird dem Administrator, wie in Abbildung~\ref{barcodeScanner-createItem} geschildert, nun die Möglichkeit angeboten den Artikel dem Sortiment hinzuzufügen.
 
 \cfigure{screenshots/barcode-item-create.png}{Barcode Scanner - Einfach neue Artikel anlegen}{\label{barcodeScanner-createItem}}
 
 \subsection{Kaufhistorien-Ansicht} \label{subsec:purchases-screen}
 
-In der Kaufhistorien-Ansicht sieht der Benutzer alle seiner getätigten Transaktionen in einer Liste (siehe Abbildung~\ref{purchases-screen}).
+In der Kaufhistorien-Ansicht sieht der Benutzer alle seine getätigten Transaktionen in einer Liste (siehe Abbildung~\ref{purchases-screen}).
 
-Ein Listeneintrag stellt einen oder mehrere Artikel einer Sorte dar, die in der Transaktion gekauft wurden.
+Ein Listeneintrag stellt einen oder mehrere Artikel eines Typs dar, die in der Transaktion gekauft wurden.
 Er enthält folgende Komponenten:
 
 \begin{itemize}
-	\item Den Namen des Artikels
+	\item Den Namen des Artikels.
 
-	\item Den Barcode des Artikels
+	\item Den Barcode des Artikels.
 
 	\item Die Anzahl, die man von diesem Artikeltyp gekauft hat.
 
 	\item Der Gesamtpreis, der für diesen Artikeltyp anfällt.
-	Hierbei handelt es sich um den Kumulierten Preis (ausgewählte Anzahl $\cdot$ Preis) des Artikels.
+	Hierbei handelt es sich um den Gesamtpreis (ausgewählte Anzahl $\cdot$ Preis) des Artikels.
 	Dieser wird nur angezeigt, wenn mehr als ein Artikel des Typs gekauft wurde.
 \end{itemize}
 
@@ -213,16 +212,16 @@ Die Listeneinträge einer Transaktion sind nach dem Datum der Transaktion gruppi
 
 \subsection{Nutzer-Bearbeiten-Ansicht} \label{subsec:edit-user-screen}
 
-In der Nutzer-Bearbeiten-Ansicht kann der Benutzer sein eigenes Profil bearbeiten (siehe Abbildung~\ref{userScreen}).
+In der Nutzer-Bearbeiten-Ansicht kann der Benutzer sein eigenes Profil bearbeiten (siehe Abbildung~\ref{userScreen}), falls er ein Administrator ist.
 
 \dfigure{screenshots/user-edit.png}{screenshots/user-list.png}{Nutzer-Bearbeiten-Ansicht und Nutzer-Ansicht}{\label{userScreen}}
 
 Er kann die folgenden Daten verändern:
 
 \begin{itemize}
-	\item Den Nutzernamen
-	\item Die Email-Adresse
-	\item Das eigene Guthaben, falls er ein Administrator ist
+	\item Den Nutzernamen.
+	\item Die Email-Adresse.
+	\item Das eigene Guthaben.
 \end{itemize}
 
 Tippt der Benutzer auf den Speicher-Button, wird das Nutzer-Profil gespeichert und es öffnet sich die Nutzer-Ansicht.
@@ -231,7 +230,7 @@ Tippt der Benutzer auf den Speicher-Button, wird das Nutzer-Profil gespeichert u
 
 Die Nutzer-Ansicht ist nur im Navigation-Drawer zu sehen, falls der Benutzer ein Administrator ist.
 
-In der Nutzer-Ansicht hat der Benutzer einen Überblick über alle Nutzer, die beim Server angemeldet sind (siehe Abbildung~\ref{userScreen}).
+In der Nutzer-Ansicht hat der Benutzer einen Überblick über alle Nutzer, die auf dem Server angemeldet sind (siehe Abbildung~\ref{userScreen}).
 Sie sind nach den Anfangsbuchstaben ihrer Benutzernamen gruppiert und alphabetisch geordnet.
 
 Tippt der Benutzer auf einen Listeneintrag, öffnet sich die Nutzer-Bearbeiten-Ansicht, die in Abschnitt~\ref{subsec:edit-user-screen} erläutert wurde.
