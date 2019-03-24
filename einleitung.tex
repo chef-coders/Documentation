@@ -6,7 +6,7 @@ Ziel des Projektes war es, im Rahmen der Veranstaltung \gqq{Code Camp 1: Context
 
 \subsection{Funktionsweise}\label{subsec:funktionsweise}
 
-Auf Basis einer Datenbank können Gegenstände angelegt, gekauft und gelöscht werden.
+Auf Basis einer Datenbank können Artikel angelegt, gekauft und gelöscht werden.
 Dazu benötigte Nutzer werden ebenfalls in der Datenbank gespeichert.
 Der Zugriff auf diese erfolgt über eine REST-API, welche alle notwendigen Operationen bereitstellt.
 
@@ -14,17 +14,17 @@ Der Zugriff auf diese erfolgt über eine REST-API, welche alle notwendigen Opera
 
 Nutzer erhalten bei der Registrierung ein Token, welches für den Zugriff über die REST-API benötigt wird.
 Dieses wird in der Anwendung zwischengespeichert, sodass ein Nutzer mit gültigem Token automatisch angemeldet wird, wenn die Anwendung startet.
-Der Fokus der Anwendung liegt auf dem Kauf von Gegenständen.
+Der Fokus der Anwendung liegt auf dem Kauf von Artikel.
 Dies ist auf zwei Arten möglich:
 
 \begin{enumerate}
-	\item regulär in der App: Über eine Liste der verfügbaren Gegenstände können solche durch Tippen zum Warenkorb hinzugefügt werden.
+	\item regulär in der App: Über eine Liste der verfügbaren Artikel können solche durch Tippen zum Warenkorb hinzugefügt werden.
 
-	\item über einen eingebetteten Barcode-Scanner können Gegenstände, deren Barcode bereits in der Datenbank registriert ist dem Warenkorb hinzugefügt werden.
+	\item über einen eingebetteten Barcode-Scanner können Artikel, deren Barcode bereits in der Datenbank registriert ist dem Warenkorb hinzugefügt werden.
 \end{enumerate}
 
-Es ist dem Nutzer zudem möglich eine Statistik zur Kaufhäufigkeit der registrierten Gegenstände einzusehen.
-Zwecks Verwaltung ist es als Administrator ausgezeichneten Nutzern möglich neue Gegenstände wahlweise mit automatisch generierter ID oder dem Barcode-Scanner anzulegen.
+Es ist dem Nutzer zudem möglich eine Statistik zur Kaufhäufigkeit der registrierten Artikel einzusehen.
+Zwecks Verwaltung ist es als Administrator ausgezeichneten Nutzern möglich neue Artikel wahlweise mit automatisch generierter ID oder dem Barcode-Scanner anzulegen.
 
 % REVIEW: Update, wenn neue Sections hinzugefügt werden
 \subsection{Inhalt}\label{subsec:inhalt}

@@ -52,29 +52,29 @@ Auf Grund des Designs des REST-Servers ist eine erneute Anmeldung nicht möglich
 \subsection{Shop-Ansicht}\label{subsec:shop-screen}
 
 Nach erfolgreicher Anmeldung erfolgt eine Weiterleitung auf die Shop-Ansicht.
-Dieser zeigt eine Liste der Gegenstände, die zum Kaufen verfügbar sind (siehe Abbildung~\ref{loginshopscreen}).
+Dieser zeigt eine Liste der Artikel, die zum Kaufen verfügbar sind (siehe Abbildung~\ref{loginshopscreen}).
 
 Ein Eintrag in dieser Liste enthält folgende Komponenten:
 
 \begin{itemize}
-	\item Den Namen des ausgewählten Gegenstands
+	\item Den Namen des ausgewählten Artikels
 
-	\item Den Preis für einen Gegenstande des ausgewählten Typs
+	\item Den Preis für einen Artikele des ausgewählten Typs
 
-	\item Die ausgewählte Anzahl der Gegenstände des ausgewählten Typs, welche man kaufen möchte.
+	\item Die ausgewählte Anzahl der Artikel des ausgewählten Typs, welche man kaufen möchte.
 	Sie erhöht sich mit jedem Tippen auf den Eintrag.
 	Wischt man hingegen von rechts nach links über den Eintrag, so wird die ausgewählte Anzahl auf 0 gesetzt.
 	Die Anzahl wird nur angezeigt, wenn sie größer als 0 ist.
 
-	\item Der Gesamtpreis für den Gegenstandstyp.
-	Hierbei handelt es sich um den Kumulierten Preis (ausgewählte Anzahl $\cdot$ Preis) des Gegenstands.
-	Dieser wird nur angezeigt, wenn mehr als ein Gegenstand des ausgewählten Typs verlangt wird.
+	\item Der Gesamtpreis für den Artikelstyp.
+	Hierbei handelt es sich um den Kumulierten Preis (ausgewählte Anzahl $\cdot$ Preis) des Artikels.
+	Dieser wird nur angezeigt, wenn mehr als ein Artikel des ausgewählten Typs verlangt wird.
 
-	\item verfügbare Anzahl: Zeigt an, wie viele Gegenstände des ausgewählten Typs gekauft werden können.
+	\item verfügbare Anzahl: Zeigt an, wie viele Artikel des ausgewählten Typs gekauft werden können.
 	Sie kann aufgrund des Design der REST-API negativ werden.
 \end{itemize}
 
-Die Liste ist nach der Art der Gegenstände sortiert (Beispiel: Wasser, Saft, \ldots).
+Die Liste ist nach der Art der Artikel sortiert (Beispiel: Wasser, Saft, \ldots).
 Als Überschrift ist jeder Gruppierung von Artikeln derselben Art ein Listeneintrag vorangestellt, der den Namen der Art trägt.
 Tippt der Benutzer auf eine Überschrift, faltet sich die Kategorie zusammen.
 Bei erneutem Tippen werden die Artikel wieder angezeigt.
@@ -107,9 +107,9 @@ Scrollt der Benutzer nach oben, erscheint der Einkaufswagen-Button wieder.
 
 \subsubsection{Artikel kaufen} \label{subsubsec:shop-buy}
 
-Wenn alle gewünschten Gegenstände ausgewählt sind, wird durch Tippen auf den Einkaufswagen-Button die Warenkorb-Ansicht geöffnet (siehe Abbildung~\ref{shoppingCart}).
-Hierbei handelt es sich um eine Darstellung nur der ausgewählten Gegenstände mit der bereits bekannten Eintragstruktur.
-Auch hier können durch Tippen auf die Einträge Gegenstände hinzugefügt und durch Wischen über einen Eintrag alle Gegenstände dieses Typs entfernt werden.
+Wenn alle gewünschten Artikel ausgewählt sind, wird durch Tippen auf den Einkaufswagen-Button die Warenkorb-Ansicht geöffnet (siehe Abbildung~\ref{shoppingCart}).
+Hierbei handelt es sich um eine Darstellung nur der ausgewählten Artikel mit der bereits bekannten Eintragstruktur.
+Auch hier können durch Tippen auf die Einträge Artikel hinzugefügt und durch Wischen über einen Eintrag alle Artikel dieses Typs entfernt werden.
 Mit dem Löschen-Button kann der komplette Einkaufswagen geleert werden.
 Durch Tippen auf den Submit-Button (Haken) erscheint ein Modal-Fenster (siehe Abbildung~\ref{shoppingCart}) mit einer Abfrage, ob der Kauf durchgeführt werden soll.
 Hier wird nochmals der Gesamtpreis des Einkaufs angezeigt.
@@ -141,13 +141,13 @@ Befindet sich der Benutzer im Bearbeitungs-Modus und tippt auf einen Listeneintr
 Der Benutzer hat nun die Möglichkeit die folgenden Eigenschaften des Artikels zu ändern:
 
 \begin{itemize}
-	\item Der Name des zu erstellenden Gegenstands
+	\item Der Name des zu erstellenden Artikels
 
-	\item Der Preis des zu erstellenden Gegenstands
+	\item Der Preis des zu erstellenden Artikels
 
-	\item Die Menge, in der der Gegenstand verfügbar ist
+	\item Die Menge, in der der Artikel verfügbar ist
 
-	\item Die Art des Gegenstands.
+	\item Die Art des Artikels.
 	Hier wird aus einem Drop-Down-Menu eine Art ausgewählt.
 \end{itemize}
 
