@@ -56,6 +56,14 @@ Dies wäre nicht nur redundant, sondern würde auch die Verarbeitung von Tipp-Ev
 Weil es sich angeboten hat und man sich idealerweise nur einmal anmeldet, ist die Login-Ansicht eine eigene Activity.
 Auch der BarcodeScanner ist eine eigene Activity, da die BarcodeScanner Library dies verlangt.
 
+\subsubsection{Implementierung der Listen}
+
+In weiten Teilen der App werden die Daten in Listen angezeigt.
+Dafür wurde die moderne Listen-Klasse RecyclerView verwendet.
+Um Redundanz zu vermeiden, wurde die, in Abbildung~\ref{fig:recyclerview-diagram} am Beispiel des AllUser-Fragments gezeigte, Architektur implementiert.
+
+\cfigureLarge{figures/general-recyclerview-diagram.png}{RecyclerView Architektur im Fall des AllUser-Fragments}{\label{fig:recyclerview-diagram}}
+
 \subsubsection{Kommunikation mit dem Backend-Layer}
 
 Die Architektur ermöglicht sehr einfache Kommunikation mit dem Backend-Layer.
