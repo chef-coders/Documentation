@@ -61,22 +61,22 @@ Auch der BarcodeScanner ist eine eigene Activity, da die BarcodeScanner Library 
 In weiten Teilen der App werden die Daten in Listen angezeigt.
 Dafür wurde die ressourcensparende Listen-Klasse \texttt{RecyclerView} verwendet.
 Zur Vermeidung von Redundanz, wurde die in Abbildung~\ref{fig:recyclerview-diagram} gezeigte Architektur implementiert.
-Sie ist am Beispiel des \texttt{AllItems}-Fragments (Fragment für die Shop-Ansicht) dargestellt.
+Sie ist am Beispiel des Shop-Fragments dargestellt.
 
 Der Kern dieser Architektur ist das \texttt{GeneralRecyclerView}.
-Ein Fragment mit einem \texttt{RecyclerView}, wird über das Interface RecyclerViewEventHandler bei Events benachrichtigt.
-Wenn beispielsweise die Liste im AllItemsFragment nach Unten gescrollt wird, erfährt es dies über ein Scroll-Event vom \texttt{GeneralRecyclerView}.
-Das \texttt{AllItems}-Fragment lässt darauf folgend den Einkaufswagen-Button verschwinden.
+Ein Fragment, das eine Liste in Form eines \texttt{GeneralRecyclerView} anzeigt, implementiert das Interface \texttt{RecyclerViewEventHandler} und wird dadurch bei auftretenden Events benachrichtigt.
+Wenn beispielsweise die Liste im Shop-Fragment nach Unten gescrollt wird, erfährt es dies über ein Scroll-Event vom \texttt{GeneralRecyclerView}.
+Das Shop-Fragment lässt darauf folgend den Einkaufswagen-Button verschwinden.
 
 Damit das \texttt{GeneralRecyclerView} unabhängig ist von den Daten, die es darstellt, ist es über das \texttt{RecyclerController}-Interface mit dem \texttt{ItemRecyclerController} verbunden.
 Bei einem auftretenden Event, benachrichtigt es den \texttt{ItemReyclerController}, der Änderungen an Daten über das Backend vornimmt.
-Führt der Benutzer beispielsweise eine Wisch-Bewegung im \texttt{AllItems}-Fragment durch, um einen Artikel zu löschen, dann der \texttt{ItemRecyclerController} benachrichtigt und löscht den Artikel aus dem Datenmodell.
+Führt der Benutzer beispielsweise eine Wisch-Bewegung im Shop-Fragment durch, um einen Artikel zu löschen, wird der \texttt{ItemRecyclerController} benachrichtigt und löscht den Artikel aus dem Datenmodell.
 
-Das im Beispiel verwendete \texttt{AllItems}-Fragment kann durch jedes beliebige anderen Fragment ersetzt werden.
-Um ein \texttt{RecyclerView} für eine neue Art von Daten zu implementieren, muss nur ein neuer RecyclerController geschrieben werden.
+Das im Beispiel verwendete Shop-Fragment, kann durch jedes beliebige anderen Fragment ersetzt werden und ermöglichst damit eine einfache Einbindung des \texttt{RecyclerViews} in jedes Fragment.
+Um ein \texttt{RecyclerView} für eine neue Art von Daten zu implementieren, muss nur ein neuer \texttt{RecyclerController} geschrieben werden.
 Damit können \texttt{RecyclerViews} auf einfache Art, neuen Daten zugänglich gemacht werden.
 
-\cfigureLarge{figures/recyclerview-diagram.png}{RecyclerView Architektur am Beispiel des AllItems-Fragments}{\label{fig:recyclerview-diagram}}
+\cfigureLarge{figures/recyclerview-diagram.png}{RecyclerView Architektur am Beispiel des Shop-Fragments}{\label{fig:recyclerview-diagram}}
 
 \subsubsection{Kommunikation mit dem Backend-Layer}
 
