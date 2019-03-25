@@ -38,7 +38,7 @@ Die Voraussetzung dafür ist, dass alle Fragmente von \texttt{KitchenFragment} e
 Dieses stellt eine Methode bereit, die aufgerufen wird, sobald das Fragment in der \texttt{MainActivity} angezeigt wird.
 Beispielsweise können hier spezielle Symbole des Fragments in der Toolbar angezeigt werden.
 
-Hier zeigt sich ein Vorteil der Single-Activity-Architecture.
+Hier zeigt sich ein Vorteil der Single-Activity-Architektur.
 Wäre jede Ansicht eine eigene Activity, müsste jedes Layout eine eigene Toolbar beinhalten.
 Die daraus resultierende Redundanz kann hier vermieden werden, da nur eine Toolbar im Layout der \texttt{MainActivity} benötigt wird.
 
@@ -55,6 +55,28 @@ Dies wäre nicht nur redundant, sondern würde auch die Verarbeitung von Tipp-Ev
 
 Weil es sich angeboten hat und man sich idealerweise nur einmal anmeldet, ist die Login-Ansicht eine eigene Activity.
 Auch der BarcodeScanner ist eine eigene Activity, da die \texttt{BarcodeScanner}-Library dies verlangt.
+
+\subsubsection{Implementierung der Listen}
+
+In weiten Teilen der App werden Daten in Listen angezeigt.
+Dafür wurde die ressourcensparende Listen-Klasse \texttt{RecyclerView} verwendet.
+Zur Vermeidung von Redundanz, wurde die in Abbildung~\ref{fig:recyclerview-diagram} gezeigte Architektur implementiert.
+Sie ist am Beispiel des Shop-Fragments dargestellt.
+
+Der Kern dieser Architektur ist das \texttt{GeneralRecyclerView}.
+Ein Fragment, das eine Liste in Form eines \texttt{GeneralRecyclerView} anzeigt, implementiert das Interface \texttt{RecyclerViewEventHandler} und wird dadurch bei auftretenden Events benachrichtigt.
+Wenn beispielsweise die Liste im Shop-Fragment nach Unten gescrollt wird, erfährt es dies über ein Scroll-Event vom \texttt{GeneralRecyclerView}.
+Das Shop-Fragment lässt darauf folgend den Einkaufswagen-Button verschwinden.
+
+Damit das \texttt{GeneralRecyclerView} unabhängig ist von den Daten, die es darstellt, wird es über das \texttt{RecyclerController}-Interface mit dem \texttt{ItemRecyclerController} verbunden.
+Bei einem auftretenden Event, benachrichtigt es den \texttt{ItemReyclerController}, der Änderungen an Daten über das Backend vornimmt.
+Führt der Benutzer beispielsweise eine Wisch-Bewegung im Shop-Fragment durch, um einen Artikel zu löschen, wird der \texttt{ItemRecyclerController} benachrichtigt und löscht den Artikel aus dem Datenmodell.
+
+Das im Beispiel verwendete Shop-Fragment, kann durch jedes beliebige anderen Fragment ersetzt werden und ermöglichst damit eine einfache Einbindung des \texttt{RecyclerViews} in jedes Fragment.
+Um ein \texttt{RecyclerView} für eine neue Art von Daten zu implementieren, muss nur ein neuer \texttt{RecyclerController} geschrieben werden.
+Damit können \texttt{RecyclerViews} auf einfache Art, neuen Daten zugänglich gemacht werden.
+
+\cfigureLarge{figures/recyclerview-diagram.png}{RecyclerView Architektur am Beispiel des Shop-Fragments}{\label{fig:recyclerview-diagram}}
 
 \subsubsection{Kommunikation mit dem Backend-Layer}
 
