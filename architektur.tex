@@ -69,12 +69,12 @@ Wenn beispielsweise die Liste im Shop-Fragment nach Unten gescrollt wird, erfäh
 Das Shop-Fragment lässt darauf folgend den Einkaufswagen-Button verschwinden.
 
 Damit das \texttt{GeneralRecyclerView} unabhängig ist von den Daten, die es darstellt, wird es über das \texttt{RecyclerController}-Interface mit dem \texttt{ItemRecyclerController} verbunden.
-Bei einem auftretenden Event, benachrichtigt es den \texttt{ItemReyclerController}, der Änderungen an Daten über das Backend vornimmt.
+Bei einem auftretenden Event benachrichtigt es den \texttt{ItemReyclerController}, der Änderungen an Daten über das Backend vornimmt.
 Führt der Benutzer beispielsweise eine Wisch-Bewegung im Shop-Fragment durch, um einen Artikel zu löschen, wird der \texttt{ItemRecyclerController} benachrichtigt und löscht den Artikel aus dem Datenmodell.
 
-Das im Beispiel verwendete Shop-Fragment, kann durch jedes beliebige anderen Fragment ersetzt werden und ermöglichst damit eine einfache Einbindung des \texttt{RecyclerViews} in jedes Fragment.
+Das im Beispiel verwendete Shop-Fragment kann durch jedes beliebige anderen Fragment ersetzt werden und ermöglichst damit eine einfache Einbindung des \texttt{RecyclerView}s in jedes Fragment.
 Um ein \texttt{RecyclerView} für eine neue Art von Daten zu implementieren, muss nur ein neuer \texttt{RecyclerController} geschrieben werden.
-Damit können \texttt{RecyclerViews} auf einfache Art, neuen Daten zugänglich gemacht werden.
+Damit können \texttt{RecyclerView}s auf einfache Art, neuen Daten zugänglich gemacht werden.
 
 \cfigureLarge{figures/recyclerview-diagram.png}{RecyclerView Architektur am Beispiel des Shop-Fragments}{\label{fig:recyclerview-diagram}}
 
