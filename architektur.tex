@@ -2,7 +2,7 @@
 
 \subsection{Datenmodell}\label{subsec:datamodel}
 
-Das Datenmodell umfasst drei Klassen: \texttt{Item}, \texttt{User}, \texttt{Purchase}.
+Das Datenmodell umfasst drei Klassen: \texttt{Item}, \texttt{User} und \texttt{Purchase}.
 Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben die in Abbildung~\ref{fig:datamodel} gezeigte Struktur.
 
 \dfigure{figures/datamodel.png}{figures/main-activity-aufbau.png}{Datenmodell und Aufbau der MainActivity}{\label{fig:datamodel}\label{fig:main-activity-aufbau}}
@@ -10,7 +10,7 @@ Die Klassen sind passend zur bereitgestellten Datenbank implementiert und haben 
 \subsection{Frontend-Architektur}\label{subsec:frontend}
 % generelle Architektur (Klassen, verwendete Patterns, Fragments, Activities) und deren grobe Erklärung
 
-Die App nutzt eine Single Activity Architektur und läuft damit hauptsächlich in einer einzigen Activity, der \texttt{MainActivity}.
+Die App nutzt eine Single-Activity-Architektur und läuft damit hauptsächlich in einer einzigen Activity, der \texttt{MainActivity}.
 Durch diese Architektur ergeben sich eine Vielzahl von Vorteilen.
 
 \subsubsection{Aufbau der MainActivity}
@@ -23,7 +23,7 @@ Zudem wird durch eine Wisch-Bewegung nach Rechts ein Navigation-Drawer angezeigt
 
 Ansichten wurden durch Fragmente realisiert.
 Dabei handelt es sich um Container, die alle UI-Komponenten der jeweiligen Ansicht enthalten.
-Für jede Ansicht, der in Abschnitt~\ref{sec:features} beschrieben wurde, existiert ein solches.
+Für jede Ansicht, die in Abschnitt~\ref{sec:features} beschrieben wurde, existiert ein solches.
 Befindet sich der Benutzer zum Beispiel in der Shop-Ansicht, wird das Shop-Fragment im Frame-Layout angezeigt.
 Wechselt der Benutzer zu einer anderen Ansicht, wird das Fragment im Frame-Layout durch das Fragment der neuen Ansicht ersetzt.
 Dies erfolgt durch Zugriff auf den \texttt{FragmentManager} der \texttt{MainActivity}.
@@ -34,19 +34,19 @@ Dies erfolgt durch Zugriff auf den \texttt{FragmentManager} der \texttt{MainActi
 
 Im Gegensatz zu den Fragmenten, wird die Toolbar beim Wechsel der Ansicht nicht ausgetauscht, sondern kann vom neu angezeigten Fragment manipuliert werden.
 
-Die Voraussetzung dafür ist, dass alle Fragments von \texttt{KitchenFragment} erben.
-Dieses stellt eine Methode bereit, die aufgerufen wird, sobald das Fragment in der MainActivity angezeigt wird.
+Die Voraussetzung dafür ist, dass alle Fragmente von \texttt{KitchenFragment} erben.
+Dieses stellt eine Methode bereit, die aufgerufen wird, sobald das Fragment in der \texttt{MainActivity} angezeigt wird.
 Beispielsweise können hier spezielle Symbole des Fragments in der Toolbar angezeigt werden.
 
 Hier zeigt sich ein Vorteil der Single-Activity-Architecture.
 Wäre jede Ansicht eine eigene Activity, müsste jedes Layout eine eigene Toolbar beinhalten.
-Die daraus resultierende Redundanz kann hier vermieden werden, da nur eine Toolbar im Layout der MainActivity benötigt wird.
+Die daraus resultierende Redundanz kann hier vermieden werden, da nur eine Toolbar im Layout der \texttt{MainActivity} benötigt wird.
 
 \subsubsection{Navigation-Drawer}
 
-Durch die Single-Activity-Architektur wird das Benutzen eines Navigation-Drawers erst möglich, da einzig im Layout der MainActivity ein Navigation-Drawer eingebunden werden muss.
+Durch die Single-Activity-Architektur wird das Benutzen eines Navigation-Drawers erst möglich, da einzig im Layout der \texttt{MainActivity} ein Navigation-Drawer eingebunden werden muss.
 Dies führt dazu, dass das Tippen eines Elements im Navigation-Drawer zentral verarbeitet werden kann.
-Dadurch kann beispielsweise das Zurückgleiten des Navigation-Drawers nach einem Tipp-Event, sehr einfach erreicht werden.
+Dadurch kann beispielsweise das Zurückgleiten des Navigation-Drawers nach einem Tipp-Event sehr einfach erreicht werden.
 
 Im Gegensatz dazu müsste bei der Verwendung vieler Activities, jede Activity ein Navigation-Drawer in deren Layout definieren.
 Dies wäre nicht nur redundant, sondern würde auch die Verarbeitung von Tipp-Events und die korrekte Anzeige des Navigation-Drawers weitaus komplexer machen, da mit anderen Activities kommuniziert werden müsste.
@@ -54,7 +54,7 @@ Dies wäre nicht nur redundant, sondern würde auch die Verarbeitung von Tipp-Ev
 \subsubsection{Ausnahmen}
 
 Weil es sich angeboten hat und man sich idealerweise nur einmal anmeldet, ist die Login-Ansicht eine eigene Activity.
-Auch der BarcodeScanner ist eine eigene Activity, da die BarcodeScanner Library dies verlangt.
+Auch der BarcodeScanner ist eine eigene Activity, da die \texttt{BarcodeScanner}-Library dies verlangt.
 
 \subsubsection{Kommunikation mit dem Backend-Layer}
 
@@ -65,9 +65,9 @@ Diese Hilfsklassen werden in Abschnitt~\ref{subsubsec:access-layer} genauer besc
 \subsection{Backend-Architektur}\label{subsec:backend}
 
 Die Backend-Architektur besteht aus drei Ebenen.
-Auf der Base-Ebene sind primitive HTTP-Funktionen implementiert,
-welche von der Abstraction-Ebene im Kontext der Kitchen-API verwendet werden.
-Auf die Access-Ebene wird direkt aus dem UI zugegriffen, dabei implementiert sie abstrakte Logik der verschiedenen clientseitigen Interaktionen.
+Auf der \emph{Base-Ebene} sind primitive HTTP-Funktionen implementiert,
+welche von der \emph{Abstraction-Ebene} im Kontext der Kitchen-API verwendet werden.
+Auf die \emph{Access-Ebene} wird direkt aus dem UI zugegriffen, dabei implementiert sie abstrakte Logik der verschiedenen clientseitigen Interaktionen.
 Abbildung~\ref{fig:backend} zeigt diese Ebenen und die zugehörigen Klassen, welche im Folgenden kurz beschrieben werden.
 
 \cfigureLarge{figures/backend.png}{Backend Architektur}{\label{fig:backend}}
@@ -95,12 +95,7 @@ Auf der zweiten Ebene befinden sich die Klassen \texttt{KitchenConnection} und \
 \subsubsection{Access-Layer} \label{subsubsec:access-layer}
 
 Die dritte Ebene beinhaltet fünf Klassen \texttt{Users}, \texttt{Items}, \texttt{Purchases}, \texttt{Cart} und \texttt{Session}.
-Sie sind die Einstiegspunkte des Backend und stellen alle Operationen zur Verfügung, welche die Oberfläche benötigt.
-
-Instanzen dieser Klassen sind für das UI durch statische Felder zugänglich.
-Untereinander verwenden die Klassen Instanzvariablen der jeweils anderen Klassen, welche per Konstruktor gesetzt werden und somit das Testen vereinfachen.
-So hat beispielsweise die Klasse \texttt{Cart} die Felder \texttt{KitchenConnection connection}, \texttt{Session session} und \texttt{Items items}, da ihre Implementierung diese benötigt.
-Die statischen Feldern werden nur für Zugriff vom UI verwendet, intern greifen die Klassen nur auf die Instanzvariablen zu.
+Sie sind die Einstiegspunkte des Backends und stellen alle Operationen zur Verfügung, welche die Oberfläche benötigt.
 
 \begin{itemize}
 	\item \texttt{Users} bietet Methoden zum Lesen, Verändern und Löschen von Benutzern sowie einen lokalen Zwischenspeicher.
@@ -111,6 +106,11 @@ Die statischen Feldern werden nur für Zugriff vom UI verwendet, intern greifen 
 	\item \texttt{Session} implementiert die Logik für Login und Registrierung sowie das persistente Lesen und Speichern von Benutzer-ID und -Token.
 	Weiterhin können damit einige Informationen über den aktuell angemeldeten Benutzer ermittelt werden.
 \end{itemize}
+
+Instanzen dieser Klassen sind für das UI durch statische Felder zugänglich.
+Untereinander verwenden die Klassen Instanzvariablen der jeweils anderen Klassen, welche per Konstruktor gesetzt werden und somit das Testen vereinfachen.
+So hat beispielsweise die Klasse \texttt{Cart} die Felder \texttt{KitchenConnection connection}, \texttt{Session session} und \texttt{Items items}, da ihre Implementierung diese benötigt.
+Die statischen Feldern werden nur für Zugriff vom UI verwendet, intern greifen die Klassen nur auf die Instanzvariablen zu.
 
 Die Methoden der Klassen sind stets in drei Bereiche unterteilt, um eine interne Struktur zu erreichen und die Auswirkungen leicht verständlich zu machen:
 
